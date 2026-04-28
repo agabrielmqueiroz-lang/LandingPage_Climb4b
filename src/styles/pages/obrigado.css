@@ -4,7 +4,7 @@
    de check verde grande. Coerente com hero + cta-final.
    ============================================================ */
 
-body {
+body.page-obrigado {
   background: var(--navy-900);
   color: var(--text-on-dark);
   min-height: 100dvh;
@@ -12,7 +12,7 @@ body {
   flex-direction: column;
 }
 
-main {
+.page-obrigado main {
   flex: 1;
   display: flex;
   align-items: center;
@@ -89,18 +89,19 @@ main {
 }
 
 /* Header simplificado: só a marca, sem CTA */
-header[role="banner"] {
+.page-obrigado header[role="banner"] {
   position: static;
   background: transparent;
   border-bottom: 1px solid var(--rule-on-dark);
 }
 
-header[role="banner"] .container {
+.page-obrigado header[role="banner"] .container {
   justify-content: flex-start;
 }
 
 /* Brand sempre claro nesta página (sem hero escuro abaixo) */
-header[role="banner"] .brand,
-header[role="banner"] .brand:hover {
+.page-obrigado header[role="banner"] .brand,
+.page-obrigado header[role="banner"] .brand:hover {
   color: var(--off-white);
 }
+
