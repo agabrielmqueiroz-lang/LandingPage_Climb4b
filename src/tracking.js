@@ -121,8 +121,9 @@ export function initSectionObserver() {
 
 /**
  * CTA click tracking: listener delegado no document. Captura cliques
- * em qualquer <a data-cta="..."> e dispara cta_click + begin_checkout.
- * NÃO chama preventDefault — link navega normalmente para Eduzz.
+ * em qualquer <a data-cta="..."> e dispara cta_click. Para CTAs de
+ * compra (todos exceto whatsapp) também dispara begin_checkout.
+ * NÃO chama preventDefault — link navega normalmente.
  */
 export function initCtaTracking() {
   document.addEventListener('click', (event) => {
@@ -131,6 +132,16 @@ export function initCtaTracking() {
 
     const sectionLabel = cta.dataset.cta || 'unknown';
     const ctaText = (cta.textContent || '').trim().replace(/\s+/g, ' ');
+
+    // CTAs de contato (whatsapp, email) não são intent de checkout —
+    // disparamos só cta_click, sem evento ecommerce.
+    if (sectionLabel === 'whatsapp' || sectionLabel === 'contact') {
+      track('cta_click', {
+        section_name: sectionLabel,
+        cta_label: ctaText || sectionLabel,
+      });
+      return;
+    }
 
     trackCtaClick(sectionLabel, ctaText);
   });

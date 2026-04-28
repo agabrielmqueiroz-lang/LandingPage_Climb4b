@@ -42,11 +42,15 @@
 .publico-card {
   display: flex;
   flex-direction: column;
-  gap: var(--space-5);
-  padding: var(--space-8);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-6);
+  padding: var(--space-12) var(--space-8);
   background: var(--white);
   border: 1px solid var(--rule);
   border-radius: var(--radius-md);
+  height: 100%;
   transition:
     border-color var(--duration-fast) var(--ease-standard),
     transform var(--duration-fast) var(--ease-standard),
@@ -59,69 +63,50 @@
   box-shadow: var(--shadow-2);
 }
 
-.publico-avatar {
-  width: 56px;
-  height: 56px;
-  border-radius: var(--radius-md);
-  background: var(--navy-900);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
+/* Garante que cards do mesmo grid linha tenham altura igual,
+   mantendo conteúdo verticalmente centralizado em cada um. */
+.publicos-grid {
+  align-items: stretch;
 }
 
-.publico-avatar svg {
-  width: 28px;
-  height: 28px;
-  color: var(--green-300);
-}
-
-.publico-name {
-  font-family: var(--font-body);
-  font-size: var(--fs-xs);
-  font-weight: var(--fw-semibold);
-  text-transform: uppercase;
-  letter-spacing: var(--tracking-eyebrow);
-  color: var(--ink-700);
-  margin: 0;
-}
-
+/* Aspa = headline do card. Sem rótulo de cargo — a frase é o gatilho
+   de identificação. Usuário lê e pensa "isso sou eu". */
 .publico-aspa {
   font-family: var(--font-display);
-  font-size: var(--fs-lg);
+  font-size: var(--fs-xl);
   font-style: italic;
   font-weight: var(--fw-regular);
-  line-height: 1.25;
+  line-height: 1.2;
   color: var(--navy-900);
   margin: 0;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
+  position: relative;
+  padding-top: var(--space-12);
+  max-width: none;
 }
 
+/* Aspa decorativa grande acima da frase, centralizada */
 .publico-aspa::before {
   content: "“";
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
   font-family: var(--font-display);
-  font-size: 2.5rem;
-  line-height: 0;
-  vertical-align: -0.4em;
+  font-size: 5rem;
+  line-height: 1;
   color: var(--accent);
-  margin-right: 4px;
-}
-
-.publico-aspa::after {
-  content: "”";
-  font-family: var(--font-display);
-  font-size: 2.5rem;
-  line-height: 0;
-  vertical-align: -0.4em;
-  color: var(--accent);
-  margin-left: 2px;
+  opacity: 0.6;
 }
 
 .publico-promise {
   font-size: var(--fs-base);
-  line-height: var(--lh-base);
+  line-height: var(--lh-relaxed);
   color: var(--text);
   margin: 0;
   border-top: 1px solid var(--rule);
-  padding-top: var(--space-4);
+  padding-top: var(--space-5);
+  width: 100%;
+  max-width: 32ch;
+  text-align: center;
 }

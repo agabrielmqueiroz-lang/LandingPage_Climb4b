@@ -68,7 +68,20 @@ export const EDUZZ_CHECKOUT_URL = 'https://sun.eduzz.com/PLACEHOLDER';
 
 → Substituir `PLACEHOLDER` pelo ID real do produto criado no painel Eduzz.
 
-### 2. IDs de tracking
+### 2. Número de WhatsApp do widget de suporte
+
+Em [src/config.js](src/config.js):
+
+```js
+export const WHATSAPP = {
+  NUMBER: '5511000000000', // ← formato internacional sem símbolos: 55 + DDD + número
+  MESSAGE: 'Olá! Cheguei pela página do Curso de Entrada da Climb4B...',
+};
+```
+
+Substituir `5511000000000` pelo número real (ex.: `5511987654321`). A mensagem inicial é opcional e abre pré-preenchida no app/WhatsApp Web.
+
+### 3. IDs de tracking
 
 Em [src/config.js](src/config.js):
 
@@ -88,20 +101,20 @@ E nos snippets GTM hardcoded em **dois arquivos** (procurar por `GTM-XXXXXXX`):
 
 Total: **4 substituições** do GTM_ID nos arquivos HTML.
 
-### 3. Footer
+### 4. Footer
 
 Em [index.html](index.html) e [obrigado.html](obrigado.html):
 
 - CNPJ: substituir `00.000.000/0001-00` pelo CNPJ real
 - Links de Política de privacidade e Termos de uso: ajustar URLs reais
 
-### 4. Author placeholder
+### 5. Author placeholder
 
 Em [index.html](index.html), seção `#autoridade`, o `<figure data-placeholder>` exibe um SVG geométrico com badge "Foto real entra aqui".
 
 → Substituir o conteúdo do `<div class="author-portrait">` por `<img>` real e remover o atributo `data-placeholder` da `<figure>`.
 
-### 5. OG image — SVG → PNG
+### 6. OG image — SVG → PNG
 
 [public/og.svg](public/og.svg) é a fonte de design (criado no Sprint 5). Para máxima compatibilidade com Facebook/WhatsApp/iMessage (que não renderizam SVG bem), converter para PNG/JPG 1200×630:
 
@@ -123,7 +136,7 @@ Depois trocar em [index.html](index.html):
 
 [public/favicon.svg](public/favicon.svg) já está pronto — marca navy + verde.
 
-### 6. Onde obter cada ID/URL
+### 7. Onde obter cada ID/URL
 
 | Placeholder | Onde obter |
 |---|---|

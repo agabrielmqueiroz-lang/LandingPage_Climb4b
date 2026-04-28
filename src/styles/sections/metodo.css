@@ -84,15 +84,40 @@
   color: var(--text-on-dark-muted);
 }
 
+.method-half__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background: var(--ink-300);
+  flex-shrink: 0;
+}
+
 .method-half--good .method-half__label {
   color: var(--green-300);
+}
+
+.method-half--good .method-half__dot {
+  background: var(--green-400);
+  box-shadow: 0 0 0 4px rgba(46, 190, 90, 0.2);
 }
 
 .method-half__diagram {
   display: block;
   width: 100%;
   height: auto;
-  max-height: 220px;
+  max-height: 280px;
+}
+
+/* Label "isolado" abaixo dos cards no half--bad */
+.cmp-isolated {
+  fill: var(--ink-300);
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-anchor: middle;
+  font-style: italic;
 }
 
 .method-half__caption {

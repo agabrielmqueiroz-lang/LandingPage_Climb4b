@@ -35,12 +35,15 @@ export function buildCheckoutUrl(baseUrl = EDUZZ_CHECKOUT_URL) {
 }
 
 /**
- * Aplica buildCheckoutUrl em todos os <a data-cta="..."> da página.
- * Roda uma vez no carregamento. Click handler subsequente só dispara
- * tracking — link navega normalmente para a URL já preparada.
+ * Aplica buildCheckoutUrl em todos os <a data-cta="..."> de checkout.
+ * CTAs de contato (whatsapp, email) são pulados — eles têm URL própria
+ * tratada em outro lugar. Roda uma vez no carregamento.
  */
 export function rewriteCheckoutLinks() {
   document.querySelectorAll('a[data-cta]').forEach((cta) => {
+    const kind = cta.dataset.cta;
+    if (kind === 'whatsapp' || kind === 'contact') return;
+
     const original = cta.getAttribute('href');
     if (!original) return;
     cta.setAttribute('href', buildCheckoutUrl(original));

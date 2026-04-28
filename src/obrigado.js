@@ -11,8 +11,12 @@ import './styles/typography.css';
 import './styles/components/header.css';
 import './styles/components/buttons.css';
 import './styles/components/footer.css';
+import './styles/components/whatsapp.css';
 import './styles/pages/obrigado.css';
 
-import { trackPurchase } from './tracking.js';
+import { trackPurchase, initCtaTracking } from './tracking.js';
+import { wireWhatsappWidget } from './whatsapp.js';
 
 trackPurchase();
+wireWhatsappWidget();
+initCtaTracking();

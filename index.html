@@ -250,7 +250,6 @@
                   </g>
                   <text x="75" y="160" class="demo-fullname">Demonstrativo</text>
                   <text x="75" y="176" class="demo-fullname">de Resultado</text>
-                  <text x="75" y="195" class="demo-sublabel">ONDE O LUCRO MORA</text>
                 </g>
 
                 <!-- BP card: balance/proportion bars -->
@@ -266,7 +265,6 @@
                   </g>
                   <text x="75" y="160" class="demo-fullname">Balanço</text>
                   <text x="75" y="176" class="demo-fullname">Patrimonial</text>
-                  <text x="75" y="195" class="demo-sublabel">QUANTO VOCÊ TEM</text>
                 </g>
 
                 <!-- FC card: line chart with arrow -->
@@ -293,7 +291,6 @@
                   </g>
                   <text x="75" y="160" class="demo-fullname">Fluxo</text>
                   <text x="75" y="176" class="demo-fullname">de Caixa</text>
-                  <text x="75" y="195" class="demo-sublabel">QUANDO O DINHEIRO ENTRA</text>
                 </g>
               </g>
 
@@ -472,66 +469,139 @@
 
           <div class="method-comparison" aria-hidden="true">
             <div class="method-half method-half--bad">
-              <span class="method-half__label">Cursos comuns</span>
+              <span class="method-half__label">
+                <span class="method-half__dot"></span>
+                Como ensinam por aí
+              </span>
               <svg
                 class="method-half__diagram"
-                viewBox="0 0 320 200"
+                viewBox="0 0 320 220"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <rect class="cmp-card" x="20" y="30" width="80" height="60" rx="4" />
-                <text x="60" y="66" class="cmp-label">DRE</text>
+                <!-- 3 isolated cards com mini-charts mas SEM conexão -->
+                <g transform="translate(15, 20)">
+                  <rect class="cmp-card" width="84" height="120" rx="6" />
+                  <text x="42" y="24" class="cmp-label">DRE</text>
+                  <g opacity="0.6">
+                    <rect x="14" y="46" width="8" height="34" fill="#5C6680" rx="1.5"/>
+                    <rect x="26" y="56" width="8" height="24" fill="#5C6680" rx="1.5"/>
+                    <rect x="38" y="38" width="8" height="42" fill="#5C6680" rx="1.5"/>
+                    <rect x="50" y="52" width="8" height="28" fill="#5C6680" rx="1.5"/>
+                    <rect x="62" y="62" width="8" height="18" fill="#5C6680" rx="1.5"/>
+                  </g>
+                  <text x="42" y="106" class="cmp-isolated">isolado</text>
+                </g>
 
-                <rect class="cmp-card" x="120" y="30" width="80" height="60" rx="4" />
-                <text x="160" y="66" class="cmp-label">BP</text>
+                <g transform="translate(118, 20)">
+                  <rect class="cmp-card" width="84" height="120" rx="6" />
+                  <text x="42" y="24" class="cmp-label">BP</text>
+                  <g opacity="0.6">
+                    <rect x="20" y="48" width="20" height="32" fill="#5C6680" rx="2"/>
+                    <rect x="44" y="56" width="20" height="24" fill="#5C6680" rx="2"/>
+                  </g>
+                  <text x="42" y="106" class="cmp-isolated">isolado</text>
+                </g>
 
-                <rect class="cmp-card" x="220" y="30" width="80" height="60" rx="4" />
-                <text x="260" y="66" class="cmp-label">FC</text>
+                <g transform="translate(221, 20)">
+                  <rect class="cmp-card" width="84" height="120" rx="6" />
+                  <text x="42" y="24" class="cmp-label">FC</text>
+                  <g opacity="0.6">
+                    <polyline
+                      points="14,68 26,58 38,62 50,48 62,52 70,42"
+                      fill="none"
+                      stroke="#5C6680"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </g>
+                  <text x="42" y="106" class="cmp-isolated">isolado</text>
+                </g>
 
-                <text x="60" y="170" class="cmp-question">?</text>
-                <text x="160" y="170" class="cmp-question">?</text>
-                <text x="260" y="170" class="cmp-question">?</text>
+                <!-- Question marks abaixo, sinalizando "e então?" -->
+                <text x="57" y="182" class="cmp-question">?</text>
+                <text x="160" y="182" class="cmp-question">?</text>
+                <text x="263" y="182" class="cmp-question">?</text>
+
+                <text x="160" y="208" class="cmp-isolated">
+                  e a decisão?
+                </text>
               </svg>
               <p class="method-half__caption">
-                Três peças soltas. Nenhuma decisão.
+                Três peças soltas. Nenhuma decisão integrada.
               </p>
             </div>
 
             <div class="method-vs">vs</div>
 
             <div class="method-half method-half--good">
-              <span class="method-half__label">Método Climb4B</span>
+              <span class="method-half__label">
+                <span class="method-half__dot"></span>
+                Método Climb4B
+              </span>
               <svg
                 class="method-half__diagram"
-                viewBox="0 0 320 200"
+                viewBox="0 0 320 220"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <rect class="cmp-card" x="20" y="20" width="80" height="50" rx="4" />
-                <text x="60" y="50" class="cmp-label">DRE</text>
+                <!-- 3 cards conectados, com mini-charts vibrantes -->
+                <g transform="translate(15, 12)">
+                  <rect class="cmp-card" width="84" height="100" rx="6" />
+                  <text x="42" y="24" class="cmp-label">DRE</text>
+                  <g>
+                    <rect x="14" y="46" width="8" height="34" fill="#5BCF7E" rx="1.5"/>
+                    <rect x="26" y="56" width="8" height="24" fill="#5BCF7E" rx="1.5"/>
+                    <rect x="38" y="38" width="8" height="42" fill="#2EBE5A" rx="1.5"/>
+                    <rect x="50" y="52" width="8" height="28" fill="#5BCF7E" rx="1.5"/>
+                    <rect x="62" y="62" width="8" height="18" fill="#7BD89A" rx="1.5"/>
+                  </g>
+                </g>
 
-                <rect class="cmp-card" x="120" y="20" width="80" height="50" rx="4" />
-                <text x="160" y="50" class="cmp-label">BP</text>
+                <g transform="translate(118, 12)">
+                  <rect class="cmp-card" width="84" height="100" rx="6" />
+                  <text x="42" y="24" class="cmp-label">BP</text>
+                  <g>
+                    <rect x="20" y="48" width="20" height="32" fill="#5BCF7E" rx="2"/>
+                    <rect x="44" y="56" width="20" height="24" fill="#2EBE5A" rx="2"/>
+                  </g>
+                </g>
 
-                <rect class="cmp-card" x="220" y="20" width="80" height="50" rx="4" />
-                <text x="260" y="50" class="cmp-label">FC</text>
+                <g transform="translate(221, 12)">
+                  <rect class="cmp-card" width="84" height="100" rx="6" />
+                  <text x="42" y="24" class="cmp-label">FC</text>
+                  <g>
+                    <polyline
+                      points="14,68 26,58 38,62 50,48 62,52 70,42"
+                      fill="none"
+                      stroke="#2EBE5A"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <circle cx="70" cy="42" r="2.5" fill="#7BD89A"/>
+                  </g>
+                </g>
 
-                <path class="cmp-connector" d="M60 70 Q60 130 160 150" />
-                <path class="cmp-connector" d="M160 70 L160 150" />
-                <path class="cmp-connector" d="M260 70 Q260 130 160 150" />
+                <!-- Connectors verdes -->
+                <path class="cmp-connector" d="M57 112 Q57 145 160 165" />
+                <path class="cmp-connector" d="M160 112 L160 165" />
+                <path class="cmp-connector" d="M263 112 Q263 145 160 165" />
 
+                <!-- Decision pill -->
                 <rect
                   class="cmp-decision"
-                  x="100"
-                  y="150"
-                  width="120"
-                  height="36"
-                  rx="18"
+                  x="80"
+                  y="165"
+                  width="160"
+                  height="42"
+                  rx="21"
                 />
-                <text x="160" y="174" class="cmp-decision-label">
-                  → DECISÃO
+                <text x="160" y="192" class="cmp-decision-label">
+                  → UMA DECISÃO
                 </text>
               </svg>
               <p class="method-half__caption">
-                Três demonstrativos integrados. Uma decisão.
+                Três demonstrativos integrados. Uma decisão de gestão.
               </p>
             </div>
           </div>
@@ -545,86 +615,135 @@
            ============================================================ -->
       <section id="aulas" aria-labelledby="aulas-title">
         <div class="container">
-          <span class="eyebrow">5 aulas · 2h30 a 3h20 no total</span>
+          <span class="eyebrow">5 aulas</span>
 
           <h2 id="aulas-title">
             O que você vai aprender — aula por aula.
           </h2>
 
           <ol class="aulas-list">
-            <li class="aula-card" aria-labelledby="aula-1">
-              <span class="aula-number tabular-nums">01</span>
-              <div class="aula-body">
-                <h3 id="aula-1" class="aula-title">
-                  Lucro alto, caixa apertado — por quê
-                </h3>
-                <ul class="aula-topics">
-                  <li>Descasamento DRE × Caixa</li>
-                  <li>Três bolsos do lucro</li>
-                  <li>Autodiagnóstico</li>
-                </ul>
-              </div>
-              <span class="aula-duration">35 min</span>
+            <li>
+              <details class="aula-card">
+                <summary>
+                  <span class="aula-number tabular-nums">01</span>
+                  <h3 class="aula-title">
+                    Lucro alto, caixa apertado — por quê
+                  </h3>
+                  <span class="aula-duration">35 min</span>
+                </summary>
+                <div class="aula-content">
+                  <p class="aula-description">
+                    Por que sua empresa pode mostrar lucro na DRE e ainda
+                    apertar no caixa. Você descobre os três pontos onde o
+                    dinheiro some sem aviso e sai com um autodiagnóstico
+                    aplicado ao seu próprio negócio.
+                  </p>
+                  <ul class="aula-topics">
+                    <li>Descasamento DRE × Caixa</li>
+                    <li>Três bolsos do lucro</li>
+                    <li>Autodiagnóstico</li>
+                  </ul>
+                </div>
+              </details>
             </li>
 
-            <li class="aula-card" aria-labelledby="aula-2">
-              <span class="aula-number tabular-nums">02</span>
-              <div class="aula-body">
-                <h3 id="aula-2" class="aula-title">
-                  Ler a DRE para encontrar perdas
-                </h3>
-                <ul class="aula-topics">
-                  <li>DRE simplificada</li>
-                  <li>4 indicadores de saúde</li>
-                  <li>Gargalo em 10 min</li>
-                </ul>
-              </div>
-              <span class="aula-duration">40 min</span>
+            <li>
+              <details class="aula-card">
+                <summary>
+                  <span class="aula-number tabular-nums">02</span>
+                  <h3 class="aula-title">
+                    Ler a DRE para encontrar perdas
+                  </h3>
+                  <span class="aula-duration">40 min</span>
+                </summary>
+                <div class="aula-content">
+                  <p class="aula-description">
+                    A estrutura da DRE sem jargão e os 4 indicadores que
+                    revelam se a empresa é saudável. Termina com um
+                    exercício prático de encontrar o gargalo de
+                    rentabilidade em até 10 minutos.
+                  </p>
+                  <ul class="aula-topics">
+                    <li>DRE simplificada</li>
+                    <li>4 indicadores de saúde</li>
+                    <li>Gargalo em 10 min</li>
+                  </ul>
+                </div>
+              </details>
             </li>
 
-            <li class="aula-card" aria-labelledby="aula-3">
-              <span class="aula-number tabular-nums">03</span>
-              <div class="aula-body">
-                <h3 id="aula-3" class="aula-title">
-                  Balanço Patrimonial em linguagem de dono
-                </h3>
-                <ul class="aula-topics">
-                  <li>Ativo / Passivo / PL sem jargão</li>
-                  <li>Dívida saudável</li>
-                  <li>3 sinais de alerta</li>
-                </ul>
-              </div>
-              <span class="aula-duration">35 min</span>
+            <li>
+              <details class="aula-card">
+                <summary>
+                  <span class="aula-number tabular-nums">03</span>
+                  <h3 class="aula-title">
+                    Balanço Patrimonial em linguagem de dono
+                  </h3>
+                  <span class="aula-duration">35 min</span>
+                </summary>
+                <div class="aula-content">
+                  <p class="aula-description">
+                    Ativo, Passivo e Patrimônio Líquido traduzidos para
+                    quem decide. Quando a dívida é saudável e quais três
+                    sinais o Balanço mostra antes do problema explodir.
+                  </p>
+                  <ul class="aula-topics">
+                    <li>Ativo / Passivo / PL sem jargão</li>
+                    <li>Dívida saudável</li>
+                    <li>3 sinais de alerta</li>
+                  </ul>
+                </div>
+              </details>
             </li>
 
-            <li class="aula-card" aria-labelledby="aula-4">
-              <span class="aula-number tabular-nums">04</span>
-              <div class="aula-body">
-                <h3 id="aula-4" class="aula-title">
-                  Fluxo de Caixa — o oxigênio do negócio
-                </h3>
-                <ul class="aula-topics">
-                  <li>Realizado × Projetado</li>
-                  <li>Ciclo financeiro</li>
-                  <li>Modelo de 12 semanas</li>
-                </ul>
-              </div>
-              <span class="aula-duration">40 min</span>
+            <li>
+              <details class="aula-card">
+                <summary>
+                  <span class="aula-number tabular-nums">04</span>
+                  <h3 class="aula-title">
+                    Fluxo de Caixa — o oxigênio do negócio
+                  </h3>
+                  <span class="aula-duration">40 min</span>
+                </summary>
+                <div class="aula-content">
+                  <p class="aula-description">
+                    Diferença entre fluxo realizado e projetado, quantos
+                    dias seu dinheiro fica fora do caixa (ciclo
+                    financeiro) e um modelo de fluxo de 12 semanas pronto
+                    para você implementar hoje.
+                  </p>
+                  <ul class="aula-topics">
+                    <li>Realizado × Projetado</li>
+                    <li>Ciclo financeiro</li>
+                    <li>Modelo de 12 semanas</li>
+                  </ul>
+                </div>
+              </details>
             </li>
 
-            <li class="aula-card" aria-labelledby="aula-5">
-              <span class="aula-number tabular-nums">05</span>
-              <div class="aula-body">
-                <h3 id="aula-5" class="aula-title">
-                  Decidir com segurança — o método integrado
-                </h3>
-                <ul class="aula-topics">
-                  <li>Leitura integrada</li>
-                  <li>Painel de 5 indicadores</li>
-                  <li>Próximos passos</li>
-                </ul>
-              </div>
-              <span class="aula-duration">40 min</span>
+            <li>
+              <details class="aula-card">
+                <summary>
+                  <span class="aula-number tabular-nums">05</span>
+                  <h3 class="aula-title">
+                    Decidir com segurança — o método integrado
+                  </h3>
+                  <span class="aula-duration">40 min</span>
+                </summary>
+                <div class="aula-content">
+                  <p class="aula-description">
+                    Como olhar os três demonstrativos de uma vez só e o
+                    painel mensal mínimo de 5 indicadores que todo gestor
+                    precisa. Termina mostrando como aprofundar no curso
+                    premium.
+                  </p>
+                  <ul class="aula-topics">
+                    <li>Leitura integrada</li>
+                    <li>Painel de 5 indicadores</li>
+                    <li>Próximos passos</li>
+                  </ul>
+                </div>
+              </details>
             </li>
           </ol>
         </div>
@@ -642,83 +761,36 @@
           <h2 id="publicos-title">Três perfis. Um único método.</h2>
 
           <div class="publicos-grid">
-            <article class="publico-card" aria-labelledby="pub-pme">
-              <span class="publico-avatar" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M3 9h18v11a1 1 0 01-1 1H4a1 1 0 01-1-1V9zM3 9V7a2 2 0 012-2h14a2 2 0 012 2v2M9 5V4a1 1 0 011-1h4a1 1 0 011 1v1"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </span>
-              <h3 id="pub-pme" class="publico-name">Dono de PME</h3>
-              <p class="publico-aspa">Pare de decidir no achismo.</p>
+            <article class="publico-card">
+              <h3 class="publico-aspa">
+                "Quero parar de decidir no achismo."
+              </h3>
               <p class="publico-promise">
-                Você executa, contrata, vende — mas o relatório do
-                contador é caixa-preta. Sai do curso sabendo o que
-                decidir sozinho.
+                Você executa, contrata, vende — mas o relatório que chega
+                da contabilidade é uma caixa-preta. Sai do curso sabendo
+                o que decidir sozinho.
               </p>
             </article>
 
-            <article class="publico-card" aria-labelledby="pub-contador">
-              <span class="publico-avatar" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect
-                    x="4"
-                    y="3"
-                    width="16"
-                    height="18"
-                    rx="2"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                  />
-                  <path
-                    d="M8 7h8M8 11l2 2M12 11l-2 2M8 17h4M14 17h2"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                  />
-                </svg>
-              </span>
-              <h3 id="pub-contador" class="publico-name">
-                Contador ou consultor
+            <article class="publico-card">
+              <h3 class="publico-aspa">
+                "Quero pensar e me comunicar como CFO."
               </h3>
-              <p class="publico-aspa">Pense como CFO.</p>
               <p class="publico-promise">
-                Você domina a obrigação fiscal. Aqui ganha o vocabulário
-                que reposiciona seu escritório como parceiro de gestão.
+                Você domina a obrigação fiscal e os relatórios. Aqui
+                ganha o vocabulário de decisão que te reposiciona como
+                parceiro de gestão, não fornecedor de balanço.
               </p>
             </article>
 
-            <article class="publico-card" aria-labelledby="pub-analista">
-              <span class="publico-avatar" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M4 20V14M10 20V8M16 20V11M22 20V4"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                  />
-                  <path
-                    d="M3 21h19"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                    stroke-linecap="round"
-                    opacity="0.5"
-                  />
-                </svg>
-              </span>
-              <h3 id="pub-analista" class="publico-name">
-                Controller ou analista
+            <article class="publico-card">
+              <h3 class="publico-aspa">
+                "Quero acelerar para a próxima cadeira."
               </h3>
-              <p class="publico-aspa">Acelere para CFO.</p>
               <p class="publico-promise">
                 Você sabe montar o relatório. Falta o raciocínio que
-                conecta os três demonstrativos — o que separa quem
-                reporta de quem decide.
+                conecta os três demonstrativos em uma única decisão — o
+                que separa quem reporta de quem decide.
               </p>
             </article>
           </div>
@@ -1009,29 +1081,15 @@
 
           <details>
             <summary>
-              <h3>
-                Eu já trabalho com finanças. Faz sentido para mim?
-              </h3>
+              <h3>Já entendo de finanças. Vale a pena para mim?</h3>
             </summary>
             <p>
-              Sim — especialmente se você é controller ou analista. O
-              diferencial não é o conteúdo isolado de cada
-              demonstrativo, é a <strong>leitura conectada</strong> que
-              integra os três em uma decisão única. É exatamente o
-              raciocínio que separa quem reporta de quem decide.
-            </p>
-          </details>
-
-          <details>
-            <summary>
-              <h3>Como funciona o upgrade para o curso premium?</h3>
-            </summary>
-            <p>
-              Após a conclusão da aula 5, alunos da turma fundadora
-              recebem condição especial e janela exclusiva para o curso
-              premium completo (R$ 1.998, 20 horas, 7 módulos com
-              aplicação ao seu próprio negócio). Sem pressão e sem
-              prazo apertado.
+              Sim — o diferencial não é cada demonstrativo isolado, é a
+              <strong>leitura conectada</strong> que integra os três em
+              uma decisão única. Quem só lê DRE perde a foto patrimonial;
+              quem só lê Balanço não enxerga o ciclo do caixa. O método
+              é exatamente o raciocínio que separa quem reporta de quem
+              decide.
             </p>
           </details>
 
@@ -1095,10 +1153,6 @@
             </svg>
           </a>
 
-          <div class="cta-final-signature">
-            <span class="cta-final-signature__name">Leandro Ribeiro</span>
-            <span class="cta-final-signature__role">COO · Climb4B</span>
-          </div>
         </div>
       </section>
     </main>
@@ -1120,7 +1174,7 @@
             <li><a href="mailto:contato@climb4b.com">contato@climb4b.com</a></li>
           </ul>
           <small>
-            CNPJ <span class="tabular-nums">00.000.000/0001-00</span>
+            CNPJ <span class="tabular-nums">41.620.187/0001-03</span>
           </small>
           <small>
             © <span class="tabular-nums">2026</span> Climb4B. Todos os
@@ -1129,6 +1183,29 @@
         </div>
       </div>
     </footer>
+
+    <!-- ============================================================
+         WHATSAPP · widget flutuante de suporte (canto inferior direito)
+         ============================================================ -->
+    <a
+      class="whatsapp-widget"
+      data-cta="whatsapp"
+      href="#"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Conversar no WhatsApp"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413"
+        />
+      </svg>
+    </a>
 
     <!-- ============================================================
          STICKY CTA · só mobile (visível ao rolar para fora do hero)

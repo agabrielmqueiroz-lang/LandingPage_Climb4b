@@ -37,6 +37,17 @@ export const TRACKING = {
 };
 
 /**
+ * Suporte via WhatsApp — widget flutuante no canto inferior direito.
+ * Número no formato internacional sem símbolos: 55 + DDD + número.
+ * Exemplo: 5511987654321 (Brasil 11 9 8765-4321).
+ */
+export const WHATSAPP = {
+  NUMBER: '5511000000000', // ← substituir pelo número real antes do go-live
+  MESSAGE:
+    'Olá! Cheguei pela página do Curso de Entrada da Climb4B e queria tirar uma dúvida.',
+};
+
+/**
  * Marcos de scroll a disparar (em % da página). Mantido enxuto —
  * cada evento extra polui o relatório sem ganho proporcional.
  */

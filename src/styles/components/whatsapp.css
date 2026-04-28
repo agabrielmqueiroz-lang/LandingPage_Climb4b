@@ -1,0 +1,89 @@
+/* ============================================================
+   whatsapp.css — widget flutuante no canto inferior direito.
+   Posicionamento dinâmico: em mobile, sobe acima da sticky-cta
+   bar para não cobri-la. Em desktop fica colado ao canto.
+   ============================================================ */
+
+.whatsapp-widget {
+  position: fixed;
+  right: var(--space-6);
+  bottom: calc(var(--space-6) + env(safe-area-inset-bottom));
+  z-index: 45;
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-pill);
+  background: #25d366;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.18) inset,
+    0 4px 8px -2px rgba(15, 30, 61, 0.18),
+    0 12px 28px -8px rgba(37, 211, 102, 0.55);
+  touch-action: manipulation;
+  transition:
+    transform var(--duration-base) var(--ease-emphasized),
+    box-shadow var(--duration-base) var(--ease-emphasized),
+    background-color var(--duration-fast) var(--ease-standard);
+}
+
+.whatsapp-widget:hover {
+  transform: scale(1.06);
+  background: #1ebe5a;
+  color: #ffffff;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.22) inset,
+    0 6px 12px -2px rgba(15, 30, 61, 0.22),
+    0 18px 36px -10px rgba(37, 211, 102, 0.7);
+}
+
+.whatsapp-widget:active {
+  transform: scale(0.96);
+}
+
+.whatsapp-widget svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* Halo pulsante sutil — chama atenção sem ser intrusivo (5s loop). */
+.whatsapp-widget::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: #25d366;
+  opacity: 0;
+  z-index: -1;
+  animation: whatsapp-halo 4.5s var(--ease-emphasized) infinite;
+}
+
+@keyframes whatsapp-halo {
+  0%   { transform: scale(1);   opacity: 0.55; }
+  70%  { transform: scale(1.5); opacity: 0; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-widget::before {
+    animation: none;
+  }
+}
+
+/* Mobile: sobe acima da sticky-cta bar (que tem ~80px de altura).
+   Mantém um respiro vertical para não colar no botão "Quero entrar". */
+@media (max-width: 1079px) {
+  .whatsapp-widget {
+    right: var(--space-4);
+    bottom: calc(96px + env(safe-area-inset-bottom));
+    width: 54px;
+    height: 54px;
+  }
+
+  .whatsapp-widget svg {
+    width: 28px;
+    height: 28px;
+  }
+}

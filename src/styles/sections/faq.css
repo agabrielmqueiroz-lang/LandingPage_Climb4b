@@ -23,7 +23,7 @@
 .faq-list {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: var(--space-4);
 }
 
 #faq details {
@@ -50,11 +50,11 @@
   list-style: none;
   cursor: pointer;
   position: relative;
-  padding: var(--space-5) calc(var(--space-6) + 32px) var(--space-5)
-    var(--space-6);
+  padding: var(--space-6) calc(var(--space-8) + 32px) var(--space-6)
+    var(--space-8);
   display: flex;
   align-items: center;
-  min-height: 64px;
+  min-height: 80px;
   transition: background-color var(--duration-fast) var(--ease-standard);
 }
 
@@ -86,7 +86,7 @@
 #faq summary::after {
   content: "";
   position: absolute;
-  right: var(--space-6);
+  right: var(--space-8);
   top: 50%;
   width: 20px;
   height: 20px;
@@ -102,14 +102,17 @@
   transform: translateY(-50%) rotate(180deg);
 }
 
-/* Resposta */
+/* Resposta — mais respiro entre pergunta e resposta */
 #faq details > p {
-  padding: 0 var(--space-6) var(--space-6) var(--space-6);
+  padding: var(--space-2) var(--space-8) var(--space-8) var(--space-8);
   font-size: var(--fs-base);
   line-height: var(--lh-relaxed);
   color: var(--text);
   margin: 0;
   max-width: none;
+  border-top: 1px solid var(--rule);
+  margin-top: var(--space-2);
+  padding-top: var(--space-6);
 }
 
 #faq details > p strong {
