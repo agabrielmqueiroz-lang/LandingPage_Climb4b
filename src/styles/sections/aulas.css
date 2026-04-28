@@ -1,0 +1,165 @@
+/* ============================================================
+   aulas.css — direção: timeline vertical com 5 cards numerados.
+   Cada card tem badge de duração à direita, hover lift discreto,
+   linha verde tracejada conectando os números (mesma linguagem
+   da seção Dor — coerência visual).
+   ============================================================ */
+
+#aulas {
+  background: var(--off-white);
+  position: relative;
+}
+
+#aulas .container {
+  max-width: var(--container-base);
+}
+
+#aulas h2 {
+  font-size: clamp(2.25rem, 4.4vw, 3.75rem);
+  margin-bottom: var(--space-16);
+  max-width: 24ch;
+  line-height: 1.05;
+}
+
+/* ---------- Timeline ---------- */
+.aulas-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  position: relative;
+}
+
+/* Linha vertical conectando os números (desktop) */
+@media (min-width: 720px) {
+  .aulas-list::before {
+    content: "";
+    position: absolute;
+    left: 32px;
+    top: 32px;
+    bottom: 32px;
+    width: 2px;
+    background-image: linear-gradient(
+      to bottom,
+      var(--green-300) 0,
+      var(--green-300) 6px,
+      transparent 6px,
+      transparent 12px
+    );
+    background-size: 2px 12px;
+    background-repeat: repeat-y;
+    z-index: 0;
+  }
+}
+
+.aula-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-md);
+  transition:
+    border-color var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard);
+  z-index: 1;
+}
+
+@media (min-width: 720px) {
+  .aula-card {
+    grid-template-columns: 64px 1fr auto;
+    gap: var(--space-6);
+    padding: var(--space-6) var(--space-8);
+    align-items: center;
+  }
+}
+
+.aula-card:hover {
+  border-color: var(--green-500);
+  transform: translateX(4px);
+  box-shadow: var(--shadow-2);
+}
+
+.aula-number {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-pill);
+  background: var(--navy-900);
+  color: var(--green-300);
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: var(--fw-semibold);
+  font-variant-numeric: tabular-nums;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  letter-spacing: -0.02em;
+}
+
+.aula-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+@media (max-width: 719px) {
+  .aula-body {
+    grid-column: 1 / -1;
+    margin-top: var(--space-2);
+  }
+}
+
+.aula-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-semibold);
+  line-height: 1.2;
+  color: var(--navy-900);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.aula-topics {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.aula-topics li {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  color: var(--ink-700);
+  background: var(--off-white);
+  padding: 4px var(--space-2);
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--ink-200);
+}
+
+.aula-duration {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: var(--accent-strong);
+  white-space: nowrap;
+  text-align: right;
+}
+
+@media (max-width: 719px) {
+  .aula-duration {
+    grid-column: 2 / -1;
+    text-align: left;
+    margin-top: var(--space-1);
+  }
+}

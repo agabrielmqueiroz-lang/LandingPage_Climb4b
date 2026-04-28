@@ -1,0 +1,219 @@
+/* ============================================================
+   dor.css — direção: documental, fundo off-white com rule
+   superior verde (faixa do PDF estratégico). 3 "bolsos onde o
+   lucro some" como cards horizontais com números 01/02/03
+   editoriais. 3 personas como rows com avatar geométrico.
+   ============================================================ */
+
+#dor {
+  background: var(--off-white);
+  border-top: 4px solid var(--green-500);
+}
+
+#dor .container {
+  max-width: var(--container-base);
+}
+
+#dor h2 {
+  font-size: clamp(2.25rem, 4.4vw, 3.75rem);
+  margin-bottom: var(--space-16);
+  max-width: 24ch;
+  line-height: 1.05;
+}
+
+
+/* ---------- 3 bolsos · cards horizontais com números editoriais ---------- */
+.pockets {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  margin-bottom: var(--space-24);
+  position: relative;
+}
+
+@media (min-width: 720px) {
+  .pockets {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+}
+
+/* Linha conectora horizontal entre os 3 cards (desktop) —
+   sinaliza relação de processo/fluxo, quebra o feel de
+   "três cards isolados em row" (anti-pattern). */
+@media (min-width: 720px) {
+  .pockets::before {
+    content: "";
+    position: absolute;
+    left: 12%;
+    right: 12%;
+    top: 32px;
+    height: 2px;
+    background-image: linear-gradient(
+      to right,
+      var(--green-300) 0,
+      var(--green-300) 6px,
+      transparent 6px,
+      transparent 12px
+    );
+    background-size: 12px 2px;
+    background-repeat: repeat-x;
+    z-index: 0;
+  }
+}
+
+.pocket {
+  position: relative;
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  transition:
+    border-color var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard);
+  z-index: 1;
+}
+
+.pocket:hover {
+  border-color: var(--green-500);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-2);
+}
+
+.pocket-number {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: var(--fw-light);
+  line-height: 1;
+  color: var(--green-500);
+  font-variant-numeric: tabular-nums lining-nums;
+  letter-spacing: -0.04em;
+}
+
+.pocket-label {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--ink-700);
+  margin-top: var(--space-2);
+}
+
+.pocket-body {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-style: italic;
+  line-height: 1.3;
+  color: var(--navy-900);
+  margin: 0;
+  font-weight: var(--fw-regular);
+}
+
+/* ---------- "Você se reconhece?" — section divider ---------- */
+.reconhece {
+  margin-top: var(--space-12);
+}
+
+.reconhece h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  font-weight: var(--fw-semibold);
+  color: var(--navy-900);
+  margin-bottom: var(--space-8);
+  max-width: 24ch;
+}
+
+/* ---------- Thought bubbles · pensamentos circulares sem rótulo
+   de cargo. A ideia é gerar identificação pela DOR, não pelo papel.
+   Forma arredondada com "tail" no canto inferior — visual de balão
+   de pensamento HQ, mas em registro editorial (não cartoon). */
+.thought-bubbles {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (min-width: 880px) {
+  .thought-bubbles {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+    align-items: start;
+  }
+
+  /* Stagger sutil para quebrar feel de "três cards alinhados" */
+  .thought-bubbles > li:nth-child(2) {
+    margin-top: var(--space-8);
+  }
+  .thought-bubbles > li:nth-child(3) {
+    margin-top: var(--space-4);
+  }
+}
+
+.thought-bubble {
+  position: relative;
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: 32px;
+  padding: var(--space-8) var(--space-6);
+  box-shadow: var(--shadow-1);
+  transition:
+    transform var(--duration-base) var(--ease-emphasized),
+    box-shadow var(--duration-base) var(--ease-emphasized),
+    border-color var(--duration-fast) var(--ease-standard);
+}
+
+.thought-bubble:hover {
+  transform: translateY(-4px);
+  border-color: var(--green-500);
+  box-shadow: var(--shadow-2);
+}
+
+/* Tail do balão — duas bolinhas decrescentes no canto inferior */
+.thought-bubble::before,
+.thought-bubble::after {
+  content: "";
+  position: absolute;
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-pill);
+  transition: border-color var(--duration-fast) var(--ease-standard);
+}
+
+.thought-bubble::before {
+  width: 22px;
+  height: 22px;
+  bottom: -14px;
+  left: 28px;
+}
+
+.thought-bubble::after {
+  width: 12px;
+  height: 12px;
+  bottom: -28px;
+  left: 16px;
+}
+
+.thought-bubble:hover::before,
+.thought-bubble:hover::after {
+  border-color: var(--green-500);
+}
+
+.thought-bubble p {
+  font-family: var(--font-display);
+  font-size: var(--fs-md);
+  font-style: italic;
+  font-weight: var(--fw-regular);
+  line-height: 1.4;
+  color: var(--navy-900);
+  margin: 0;
+  letter-spacing: -0.005em;
+  max-width: none;
+}

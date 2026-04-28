@@ -1,0 +1,106 @@
+/* ============================================================
+   obrigado.css — página de confirmação pós-Eduzz.
+   Direção: navy full-bleed, mensagem central minimalista, ícone
+   de check verde grande. Coerente com hero + cta-final.
+   ============================================================ */
+
+body {
+  background: var(--navy-900);
+  color: var(--text-on-dark);
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-12) var(--container-pad);
+  padding-top: calc(var(--header-height) + var(--space-12));
+}
+
+.confirm-card {
+  text-align: center;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.confirm-icon {
+  width: 96px;
+  height: 96px;
+  border-radius: var(--radius-pill);
+  background: rgba(46, 190, 90, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--green-400);
+}
+
+.confirm-icon svg {
+  width: 48px;
+  height: 48px;
+}
+
+.confirm-eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--green-300);
+  margin: 0;
+}
+
+.confirm-card h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: var(--fw-semibold);
+  line-height: 1.1;
+  color: var(--off-white);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.confirm-card p {
+  color: var(--text-on-dark-muted);
+  font-size: var(--fs-md);
+  line-height: var(--lh-relaxed);
+  margin: 0;
+  max-width: none;
+}
+
+.confirm-meta {
+  margin-top: var(--space-6);
+  padding: var(--space-4) var(--space-6);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--rule-on-dark);
+  border-radius: var(--radius-md);
+  font-size: var(--fs-sm);
+  color: var(--text-on-dark);
+}
+
+.confirm-meta strong {
+  color: var(--off-white);
+}
+
+/* Header simplificado: só a marca, sem CTA */
+header[role="banner"] {
+  position: static;
+  background: transparent;
+  border-bottom: 1px solid var(--rule-on-dark);
+}
+
+header[role="banner"] .container {
+  justify-content: flex-start;
+}
+
+/* Brand sempre claro nesta página (sem hero escuro abaixo) */
+header[role="banner"] .brand,
+header[role="banner"] .brand:hover {
+  color: var(--off-white);
+}

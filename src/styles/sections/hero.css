@@ -1,0 +1,226 @@
+/* ============================================================
+   hero.css — direção: editorial executivo, full-bleed navy,
+   tipografia display dominante, composição assimétrica
+   (texto 7/12 + visual 5/12 desktop, stack mobile).
+   Visual = diagrama do método (DRE+BP+FC → Decisão) cumprindo
+   double-duty: placeholder visual + comunicação do mecanismo.
+   ============================================================ */
+
+#hero {
+  position: relative;
+  background:
+    radial-gradient(
+      ellipse at 80% 0%,
+      rgba(46, 190, 90, 0.08),
+      transparent 55%
+    ),
+    linear-gradient(180deg, var(--navy-900) 0%, var(--navy-800) 100%);
+  color: var(--text-on-dark);
+  padding-block: var(--space-16) var(--space-24);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Textura sutil — pontilhado em opacidade baixa.
+   Camada de respiração visual sobre o fundo plano. */
+#hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(255, 255, 255, 0.04) 1px,
+    transparent 0
+  );
+  background-size: 24px 24px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+#hero .container {
+  display: grid;
+  gap: var(--space-12);
+  grid-template-columns: 1fr;
+  max-width: var(--container-wide);
+}
+
+@media (min-width: 1080px) {
+  #hero .container {
+    grid-template-columns: 7fr 5fr;
+    align-items: center;
+    gap: var(--space-16);
+  }
+}
+
+/* ---------- Texto ----------
+   Sem .lead — o H1 é a única peça textual entre eyebrow e CTA.
+   Gap generoso para o headline dominar a viewport. */
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  max-width: 36rem;
+}
+
+.hero-text .eyebrow {
+  color: var(--green-300);
+  margin-bottom: 0;
+}
+
+#hero h1 {
+  color: var(--off-white);
+  font-size: clamp(2.75rem, 6.4vw, 5.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+
+#hero h1 .hl {
+  background: none;
+  color: var(--green-300);
+  padding: 0;
+  font-style: italic;
+  font-weight: var(--fw-regular);
+}
+
+.hero-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+/* Microcopy "autoridade" — mesma família visual do .cta-microcopy
+   mas com ícone star em vez de check. Substituiu o trust-strip
+   card grande, que pesava demais above-the-fold. */
+.cta-microcopy--auth::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M8 1.5L9.85 5.7L14.5 6.15L11 9.3L12.05 13.85L8 11.5L3.95 13.85L5 9.3L1.5 6.15L6.15 5.7L8 1.5Z' fill='%237BD89A' stroke='%237BD89A' stroke-width='1.2' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+/* ---------- Visual: diagrama do método ---------- */
+.hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.method-diagram {
+  width: 100%;
+  max-width: 460px;
+  height: auto;
+  filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.35));
+}
+
+.method-diagram .demo-fullname {
+  fill: var(--off-white);
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 500;
+  text-anchor: middle;
+}
+
+.method-diagram .demo-card {
+  fill: var(--navy-700);
+  stroke: var(--navy-600);
+  stroke-width: 1;
+  transition: fill var(--duration-base) var(--ease-standard);
+}
+
+.method-diagram .demo-card.is-active {
+  fill: var(--navy-600);
+  stroke: var(--green-400);
+}
+
+.method-diagram .demo-label {
+  fill: var(--off-white);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.04em;
+  text-anchor: middle;
+}
+
+.method-diagram .demo-sublabel {
+  fill: var(--text-on-dark-muted);
+  font-family: var(--font-body);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-anchor: middle;
+}
+
+.method-diagram .connector {
+  stroke: var(--green-400);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  fill: none;
+  stroke-dasharray: 4 4;
+  opacity: 0.7;
+}
+
+.method-diagram .decision-node {
+  fill: var(--green-500);
+  stroke: var(--green-300);
+  stroke-width: 2;
+}
+
+.method-diagram .decision-label {
+  fill: var(--navy-900);
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.02em;
+  text-anchor: middle;
+}
+
+.method-diagram .corner-meta {
+  fill: var(--text-on-dark-muted);
+  font-family: var(--font-body);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* Animação inicial: entram com fade + slide */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-text > * {
+    opacity: 0;
+    transform: translateY(12px);
+    animation: hero-rise 0.7s var(--ease-emphasized) forwards;
+  }
+
+  .hero-text .eyebrow { animation-delay: 0ms; }
+  .hero-text h1       { animation-delay: 80ms; }
+  .hero-cta           { animation-delay: 200ms; }
+
+  .hero-visual {
+    opacity: 0;
+    transform: scale(0.96);
+    animation: hero-pop 0.9s var(--ease-emphasized) 200ms forwards;
+  }
+
+  /* Conectores tracejados pulsam suavemente */
+  .method-diagram .connector {
+    animation: connector-pulse 3s ease-in-out infinite;
+  }
+}
+
+@keyframes hero-rise {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-pop {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes connector-pulse {
+  0%, 100% { opacity: 0.4; }
+  50%      { opacity: 0.85; }
+}

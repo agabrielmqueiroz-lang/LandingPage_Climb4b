@@ -1,0 +1,66 @@
+/* ============================================================
+   sticky-cta.css — barra fixa inferior no mobile.
+   Direção: aparece ao rolar para fora do hero. Sempre acessível,
+   sem cobrir conteúdo (padding-bottom no main mobile).
+   Regra landing-page-design: "Sticky CTA on scroll · Always accessible".
+   ============================================================ */
+
+.sticky-cta {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 40;
+  padding: var(--space-3) var(--container-pad)
+    calc(var(--space-3) + env(safe-area-inset-bottom));
+  background: var(--navy-900);
+  border-top: 1px solid var(--rule-on-dark);
+  transform: translateY(110%);
+  transition: transform var(--duration-base) var(--ease-emphasized);
+  display: none;
+}
+
+.sticky-cta.is-visible {
+  transform: translateY(0);
+}
+
+.sticky-cta__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  max-width: var(--container-base);
+  margin-inline: auto;
+}
+
+.sticky-cta__price {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: var(--off-white);
+  line-height: 1;
+}
+
+.sticky-cta__price-amount {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-semibold);
+  font-variant-numeric: tabular-nums;
+}
+
+.sticky-cta__price-label {
+  font-size: var(--fs-xs);
+  color: var(--text-on-dark-muted);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+/* Só mobile + small tablet */
+@media (max-width: 1079px) {
+  .sticky-cta {
+    display: block;
+  }
+
+  /* Espaço para o sticky bar não cobrir o final da página */
+  body {
+    padding-bottom: 80px;
+  }
+}

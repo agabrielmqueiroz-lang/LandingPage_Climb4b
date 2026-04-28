@@ -1,0 +1,127 @@
+/* ============================================================
+   publicos.css — direção: 3 cards verticais, cada um com avatar
+   geométrico no topo + aspas dominante (display italic) + linha
+   de promessa abaixo. Background paper para diferenciar de Aulas
+   (off-white). Stagger sutil em desktop quebra "3 cards em row".
+   ============================================================ */
+
+#publicos {
+  background: var(--paper);
+}
+
+#publicos .container {
+  max-width: var(--container-base);
+}
+
+#publicos h2 {
+  font-size: clamp(2.25rem, 4.4vw, 3.75rem);
+  margin-bottom: var(--space-16);
+  max-width: 22ch;
+  line-height: 1.05;
+}
+
+/* ---------- Grid das 3 personas ---------- */
+.publicos-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 880px) {
+  .publicos-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+
+  /* Stagger: card central desce um pouco, cria diagonal */
+  .publicos-grid > article:nth-child(2) {
+    margin-top: var(--space-12);
+  }
+}
+
+.publico-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding: var(--space-8);
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-md);
+  transition:
+    border-color var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard);
+}
+
+.publico-card:hover {
+  border-color: var(--navy-900);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-2);
+}
+
+.publico-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  background: var(--navy-900);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.publico-avatar svg {
+  width: 28px;
+  height: 28px;
+  color: var(--green-300);
+}
+
+.publico-name {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--ink-700);
+  margin: 0;
+}
+
+.publico-aspa {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-style: italic;
+  font-weight: var(--fw-regular);
+  line-height: 1.25;
+  color: var(--navy-900);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.publico-aspa::before {
+  content: "“";
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  line-height: 0;
+  vertical-align: -0.4em;
+  color: var(--accent);
+  margin-right: 4px;
+}
+
+.publico-aspa::after {
+  content: "”";
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  line-height: 0;
+  vertical-align: -0.4em;
+  color: var(--accent);
+  margin-left: 2px;
+}
+
+.publico-promise {
+  font-size: var(--fs-base);
+  line-height: var(--lh-base);
+  color: var(--text);
+  margin: 0;
+  border-top: 1px solid var(--rule);
+  padding-top: var(--space-4);
+}

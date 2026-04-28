@@ -1,0 +1,117 @@
+/* ============================================================
+   faq.css — direção: nativo <details>/<summary> com chevron
+   custom (sem JS), hover sutil, fundo alternado para rhythm.
+   Container narrow (640px) — leitura é o que importa aqui.
+   ============================================================ */
+
+#faq {
+  background: var(--off-white);
+}
+
+#faq .container {
+  max-width: var(--container-narrow);
+}
+
+#faq h2 {
+  font-size: clamp(2.25rem, 4.4vw, 3.75rem);
+  margin-bottom: var(--space-12);
+  max-width: 22ch;
+  line-height: 1.05;
+}
+
+/* ---------- Lista de itens ---------- */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+#faq details {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition:
+    border-color var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard);
+}
+
+#faq details:hover {
+  border-color: var(--ink-300);
+}
+
+#faq details[open] {
+  border-color: var(--green-500);
+  box-shadow: var(--shadow-1);
+}
+
+/* Esconde o triângulo nativo */
+#faq summary {
+  list-style: none;
+  cursor: pointer;
+  position: relative;
+  padding: var(--space-5) calc(var(--space-6) + 32px) var(--space-5)
+    var(--space-6);
+  display: flex;
+  align-items: center;
+  min-height: 64px;
+  transition: background-color var(--duration-fast) var(--ease-standard);
+}
+
+#faq summary::-webkit-details-marker {
+  display: none;
+}
+
+#faq summary::marker {
+  display: none;
+  content: "";
+}
+
+#faq summary:hover {
+  background: var(--off-white);
+}
+
+/* Pergunta — h3 dentro de summary precisa de reset */
+#faq summary h3 {
+  font-family: var(--font-body);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-semibold);
+  color: var(--navy-900);
+  letter-spacing: -0.005em;
+  margin: 0;
+  line-height: 1.35;
+}
+
+/* Chevron custom à direita */
+#faq summary::after {
+  content: "";
+  position: absolute;
+  right: var(--space-6);
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M5 7.5L10 12.5L15 7.5' stroke='%231FA047' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: translateY(-50%);
+  transition: transform var(--duration-base) var(--ease-emphasized);
+  transform-origin: center;
+}
+
+#faq details[open] summary::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+/* Resposta */
+#faq details > p {
+  padding: 0 var(--space-6) var(--space-6) var(--space-6);
+  font-size: var(--fs-base);
+  line-height: var(--lh-relaxed);
+  color: var(--text);
+  margin: 0;
+  max-width: none;
+}
+
+#faq details > p strong {
+  color: var(--navy-900);
+}

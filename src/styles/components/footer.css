@@ -1,0 +1,84 @@
+/* ============================================================
+   footer.css — direção: continuação navy do CTA Final, sem rule
+   visível entre eles. Layout simples — marca + meta legal +
+   links. Sticky-cta mobile leva em consideração espaço extra.
+   ============================================================ */
+
+footer[role="contentinfo"] {
+  background: var(--navy-900);
+  color: var(--text-on-dark-muted);
+  padding-block: var(--space-12) var(--space-16);
+  border-top: 1px solid var(--rule-on-dark);
+}
+
+footer[role="contentinfo"] .container {
+  max-width: var(--container-base);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+@media (min-width: 720px) {
+  footer[role="contentinfo"] .container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-12);
+  }
+}
+
+footer[role="contentinfo"] .footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  max-width: 28rem;
+}
+
+footer[role="contentinfo"] .footer-brand strong {
+  font-family: var(--font-display);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-semibold);
+  color: var(--off-white);
+  letter-spacing: -0.01em;
+}
+
+footer[role="contentinfo"] .footer-brand p {
+  font-size: var(--fs-sm);
+  color: var(--text-on-dark-muted);
+  margin: 0;
+  max-width: none;
+}
+
+footer[role="contentinfo"] .footer-meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  font-size: var(--fs-xs);
+  color: var(--text-on-dark-muted);
+}
+
+@media (min-width: 720px) {
+  footer[role="contentinfo"] .footer-meta {
+    text-align: right;
+    align-items: flex-end;
+  }
+}
+
+footer[role="contentinfo"] .footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-4);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer[role="contentinfo"] .footer-links a {
+  color: var(--text-on-dark-muted);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+footer[role="contentinfo"] .footer-links a:hover {
+  color: var(--green-300);
+}

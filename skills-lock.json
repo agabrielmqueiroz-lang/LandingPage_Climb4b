@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "skills": {
+    "copywriting": {
+      "source": "coreyhaines31/marketingskills",
+      "sourceType": "github",
+      "computedHash": "c008c80aff1eec1aba190edf421772a3f350e91405d4207575092b663c3702a7"
+    },
+    "landing-page-design": {
+      "source": "infsh-skills/skills",
+      "sourceType": "github",
+      "computedHash": "d9194d6a3cd823ed41ebb3647294837aa8952106693b90aa5d7af0a019cce922"
+    },
+    "page-cro": {
+      "source": "coreyhaines31/marketingskills",
+      "sourceType": "github",
+      "computedHash": "97fa14549ae123830f1096821a0aadc898f48542c0473897e0bc3d0c90b024f4"
+    }
+  }
+}
