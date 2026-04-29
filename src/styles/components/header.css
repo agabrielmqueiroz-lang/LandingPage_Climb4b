@@ -85,7 +85,6 @@ header[role="banner"].is-scrolled .brand:hover {
   pointer-events: auto;
 }
 
-/* Compensar header fixo em todo o body */
-main {
-  padding-top: var(--header-height);
-}
+/* Hero compensa o header-height no próprio padding-top — assim
+   o conteúdo dark estende ATRÁS do header transparente e a marca
+   light permanece visível desde o scroll = 0. */

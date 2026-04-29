@@ -39,6 +39,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: 'cv11', 'ss01', 'ss03';
   text-underline-offset: 0.15em;
+  /* Safety net contra overflow horizontal em mobile — garante que
+     nenhum elemento pontual (SVG, CTA longo, etc) cause scroll lateral. */
+  overflow-x: hidden;
 }
 
 main {

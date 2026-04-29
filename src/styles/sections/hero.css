@@ -16,7 +16,11 @@
     ),
     linear-gradient(180deg, var(--navy-900) 0%, var(--navy-800) 100%);
   color: var(--text-on-dark);
-  padding-block: var(--space-16) var(--space-24);
+  /* Top padding inclui header-height — hero estende ATRÁS do header
+     fixo, garantindo que a marca light fique visível sobre o navy. */
+  padding-block:
+    calc(var(--header-height) + var(--space-16))
+    var(--space-24);
   overflow: hidden;
   isolation: isolate;
 }
@@ -88,6 +92,16 @@
   flex-direction: column;
   align-items: flex-start;
   gap: var(--space-3);
+  width: 100%;
+}
+
+/* Mobile: CTA principal toma a largura toda — texto longo
+   "Quero entrar na turma fundadora — R$ 299" cabe sem nowrap forçar
+   overflow horizontal da página. */
+@media (max-width: 719px) {
+  .hero-cta .btn--primary {
+    width: 100%;
+  }
 }
 
 /* Microcopy "autoridade" — mesma família visual do .cta-microcopy

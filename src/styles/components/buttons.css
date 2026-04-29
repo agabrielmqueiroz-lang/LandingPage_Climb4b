@@ -14,18 +14,28 @@
   font-family: var(--font-body);
   font-size: var(--fs-md);
   font-weight: var(--fw-semibold);
-  line-height: 1;
+  line-height: 1.15;
   letter-spacing: -0.005em;
+  text-align: center;
   text-decoration: none;
   border-radius: var(--radius-md);
   cursor: pointer;
-  white-space: nowrap;
+  /* Mobile permite wrap (textos longos como "Quero entrar na turma
+     fundadora — R$ 299" forçariam overflow horizontal). Desktop
+     mantém nowrap para visual mais limpo. */
+  white-space: normal;
   touch-action: manipulation;
   transition:
     transform var(--duration-fast) var(--ease-standard),
     box-shadow var(--duration-base) var(--ease-emphasized),
     background-color var(--duration-fast) var(--ease-standard),
     color var(--duration-fast) var(--ease-standard);
+}
+
+@media (min-width: 720px) {
+  .btn {
+    white-space: nowrap;
+  }
 }
 
 .btn:hover {
