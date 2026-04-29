@@ -16,6 +16,7 @@ import './styles/components/buttons.css';
 import './styles/components/sticky-cta.css';
 import './styles/components/footer.css';
 import './styles/components/whatsapp.css';
+import './styles/components/carousel.css';
 
 // Seções (10 + footer)
 import './styles/sections/hero.css';
@@ -29,9 +30,10 @@ import './styles/sections/oferta.css';
 import './styles/sections/faq.css';
 import './styles/sections/cta-final.css';
 
-// Lógica de checkout + tracking + widgets
+// Lógica de checkout + tracking + widgets + carrossel
 import { rewriteCheckoutLinks } from './checkout.js';
 import { wireWhatsappWidget } from './whatsapp.js';
+import { initCarousels } from './carousel.js';
 import {
   initCtaTracking,
   initScrollDepth,
@@ -95,6 +97,7 @@ if (heroSection && 'IntersectionObserver' in window) {
    e tracking dispara antes da navegação. */
 rewriteCheckoutLinks();
 wireWhatsappWidget();
+initCarousels();
 
 initCtaTracking();
 initScrollDepth();

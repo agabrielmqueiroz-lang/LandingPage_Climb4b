@@ -14,7 +14,7 @@
 }
 
 #publicos h2 {
-  font-size: clamp(2.25rem, 4.4vw, 3.75rem);
+  font-size: clamp(1.875rem, 4.4vw, 3.75rem);
   margin-bottom: var(--space-16);
   max-width: 22ch;
   line-height: 1.05;

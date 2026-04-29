@@ -1,0 +1,105 @@
+/* ============================================================
+   carousel.css — transforma grids verticais em carrossel
+   horizontal SÓ em mobile (≤719px). Desktop mantém o layout
+   original (grid 3 cols). Auto-rotate é cuidado pelo JS.
+   ============================================================ */
+
+/* Wrapper que recebe os dots indicadores via JS */
+.carousel-wrap {
+  position: relative;
+}
+
+@media (max-width: 719px) {
+  /* O elemento marcado data-carousel vira flex row scrollável.
+     Margens negativas + padding compensam o container-pad para
+     que os cards toquem as bordas do viewport (com peek do próximo). */
+  [data-carousel] {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: var(--space-4) !important;
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    margin-inline: calc(-1 * var(--container-pad));
+    padding-inline: var(--container-pad);
+    padding-block: var(--space-2) var(--space-4);
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    /* Reseta grid-template-columns que possa existir */
+    grid-template-columns: none !important;
+  }
+
+  [data-carousel]::-webkit-scrollbar {
+    display: none;
+  }
+
+  [data-carousel] > * {
+    flex: 0 0 calc(100% - var(--space-12));
+    scroll-snap-align: center;
+    /* Reseta stagger margins de layouts grid (thought-bubbles,
+       publicos-grid usam nth-child margin-top em desktop). */
+    margin-top: 0 !important;
+  }
+
+  /* Pseudo-elementos decorativos (linhas conectoras dos pockets,
+     timeline das aulas) ficariam quebrados num scroll horizontal —
+     escondemos no carousel. */
+  [data-carousel]::before {
+    display: none !important;
+  }
+}
+
+/* ---------- Indicadores (dots) ---------- */
+.carousel-dots {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+  padding: 0;
+  list-style: none;
+}
+
+@media (max-width: 719px) {
+  .carousel-dots {
+    display: flex;
+  }
+}
+
+.carousel-dot {
+  appearance: none;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  border: 0;
+  background: var(--ink-300);
+  padding: 0;
+  cursor: pointer;
+  transition:
+    background-color var(--duration-base) var(--ease-emphasized),
+    width var(--duration-base) var(--ease-emphasized);
+  touch-action: manipulation;
+}
+
+.carousel-dot:hover {
+  background: var(--ink-500);
+}
+
+.carousel-dot.is-active {
+  background: var(--accent);
+  width: 24px;
+}
+
+/* Em seções dark (Método se virar carousel um dia), inverter a cor */
+.on-dark .carousel-dot {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.on-dark .carousel-dot:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.on-dark .carousel-dot.is-active {
+  background: var(--green-400);
+}

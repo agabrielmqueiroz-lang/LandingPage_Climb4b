@@ -73,8 +73,8 @@
 
 #hero h1 {
   color: var(--off-white);
-  font-size: clamp(2.75rem, 6.4vw, 5.5rem);
-  line-height: 1.02;
+  font-size: clamp(2.25rem, 6.4vw, 5.5rem);
+  line-height: 1.05;
   letter-spacing: -0.025em;
   margin: 0;
 }
