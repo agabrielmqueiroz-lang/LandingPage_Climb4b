@@ -69,7 +69,9 @@ header[role="banner"].is-scrolled .brand:hover {
 
 /* Header CTA aparece SÓ depois do usuário rolar para fora do hero —
    garante que existe apenas UM CTA visível por vez (hero CTA fica
-   above-the-fold, header CTA toma o relay quando hero sai). */
+   above-the-fold, header CTA toma o relay quando hero sai).
+   Em mobile (≤1079px) escondemos completamente — o sticky bottom
+   bar já cumpre o papel de CTA persistente. */
 .header-cta {
   opacity: 0;
   transform: translateY(-6px);
@@ -83,6 +85,12 @@ header[role="banner"].is-scrolled .brand:hover {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
+}
+
+@media (max-width: 1079px) {
+  .header-cta {
+    display: none;
+  }
 }
 
 /* Hero compensa o header-height no próprio padding-top — assim
