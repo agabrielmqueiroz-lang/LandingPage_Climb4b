@@ -22,7 +22,11 @@ export function initCarousels() {
 }
 
 function setupCarousel(carousel, mobileMq) {
-  const items = Array.from(carousel.children);
+  // Children com data-carousel-skip não viram slide (ex.: divisor "vs"
+  // do Pilar 2, que só faz sentido na visão lado a lado em desktop).
+  const items = Array.from(carousel.children).filter(
+    (child) => !child.hasAttribute('data-carousel-skip')
+  );
   if (items.length < 2) return;
 
   // Cria o container de dots e insere imediatamente após o carousel

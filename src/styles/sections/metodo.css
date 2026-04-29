@@ -62,18 +62,20 @@
 .method-half {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
-  padding: var(--space-4);
-  border-radius: var(--radius-md);
+  gap: var(--space-5);
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
   border: 1px solid var(--rule-on-dark);
   background: rgba(255, 255, 255, 0.02);
+  /* Carrossel mobile precisa de altura igual entre slides para
+     o scroll-snap não pular alturas diferentes. */
+  height: 100%;
 }
 
 @media (min-width: 720px) {
   .method-half {
     gap: var(--space-6);
     padding: var(--space-8);
-    border-radius: var(--radius-lg);
   }
 }
 
