@@ -54,7 +54,7 @@ export const WHATSAPP = {
  * Web App, e substituir PLACEHOLDER pela URL /exec gerada.
  * Ver README.md → "Configuração Google Sheets".
  */
-export const GOOGLE_SHEETS_ENDPOINT = 'https://script.google.com/macros/s/PLACEHOLDER/exec';
+export const GOOGLE_SHEETS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwAfBGYh4NvzJM-PvQRKUcVqiq9SI0B1eoQJN1YWZH_sSAwd0u0WBGLtBE-XO_bUQJu/exec';
 
 /**
  * URL do grupo VIP do WhatsApp para o Webinar.
