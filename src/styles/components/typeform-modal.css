@@ -36,13 +36,13 @@
 .typeform-overlay__panel {
   position: relative;
   width: 100%;
-  max-width: 560px;
+  max-width: 640px;
   max-height: 90vh;
   overflow-y: auto;
   background: var(--navy-900);
   border: 1px solid var(--rule-on-dark);
   border-radius: var(--radius-xl);
-  padding: var(--space-8) var(--space-6);
+  padding: var(--space-8) var(--space-8);
   color: var(--text-on-dark);
   box-shadow:
     0 32px 80px -20px rgba(0, 0, 0, 0.5),
@@ -85,7 +85,7 @@
 
 @media (min-width: 720px) {
   .typeform-overlay__panel {
-    padding: var(--space-10) var(--space-8);
+    padding: var(--space-10) var(--space-10);
   }
 }
 

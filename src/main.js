@@ -145,8 +145,8 @@ if (icpForm) {
 
     const textsFilled = nome.value.trim() && email.value.trim() && whatsapp.value.trim();
 
-    // Validação: radio groups obrigatórios (faixa_etaria, perfil, desafio)
-    const requiredRadios = ['faixa_etaria', 'perfil', 'desafio'];
+    // Validação: radio groups obrigatórios (todos)
+    const requiredRadios = ['faixa_etaria', 'perfil', 'escolaridade', 'faturamento', 'desafio', 'objetivo', 'origem'];
     const radiosFilled = requiredRadios.every(
       (name) => icpForm.querySelector(`input[name="${name}"]:checked`)
     );
