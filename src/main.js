@@ -183,9 +183,13 @@ if (icpForm) {
     try {
       // Enviar para Google Sheets via Apps Script
       if (GOOGLE_SHEETS_ENDPOINT && !GOOGLE_SHEETS_ENDPOINT.includes('PLACEHOLDER')) {
+        const urlEncodedData = new URLSearchParams(formData).toString();
         await fetch(GOOGLE_SHEETS_ENDPOINT, {
           method: 'POST',
-          body: formData,
+          body: urlEncodedData,
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
           mode: 'no-cors',
         });
       } else {
