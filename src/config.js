@@ -48,6 +48,22 @@ export const WHATSAPP = {
 };
 
 /**
+ * URL do Google Apps Script Web App que recebe os dados do
+ * formulário ICP e grava na planilha Google Sheets.
+ * ANTES DO GO-LIVE: criar o Apps Script, fazer deploy como
+ * Web App, e substituir PLACEHOLDER pela URL /exec gerada.
+ * Ver README.md → "Configuração Google Sheets".
+ */
+export const GOOGLE_SHEETS_ENDPOINT = 'https://script.google.com/macros/s/PLACEHOLDER/exec';
+
+/**
+ * URL do grupo VIP do WhatsApp para o Webinar.
+ * Aparece como PASSO 02 no modal pós-preenchimento do Typeform.
+ * ANTES DO GO-LIVE: substituir pelo link real do grupo.
+ */
+export const WHATSAPP_GROUP_URL = 'https://chat.whatsapp.com/D6qZHcqDz4sHlUuZp6tx3k';
+
+/**
  * Marcos de scroll a disparar (em % da página). Mantido enxuto —
  * cada evento extra polui o relatório sem ganho proporcional.
  */

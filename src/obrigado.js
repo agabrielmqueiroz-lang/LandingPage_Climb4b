@@ -1,8 +1,7 @@
 /* ============================================================
    obrigado.js — entrada da página /obrigado.html.
-   Job único: disparar o evento `purchase` no dataLayer assim que
-   a página carregar (lead chega aqui via redirect Eduzz após
-   pagamento confirmado). GTM cuida de Pixel/GA4 Purchase tags.
+   Webinar flow: confirma inscrição e direciona para grupo VIP
+   do WhatsApp. Tracking de conversion ainda dispara via dataLayer.
    ============================================================ */
 
 import './styles/tokens.css';
@@ -14,9 +13,15 @@ import './styles/components/footer.css';
 import './styles/components/whatsapp.css';
 import './styles/pages/obrigado.css';
 
-import { trackPurchase, initCtaTracking } from './tracking.js';
+import { initCtaTracking } from './tracking.js';
 import { wireWhatsappWidget } from './whatsapp.js';
+import { WHATSAPP_GROUP_URL } from './config.js';
 
-trackPurchase();
 wireWhatsappWidget();
 initCtaTracking();
+
+/* Wire WhatsApp group button on obrigado page */
+const obrigadoWhatsappBtn = document.getElementById('obrigado-whatsapp-group');
+if (obrigadoWhatsappBtn) {
+  obrigadoWhatsappBtn.setAttribute('href', WHATSAPP_GROUP_URL);
+}

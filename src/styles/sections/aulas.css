@@ -245,3 +245,52 @@
   border-radius: var(--radius-pill);
   border: 1px solid var(--ink-200);
 }
+
+/* ---------- Aula 01: destaque de Webinar Gratuito ---------- */
+.aula-webinar-destaque .aula-card {
+  border-color: var(--green-500);
+  box-shadow:
+    0 0 0 1px var(--green-500),
+    0 8px 32px -8px rgba(46, 190, 90, 0.25);
+}
+
+.aula-webinar-destaque .aula-number {
+  background: var(--green-500);
+  color: var(--white);
+  box-shadow: 0 0 0 4px rgba(46, 190, 90, 0.2);
+}
+
+.aula-badge-webinar {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 3px var(--space-3);
+  background: rgba(46, 190, 90, 0.12);
+  border: 1px solid var(--green-400);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  color: var(--green-600);
+  white-space: nowrap;
+  letter-spacing: var(--tracking-wide);
+}
+
+.aula-webinar-note {
+  font-size: var(--fs-sm);
+  line-height: var(--lh-relaxed);
+  color: var(--green-600);
+  background: rgba(46, 190, 90, 0.08);
+  border: 1px solid rgba(46, 190, 90, 0.2);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  margin: 0;
+}
+
+.aula-webinar-note strong {
+  color: var(--navy-900);
+}
+
+.aula-webinar-cta {
+  margin-top: var(--space-2);
+}

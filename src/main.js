@@ -17,6 +17,7 @@ import './styles/components/sticky-cta.css';
 import './styles/components/footer.css';
 import './styles/components/whatsapp.css';
 import './styles/components/carousel.css';
+import './styles/components/typeform-modal.css';
 
 // Seções (10 + footer)
 import './styles/sections/hero.css';
@@ -34,6 +35,7 @@ import './styles/sections/cta-final.css';
 import { rewriteCheckoutLinks } from './checkout.js';
 import { wireWhatsappWidget } from './whatsapp.js';
 import { initCarousels } from './carousel.js';
+import { WHATSAPP_GROUP_URL, GOOGLE_SHEETS_ENDPOINT } from './config.js';
 import {
   initCtaTracking,
   initScrollDepth,
@@ -91,14 +93,132 @@ if (heroSection && 'IntersectionObserver' in window) {
   heroObserver.observe(heroSection);
 }
 
-/* ---------- Checkout + Tracking ----------
-   Ordem importa: rewrite primeiro (atualiza href com UTMs), depois
-   o listener de tracking. Quando usuário clica, link já tem URL final
-   e tracking dispara antes da navegação. */
+/* ---------- Checkout + Tracking ---------- */
 rewriteCheckoutLinks();
 wireWhatsappWidget();
 initCarousels();
 
+/* ---------- WhatsApp group: wire URL from config ---------- */
+const whatsappGroupBtn = document.getElementById('whatsapp-group-btn');
+if (whatsappGroupBtn) whatsappGroupBtn.setAttribute('href', WHATSAPP_GROUP_URL);
+
 initCtaTracking();
 initScrollDepth();
 initSectionObserver();
+
+/* ---------- Modal: Escape key + body scroll lock ---------- */
+const typeformModal = document.getElementById('typeform-modal');
+
+if (typeformModal) {
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && typeformModal.classList.contains('is-open')) {
+      typeformModal.classList.remove('is-open');
+    }
+  });
+
+  const observer = new MutationObserver(() => {
+    document.body.style.overflow = typeformModal.classList.contains('is-open')
+      ? 'hidden'
+      : '';
+  });
+
+  observer.observe(typeformModal, {
+    attributes: true,
+    attributeFilter: ['class'],
+  });
+}
+
+/* ---------- Formulário ICP: validação + envio Google Sheets ---------- */
+const icpForm = document.getElementById('icp-form');
+const formStep = document.getElementById('form-step');
+const successStep = document.getElementById('success-step');
+const formError = document.getElementById('icp-form-error');
+
+if (icpForm) {
+  icpForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Validação: text inputs obrigatórios
+    const nome = icpForm.querySelector('#icp-nome');
+    const email = icpForm.querySelector('#icp-email');
+    const whatsapp = icpForm.querySelector('#icp-whatsapp');
+
+    const textsFilled = nome.value.trim() && email.value.trim() && whatsapp.value.trim();
+
+    // Validação: radio groups obrigatórios (faixa_etaria, perfil, desafio)
+    const requiredRadios = ['faixa_etaria', 'perfil', 'desafio'];
+    const radiosFilled = requiredRadios.every(
+      (name) => icpForm.querySelector(`input[name="${name}"]:checked`)
+    );
+
+    if (!textsFilled || !radiosFilled) {
+      if (formError) formError.style.display = '';
+      // Scroll to first empty required field
+      const firstInvalid = icpForm.querySelector(':invalid');
+      if (firstInvalid) firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    if (formError) formError.style.display = 'none';
+
+    // Loading state
+    const submitBtn = icpForm.querySelector('.icp-form__submit');
+    const submitText = icpForm.querySelector('.icp-form__submit-text');
+    const submitLoading = icpForm.querySelector('.icp-form__submit-loading');
+    submitBtn.disabled = true;
+    if (submitText) submitText.style.display = 'none';
+    if (submitLoading) submitLoading.style.display = '';
+
+    // Montar dados do formulário
+    const formData = new FormData(icpForm);
+
+    // Adicionar metadata
+    formData.append('timestamp', new Date().toISOString());
+    formData.append('page_url', window.location.href);
+    const params = new URLSearchParams(window.location.search);
+    formData.append('utm_source', params.get('utm_source') || '');
+    formData.append('utm_medium', params.get('utm_medium') || '');
+    formData.append('utm_campaign', params.get('utm_campaign') || '');
+
+    try {
+      // Enviar para Google Sheets via Apps Script
+      if (GOOGLE_SHEETS_ENDPOINT && !GOOGLE_SHEETS_ENDPOINT.includes('PLACEHOLDER')) {
+        await fetch(GOOGLE_SHEETS_ENDPOINT, {
+          method: 'POST',
+          body: formData,
+          mode: 'no-cors',
+        });
+      } else {
+        console.log('[Climb4B] Form data (configure GOOGLE_SHEETS_ENDPOINT):', Object.fromEntries(formData));
+        await new Promise((r) => setTimeout(r, 800));
+      }
+
+      // Tracking event
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'icp_form_submit',
+        form_perfil: formData.get('perfil'),
+        form_desafio: formData.get('desafio') || 'not_answered',
+        form_faturamento: formData.get('faturamento') || 'not_answered',
+        form_objetivo: formData.get('objetivo') || 'not_answered',
+      });
+
+      // Transição: form → sucesso + WhatsApp
+      if (formStep) formStep.style.display = 'none';
+      if (successStep) successStep.style.display = '';
+
+      // Scroll panel to top para ver a tela de sucesso
+      const panel = document.querySelector('.typeform-overlay__panel');
+      if (panel) panel.scrollTop = 0;
+
+    } catch (err) {
+      console.error('[Climb4B] Form submission error:', err);
+      if (formStep) formStep.style.display = 'none';
+      if (successStep) successStep.style.display = '';
+    } finally {
+      submitBtn.disabled = false;
+      if (submitText) submitText.style.display = '';
+      if (submitLoading) submitLoading.style.display = 'none';
+    }
+  });
+}
