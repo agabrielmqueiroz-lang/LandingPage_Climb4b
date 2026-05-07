@@ -209,6 +209,33 @@
   box-shadow: 0 0 0 3px rgba(46, 190, 90, 0.15);
 }
 
+.icp-form__outro-input {
+  width: 100%;
+  min-height: 46px;
+  margin-top: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--rule-on-dark);
+  border-radius: var(--radius-md);
+  color: var(--off-white);
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  transition:
+    border-color var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard);
+  outline: none;
+}
+
+.icp-form__outro-input::placeholder {
+  color: var(--text-on-dark-muted);
+  opacity: 0.5;
+}
+
+.icp-form__outro-input:focus {
+  border-color: var(--green-400);
+  box-shadow: 0 0 0 3px rgba(46, 190, 90, 0.15);
+}
+
 /* ============================================================
    SELECTABLE BLOCKS — estilo Typeform com letter badges
    ============================================================ */

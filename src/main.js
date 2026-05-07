@@ -135,6 +135,30 @@ const successStep = document.getElementById('success-step');
 const formError = document.getElementById('icp-form-error');
 
 if (icpForm) {
+  // Lógica para os campos "Outro"
+  const outroInputs = ['perfil', 'desafio', 'origem'];
+  outroInputs.forEach(name => {
+    const radios = icpForm.querySelectorAll(`input[name="${name}"]`);
+    const outroInputText = icpForm.querySelector(`input[name="${name}_outro"]`);
+    
+    if (radios.length > 0 && outroInputText) {
+      radios.forEach(radio => {
+        radio.addEventListener('change', (e) => {
+          if (e.target.value === 'outro') {
+            outroInputText.style.display = '';
+            outroInputText.required = true;
+            // Scroll to the input nicely
+            setTimeout(() => outroInputText.focus(), 50);
+          } else {
+            outroInputText.style.display = 'none';
+            outroInputText.required = false;
+            outroInputText.value = '';
+          }
+        });
+      });
+    }
+  });
+
   icpForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -171,6 +195,16 @@ if (icpForm) {
 
     // Montar dados do formulário
     const formData = new FormData(icpForm);
+
+    // Mesclar valores de "Outro" no campo principal para a planilha
+    outroInputs.forEach(name => {
+      const val = formData.get(name);
+      if (val === 'outro') {
+        const textVal = formData.get(`${name}_outro`);
+        formData.set(name, textVal ? `Outro: ${textVal}` : 'Outro');
+      }
+      formData.delete(`${name}_outro`); // Remove o campo extra
+    });
 
     // Adicionar metadata
     formData.append('timestamp', new Date().toISOString());
