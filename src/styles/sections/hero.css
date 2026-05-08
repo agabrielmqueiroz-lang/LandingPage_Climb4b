@@ -66,6 +66,11 @@
   max-width: 36rem;
 }
 
+.hero-badge {
+  margin-bottom: var(--space-2);
+  align-self: flex-start;
+}
+
 .hero-text .eyebrow {
   color: var(--green-300);
   margin-bottom: 0;
