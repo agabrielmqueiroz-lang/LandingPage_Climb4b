@@ -1,120 +1,106 @@
 /* ============================================================
-   faq.css — direção: nativo <details>/<summary> com chevron
-   custom (sem JS), hover sutil, fundo alternado para rhythm.
-   Container narrow (640px) — leitura é o que importa aqui.
+   faq.css — direção visual:
+   Lista de <details> nativos (acessibilidade gratuita). Summary
+   tipográfico forte com indicador "+" / "−" via CSS no estado
+   :open. Borda superior em cada item — pattern editorial de
+   "lista divisora" (vs cards bordados). Sem animação JS — a
+   transição de altura nativa do <details> é suficiente. Foco
+   visível verde via base.css.
    ============================================================ */
 
 #faq {
-  background: var(--off-white);
+  background: var(--bg);
 }
 
 #faq .container {
-  max-width: var(--container-narrow);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-12);
+}
+
+@media (min-width: 1080px) {
+  #faq .container {
+    grid-template-columns: 1fr 1.4fr;
+    gap: var(--space-16);
+    align-items: start;
+  }
 }
 
 #faq h2 {
-  font-size: clamp(1.875rem, 4.4vw, 3.75rem);
-  margin-bottom: var(--space-12);
-  max-width: 22ch;
-  line-height: 1.05;
+  margin-bottom: 0;
+  text-wrap: balance;
 }
 
-/* ---------- Lista de itens ---------- */
 .faq-list {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  border-top: 1px solid var(--rule-strong);
 }
 
-#faq details {
-  background: var(--white);
-  border: 1px solid var(--rule);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  transition:
-    border-color var(--duration-fast) var(--ease-standard),
-    box-shadow var(--duration-fast) var(--ease-standard);
+.faq-list > li {
+  border-bottom: 1px solid var(--rule);
 }
 
-#faq details:hover {
-  border-color: var(--ink-300);
+.faq-list details {
+  padding: 0;
 }
 
-#faq details[open] {
-  border-color: var(--green-500);
-  box-shadow: var(--shadow-1);
-}
-
-/* Esconde o triângulo nativo */
-#faq summary {
+.faq-list summary {
   list-style: none;
   cursor: pointer;
+  padding: var(--space-6) var(--space-12) var(--space-6) 0;
   position: relative;
-  padding: var(--space-6) calc(var(--space-8) + 32px) var(--space-6)
-    var(--space-8);
-  display: flex;
-  align-items: center;
-  min-height: 80px;
-  transition: background-color var(--duration-fast) var(--ease-standard);
-}
-
-#faq summary::-webkit-details-marker {
-  display: none;
-}
-
-#faq summary::marker {
-  display: none;
-  content: "";
-}
-
-#faq summary:hover {
-  background: var(--off-white);
-}
-
-/* Pergunta — h3 dentro de summary precisa de reset */
-#faq summary h3 {
-  font-family: var(--font-body);
-  font-size: var(--fs-md);
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
   font-weight: var(--fw-semibold);
   color: var(--navy-900);
-  letter-spacing: -0.005em;
-  margin: 0;
-  line-height: 1.35;
+  line-height: var(--lh-snug);
+  letter-spacing: -0.01em;
+  transition: color var(--duration-fast) var(--ease-standard);
 }
 
-/* Chevron custom à direita */
-#faq summary::after {
-  content: "";
+.faq-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-list summary:hover {
+  color: var(--accent-strong);
+}
+
+.faq-list summary::after {
+  content: '';
   position: absolute;
-  right: var(--space-8);
+  right: 0;
   top: 50%;
-  width: 20px;
-  height: 20px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M5 7.5L10 12.5L15 7.5' stroke='%231FA047' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
+  width: 22px;
+  height: 22px;
+  background-image:
+    linear-gradient(to right, var(--accent) 0, var(--accent) 100%),
+    linear-gradient(to right, var(--accent) 0, var(--accent) 100%);
+  background-size:
+    100% 2.5px,
+    2.5px 100%;
   background-position: center;
+  background-repeat: no-repeat;
   transform: translateY(-50%);
-  transition: transform var(--duration-base) var(--ease-emphasized);
-  transform-origin: center;
+  transition: transform var(--duration-base) var(--ease-standard);
 }
 
-#faq details[open] summary::after {
+.faq-list details[open] summary::after {
+  background-size:
+    100% 2.5px,
+    0 0;
   transform: translateY(-50%) rotate(180deg);
 }
 
-/* Resposta — mais respiro entre pergunta e resposta */
-#faq details > p {
-  padding: var(--space-2) var(--space-8) var(--space-8) var(--space-8);
-  font-size: var(--fs-base);
-  line-height: var(--lh-relaxed);
-  color: var(--text);
-  margin: 0;
-  max-width: none;
-  border-top: 1px solid var(--rule);
-  margin-top: var(--space-2);
-  padding-top: var(--space-6);
+.faq-list details[open] summary {
+  color: var(--accent-strong);
 }
 
-#faq details > p strong {
-  color: var(--navy-900);
+.faq-list details > p {
+  padding: 0 var(--space-12) var(--space-6) 0;
+  color: var(--text-muted);
+  font-size: var(--fs-base);
+  line-height: var(--lh-relaxed);
+  max-width: 60ch;
 }

@@ -1,112 +1,94 @@
 /* ============================================================
-   publicos.css — direção: 3 cards verticais, cada um com avatar
-   geométrico no topo + aspas dominante (display italic) + linha
-   de promessa abaixo. Background paper para diferenciar de Aulas
-   (off-white). Stagger sutil em desktop quebra "3 cards em row".
+   publicos.css — direção visual:
+   3 cards em colunas (mobile: stack). Borda esquerda verde
+   forte como elemento dominante — substitui o ícone, dá peso
+   editorial e identifica visualmente o "card de persona" sem
+   precisar de imagem. H3 em display, p em muted. Sem fundo de
+   card (transparent + border) — flat editorial.
    ============================================================ */
 
 #publicos {
-  background: var(--paper);
-}
-
-#publicos .container {
-  max-width: var(--container-base);
+  background: var(--bg);
 }
 
 #publicos h2 {
-  font-size: clamp(1.875rem, 4.4vw, 3.75rem);
-  margin-bottom: var(--space-16);
-  max-width: 22ch;
-  line-height: 1.05;
+  max-width: 24ch;
+  margin-bottom: var(--space-4);
 }
 
-/* ---------- Grid das 3 personas ---------- */
+#publicos .lead {
+  margin-bottom: var(--space-12);
+  max-width: 64ch;
+}
+
 .publicos-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-6);
+  gap: var(--space-8);
 }
 
-@media (min-width: 880px) {
+@media (min-width: 720px) {
   .publicos-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr 1fr;
     gap: var(--space-6);
-  }
-
-  /* Stagger: card central desce um pouco, cria diagonal */
-  .publicos-grid > article:nth-child(2) {
-    margin-top: var(--space-12);
   }
 }
 
 .publico-card {
+  padding: var(--space-6) var(--space-8);
+  border-left: 3px solid var(--accent);
+  background: var(--bg-alt);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  gap: var(--space-6);
-  padding: var(--space-12) var(--space-8);
-  background: var(--white);
-  border: 1px solid var(--rule);
-  border-radius: var(--radius-md);
-  height: 100%;
-  transition:
-    border-color var(--duration-fast) var(--ease-standard),
-    transform var(--duration-fast) var(--ease-standard),
-    box-shadow var(--duration-fast) var(--ease-standard);
+  gap: var(--space-3);
+  transition: background var(--duration-fast) var(--ease-standard);
 }
 
 .publico-card:hover {
-  border-color: var(--navy-900);
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-2);
+  background: var(--ink-100);
 }
 
-/* Garante que cards do mesmo grid linha tenham altura igual,
-   mantendo conteúdo verticalmente centralizado em cada um. */
-.publicos-grid {
-  align-items: stretch;
+.publico-tag {
+  display: inline-block;
+  align-self: flex-start;
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--accent-strong);
 }
 
-/* Aspa = headline do card. Sem rótulo de cargo — a frase é o gatilho
-   de identificação. Usuário lê e pensa "isso sou eu". */
-.publico-aspa {
-  font-family: var(--font-display);
+.publico-card h3 {
   font-size: var(--fs-xl);
-  font-style: italic;
-  font-weight: var(--fw-regular);
-  line-height: 1.2;
+  font-weight: var(--fw-semibold);
   color: var(--navy-900);
   margin: 0;
-  letter-spacing: -0.015em;
-  position: relative;
-  padding-top: var(--space-12);
+  line-height: var(--lh-snug);
+  text-wrap: balance;
+}
+
+.publico-pain {
+  padding: var(--space-3) var(--space-4);
+  background: var(--bg);
+  border-left: 2px solid var(--ink-300);
+  font-size: var(--fs-sm);
+  color: var(--text);
   max-width: none;
 }
 
-/* Aspa decorativa grande acima da frase, centralizada */
-.publico-aspa::before {
-  content: "“";
-  position: absolute;
-  top: -16px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: var(--font-display);
-  font-size: 5rem;
-  line-height: 1;
-  color: var(--accent);
-  opacity: 0.6;
+.publico-pain strong {
+  color: var(--navy-900);
+  font-weight: var(--fw-bold);
 }
 
-.publico-promise {
+.publico-card > p:not(.publico-pain) {
+  color: var(--text-muted);
   font-size: var(--fs-base);
-  line-height: var(--lh-relaxed);
-  color: var(--text);
-  margin: 0;
-  border-top: 1px solid var(--rule);
-  padding-top: var(--space-5);
-  width: 100%;
-  max-width: 32ch;
-  text-align: center;
+  max-width: none;
+}
+
+.publico-card > p:not(.publico-pain) strong {
+  color: var(--navy-900);
+  font-weight: var(--fw-semibold);
 }

@@ -25,25 +25,25 @@
   </g>
 
   <!-- Eyebrow -->
-  <text x="80" y="240" font-family="-apple-system, sans-serif" font-size="22" font-weight="600" fill="#7BD89A" letter-spacing="3" text-transform="uppercase">CURSO DE ENTRADA · FINANÇAS EMPRESARIAIS</text>
+  <text x="80" y="240" font-family="-apple-system, sans-serif" font-size="22" font-weight="600" fill="#7BD89A" letter-spacing="3">CLIMB PASS · ASSINATURA MENSAL</text>
 
   <!-- Headline (display) -->
-  <text x="80" y="340" font-family="Georgia, serif" font-size="78" font-weight="600" fill="#F7F8F5" letter-spacing="-2">Leia finanças como uma</text>
-  <text x="80" y="430" font-family="Georgia, serif" font-size="78" font-weight="400" fill="#7BD89A" font-style="italic" letter-spacing="-2">CFO em atuação.</text>
+  <text x="80" y="340" font-family="Georgia, serif" font-size="78" font-weight="600" fill="#F7F8F5" letter-spacing="-2">Finanças empresariais,</text>
+  <text x="80" y="430" font-family="Georgia, serif" font-size="78" font-weight="400" fill="#7BD89A" font-style="italic" letter-spacing="-2">um passo por semana.</text>
 
   <!-- Sub line -->
-  <text x="80" y="490" font-family="-apple-system, sans-serif" font-size="26" fill="#B4BCD0" letter-spacing="-0.2">Em 5 aulas, integre DRE, Balanço e Fluxo de Caixa em uma só decisão.</text>
+  <text x="80" y="490" font-family="-apple-system, sans-serif" font-size="26" fill="#B4BCD0" letter-spacing="-0.2">Novas aulas, ferramentas e lives toda semana. CFO em atuação ensinando.</text>
 
   <!-- Right-side: price card -->
   <g transform="translate(840, 200)">
     <rect x="0" y="0" width="280" height="220" rx="20" fill="rgba(255,255,255,0.04)" stroke="#2EBE5A" stroke-width="2"/>
-    <text x="140" y="48" font-family="-apple-system, sans-serif" font-size="14" font-weight="600" fill="#7BD89A" letter-spacing="3" text-anchor="middle">TURMA FUNDADORA</text>
-    <text x="140" y="120" font-family="Georgia, serif" font-size="80" font-weight="300" fill="#F7F8F5" text-anchor="middle" letter-spacing="-2">R$ 299</text>
-    <text x="140" y="168" font-family="-apple-system, sans-serif" font-size="18" fill="#B4BCD0" text-anchor="middle">à vista ou em 12x</text>
+    <text x="140" y="48" font-family="-apple-system, sans-serif" font-size="14" font-weight="600" fill="#7BD89A" letter-spacing="3" text-anchor="middle">ASSINATURA</text>
+    <text x="140" y="120" font-family="Georgia, serif" font-size="68" font-weight="300" fill="#F7F8F5" text-anchor="middle" letter-spacing="-2">R$ 99,90</text>
+    <text x="140" y="168" font-family="-apple-system, sans-serif" font-size="18" fill="#B4BCD0" text-anchor="middle">por mês · sem fidelidade</text>
     <line x1="40" y1="184" x2="240" y2="184" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
     <text x="140" y="206" font-family="-apple-system, sans-serif" font-size="14" fill="#7BD89A" text-anchor="middle">Garantia de 7 dias</text>
   </g>
 
   <!-- Footer line -->
-  <text x="80" y="580" font-family="-apple-system, sans-serif" font-size="16" fill="#5C6680" letter-spacing="2">CLIMB4B.COM · MÉTODO DE LEITURA CONECTADA</text>
+  <text x="80" y="580" font-family="-apple-system, sans-serif" font-size="16" fill="#5C6680" letter-spacing="2">CLIMB4B.COM · CLIMB4B ACADEMY</text>
 </svg>

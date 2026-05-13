@@ -1,235 +1,193 @@
 /* ============================================================
-   oferta.css — A peça mais importante. Direção: pricing card
-   navy dominante centralizado em background paper, R$ 299 em
-   display gigante, R$ 1.998 ancorado riscado, badges (garantia,
-   turma fundadora) com pílulas. Single CTA grande dentro do card.
+   oferta.css — direção visual:
+   Faixa navy mais profundo que hero (~navy-800 com glow verde)
+   para criar pausa visual entre as seções claras anteriores e
+   o FAQ. Pricing card único, centralizado, max-width 560px.
+   Valor R$ 99,90 em display ~120px (fs-display) com tabular-nums
+   — o número dominante da página. CTA grande sob o preço, com
+   seta verde. Meta "sem fidelidade · garantia" abaixo do valor,
+   fineprint embaixo do CTA. Selo de garantia em badge minimal.
    ============================================================ */
 
 #oferta {
-  background: var(--paper);
+  background: var(--navy-900);
+  position: relative;
+  overflow: hidden;
+}
+
+#oferta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    900px 600px at 50% 50%,
+    rgba(46, 190, 90, 0.1),
+    transparent 70%
+  );
+  pointer-events: none;
 }
 
 #oferta .container {
-  max-width: var(--container-base);
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#oferta .eyebrow {
+  color: var(--green-300);
 }
 
 #oferta h2 {
-  font-size: clamp(1.875rem, 4.4vw, 3.75rem);
-  margin-bottom: var(--space-16);
-  max-width: 22ch;
-  line-height: 1.05;
-  text-align: center;
-  margin-inline: auto;
+  color: var(--off-white);
+  max-width: 24ch;
+  margin-bottom: var(--space-4);
+  text-wrap: balance;
 }
 
-#oferta > .container > .eyebrow {
-  display: block;
+#oferta .lead {
+  color: var(--text-on-dark-muted);
+  max-width: 62ch;
+  margin-bottom: var(--space-12);
   text-align: center;
-  margin-inline: auto;
-  margin-bottom: var(--space-3);
 }
 
-/* ---------- Pricing card ---------- */
 .pricing-card {
   position: relative;
-  max-width: 640px;
-  margin-inline: auto;
-  background: var(--navy-900);
-  color: var(--text-on-dark);
+  width: 100%;
+  max-width: 560px;
+  padding: var(--space-12);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--green-400);
   border-radius: var(--radius-xl);
-  padding: var(--space-10) var(--space-8);
-  isolation: isolate;
-  overflow: hidden;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
   box-shadow:
-    0 24px 64px -28px rgba(15, 30, 61, 0.5),
-    0 1px 0 rgba(255, 255, 255, 0.04) inset;
+    0 0 0 4px rgba(46, 190, 90, 0.08),
+    0 18px 48px rgba(46, 190, 90, 0.18);
+}
+
+.pricing-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: var(--navy-900);
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-pill);
 }
 
 @media (min-width: 720px) {
   .pricing-card {
-    padding: var(--space-12) var(--space-12);
+    padding: var(--space-16) var(--space-12);
   }
 }
 
-.pricing-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    ellipse at 100% 0%,
-    rgba(46, 190, 90, 0.18),
-    transparent 55%
-  );
-  z-index: -1;
-}
-
-/* Badge "turma fundadora" no topo do card */
-.pricing-badge {
-  position: absolute;
-  top: var(--space-6);
-  right: var(--space-6);
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-2) var(--space-3);
-  background: rgba(46, 190, 90, 0.18);
-  border: 1px solid var(--green-400);
-  border-radius: var(--radius-pill);
-  font-size: var(--fs-xs);
-  font-weight: var(--fw-semibold);
-  letter-spacing: var(--tracking-wide);
-  text-transform: uppercase;
-  color: var(--green-300);
-}
-
-.pricing-badge::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: var(--radius-pill);
-  background: var(--green-400);
-  box-shadow: 0 0 0 4px rgba(46, 190, 90, 0.2);
-  animation: badge-pulse 2.4s ease-in-out infinite;
-}
-
-@keyframes badge-pulse {
-  0%, 100% { opacity: 1; }
-  50%      { opacity: 0.4; }
-}
-
-/* Anchor: R$ 1.998 do programa completo */
-.pricing-anchor {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
-  margin-bottom: var(--space-6);
-}
-
-.pricing-anchor__label {
-  font-size: var(--fs-xs);
-  font-weight: var(--fw-semibold);
-  text-transform: uppercase;
-  letter-spacing: var(--tracking-eyebrow);
-  color: var(--text-on-dark-muted);
-}
-
-.pricing-anchor__value {
-  font-family: var(--font-display);
-  font-size: var(--fs-lg);
-  color: var(--text-on-dark-muted);
-  text-decoration: line-through;
-  text-decoration-thickness: 1px;
-  font-variant-numeric: tabular-nums;
-}
-
-/* Preço principal */
-.pricing-main {
+.pricing-amount {
   display: flex;
   align-items: baseline;
-  gap: var(--space-3);
-  margin-bottom: var(--space-2);
+  gap: var(--space-2);
+  color: var(--off-white);
 }
 
 .pricing-currency {
   font-family: var(--font-display);
-  font-size: var(--fs-xl);
+  font-size: var(--fs-lg);
   font-weight: var(--fw-light);
-  color: var(--text-on-dark);
+  color: var(--text-on-dark-muted);
+}
+
+.pricing-value {
+  font-family: var(--font-display);
+  font-size: clamp(4.5rem, 13vw, 8rem);
+  font-weight: var(--fw-light);
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  color: var(--off-white);
   font-variant-numeric: tabular-nums;
 }
 
-.pricing-amount {
-  font-family: var(--font-display);
-  font-size: clamp(4rem, 12vw, 7rem);
-  font-weight: var(--fw-light);
-  line-height: 0.9;
-  color: var(--off-white);
-  letter-spacing: -0.04em;
-  font-variant-numeric: tabular-nums lining-nums;
+.pricing-period {
+  font-family: var(--font-body);
+  font-size: var(--fs-md);
+  color: var(--text-on-dark-muted);
+  font-weight: var(--fw-medium);
 }
 
-.pricing-installments {
+.pricing-meta {
   font-size: var(--fs-sm);
   color: var(--text-on-dark-muted);
-  margin-bottom: var(--space-8);
-  font-variant-numeric: tabular-nums;
+  margin: 0;
+  max-width: none;
+  text-align: center;
 }
 
-.pricing-installments strong {
-  color: var(--off-white);
-  font-weight: var(--fw-semibold);
-}
-
-/* Inclusões */
-.pricing-inclusions {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 var(--space-8) 0;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-  border-top: 1px solid var(--rule-on-dark);
-  padding-top: var(--space-6);
-}
-
-.pricing-inclusions li {
-  display: grid;
-  grid-template-columns: 20px 1fr;
-  gap: var(--space-3);
-  font-size: var(--fs-base);
-  color: var(--text-on-dark);
-  align-items: start;
-}
-
-.pricing-inclusions li::before {
-  content: "";
-  width: 20px;
-  height: 20px;
-  margin-top: 2px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M3 8.5L6 11.5L13 4.5' stroke='%237BD89A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.pricing-card .btn--primary {
-  width: 100%;
-  font-size: var(--fs-md);
-  min-height: 56px;
-}
-
-/* Risk reversal — escudo + linha curta abaixo do CTA. Quick Win
-   da rodada page-cro: garante que a "incondicionalidade" da garantia
-   apareça com peso visual, não escondida na lista de inclusões. */
-.pricing-guarantee {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  margin-top: var(--space-4);
-  padding: var(--space-3) var(--space-4);
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--rule-on-dark);
-  border-radius: var(--radius-md);
-  font-size: var(--fs-sm);
-  line-height: 1.4;
-  color: var(--text-on-dark);
-}
-
-.pricing-guarantee svg {
-  width: 24px;
-  height: 24px;
-  flex-shrink: 0;
-  color: var(--green-300);
-}
-
-.pricing-guarantee strong {
-  color: var(--off-white);
-  font-weight: var(--fw-semibold);
+.pricing-cta {
+  margin-top: var(--space-2);
+  min-width: 280px;
 }
 
 .pricing-fineprint {
-  margin-top: var(--space-4);
-  text-align: center;
   font-size: var(--fs-xs);
   color: var(--text-on-dark-muted);
+  max-width: 44ch;
+  text-align: center;
+  margin: 0;
+  line-height: var(--lh-base);
+}
+
+.pricing-stack {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-4) 0;
+  border-top: 1px solid var(--rule-on-dark);
+  border-bottom: 1px solid var(--rule-on-dark);
+}
+
+.pricing-stack li {
+  position: relative;
+  padding-left: var(--space-6);
+  font-size: var(--fs-sm);
+  color: var(--text-on-dark);
+  line-height: var(--lh-snug);
+}
+
+.pricing-stack li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.4em;
+  width: 14px;
+  height: 14px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M3 8.5L6 11.5L13 4.5' stroke='%237BD89A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.pricing-anchor {
+  margin-top: var(--space-12);
+  max-width: 64ch;
+  text-align: center;
+  font-size: var(--fs-sm);
+  color: var(--text-on-dark-muted);
+  line-height: var(--lh-relaxed);
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--rule-on-dark);
+}
+
+.pricing-anchor strong {
+  color: var(--off-white);
+  font-weight: var(--fw-semibold);
 }

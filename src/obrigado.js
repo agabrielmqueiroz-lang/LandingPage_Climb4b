@@ -1,7 +1,8 @@
 /* ============================================================
    obrigado.js — entrada da página /obrigado.html.
-   Webinar flow: confirma inscrição e direciona para grupo VIP
-   do WhatsApp. Tracking de conversion ainda dispara via dataLayer.
+   Climb Pass flow: assinatura confirmada após checkout Eduzz.
+   Dispara `purchase` no carregamento (com transactionId do success_url
+   da Eduzz) e direciona para o grupo de assinantes no WhatsApp.
    ============================================================ */
 
 import './styles/tokens.css';
@@ -13,12 +14,13 @@ import './styles/components/footer.css';
 import './styles/components/whatsapp.css';
 import './styles/pages/obrigado.css';
 
-import { initCtaTracking } from './tracking.js';
+import { initCtaTracking, trackPurchase } from './tracking.js';
 import { wireWhatsappWidget } from './whatsapp.js';
 import { WHATSAPP_GROUP_URL } from './config.js';
 
 wireWhatsappWidget();
 initCtaTracking();
+trackPurchase();
 
 /* Wire WhatsApp group button on obrigado page */
 const obrigadoWhatsappBtn = document.getElementById('obrigado-whatsapp-group');

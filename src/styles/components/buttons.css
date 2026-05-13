@@ -118,6 +118,23 @@
   width: 100%;
 }
 
+/* ---------- Large: CTA dominante (pricing card, cta-final) ---------- */
+.btn--large {
+  min-height: 60px;
+  padding: var(--space-4) var(--space-12);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-bold);
+  border-radius: var(--radius-md);
+}
+
+@media (min-width: 720px) {
+  .btn--large {
+    min-height: 64px;
+    font-size: var(--fs-lg);
+    padding: var(--space-4) var(--space-16);
+  }
+}
+
 /* ---------- Microcopy abaixo do CTA ---------- */
 .cta-microcopy {
   margin-top: var(--space-3);

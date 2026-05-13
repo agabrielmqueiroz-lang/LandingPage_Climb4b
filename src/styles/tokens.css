@@ -105,10 +105,10 @@
   --space-32: 8rem;     /* 128 */
 
   /* ---------- Layout ---------- */
-  --container-narrow: 720px;
-  --container-base: 1080px;
-  --container-wide: 1240px;
-  --container-pad: clamp(1rem, 4vw, 2.5rem);
+  --container-narrow: 760px;
+  --container-base: 1200px;
+  --container-wide: 1360px;
+  --container-pad: clamp(1.25rem, 4vw, 2.75rem);
 
   /* ---------- Radius ---------- */
   --radius-xs: 2px;

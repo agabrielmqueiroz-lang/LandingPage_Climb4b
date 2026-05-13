@@ -1,103 +1,72 @@
 /* ============================================================
-   cta-final.css — direção: full-bleed navy com gradient verde
-   sutil, citação Drucker dominante (display serif, 4xl), single
-   CTA grande, assinatura Leandro discreta abaixo. Continua direto
-   no footer (sem rule entre eles — bloco navy contínuo).
+   cta-final.css — direção visual:
+   Faixa navy continuous (até o footer). Quote em display
+   serifa-italic (peso editorial) como elemento dominante, H2
+   abaixo como "comando" (Comece esta semana), CTA grande
+   centralizado, meta em fine-print. Centered layout porque é
+   "last call" — não há mais conteúdo lateral competindo.
    ============================================================ */
 
 #cta-final {
-  background:
-    radial-gradient(
-      ellipse at 50% 0%,
-      rgba(46, 190, 90, 0.08),
-      transparent 55%
-    ),
-    var(--navy-900);
-  color: var(--text-on-dark);
+  background: var(--navy-900);
   text-align: center;
   position: relative;
-  isolation: isolate;
+  overflow: hidden;
 }
 
-#cta-final::after {
-  /* Pontilhado decorativo — remete ao diagrama do método */
-  content: "";
+#cta-final::before {
+  content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(
-    circle at 1px 1px,
-    rgba(255, 255, 255, 0.04) 1px,
-    transparent 0
+  background: radial-gradient(
+    1000px 500px at 50% 100%,
+    rgba(46, 190, 90, 0.08),
+    transparent 70%
   );
-  background-size: 24px 24px;
   pointer-events: none;
-  z-index: -1;
 }
 
 #cta-final .container {
-  max-width: var(--container-narrow);
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--space-8);
 }
 
-/* Drucker quote como elemento dominante no topo */
 .cta-final-quote {
   font-family: var(--font-display);
-  font-size: clamp(1.75rem, 3.6vw, 2.75rem);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
   font-style: italic;
   font-weight: var(--fw-regular);
-  line-height: 1.2;
-  color: var(--off-white);
-  margin: 0;
+  line-height: var(--lh-snug);
+  color: var(--text-on-dark);
   max-width: 32ch;
-  letter-spacing: -0.015em;
-  border-left: none;
-  padding: 0;
-}
-
-.cta-final-quote::before {
-  content: "“";
-  font-family: var(--font-display);
-  color: var(--green-300);
-  font-size: 1.4em;
-  line-height: 0;
-  vertical-align: -0.35em;
-  margin-right: 0.05em;
-}
-
-.cta-final-quote::after {
-  content: "”";
-  font-family: var(--font-display);
-  color: var(--green-300);
-  font-size: 1.4em;
-  line-height: 0;
-  vertical-align: -0.35em;
-  margin-left: 0.05em;
-}
-
-.cta-final-cite {
-  font-family: var(--font-body);
-  font-size: var(--fs-xs);
-  font-weight: var(--fw-semibold);
-  text-transform: uppercase;
-  letter-spacing: var(--tracking-eyebrow);
-  color: var(--green-300);
-  font-style: normal;
+  text-wrap: balance;
+  margin: 0;
 }
 
 #cta-final h2 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: var(--fw-semibold);
   color: var(--off-white);
-  font-size: clamp(1.875rem, 3.6vw, 3rem);
-  line-height: 1.1;
-  max-width: 24ch;
+  margin: 0;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.cta-final-meta {
+  font-size: var(--fs-sm);
+  color: var(--text-on-dark-muted);
+  margin: 0;
+  max-width: none;
+}
+
+.cta-final-body {
+  font-size: var(--fs-md);
+  color: var(--text-on-dark-muted);
+  line-height: var(--lh-relaxed);
+  max-width: 60ch;
+  text-align: center;
   margin: 0;
 }
-
-#cta-final .btn--primary {
-  font-size: var(--fs-md);
-  min-height: 56px;
-  padding-inline: var(--space-12);
-}
-

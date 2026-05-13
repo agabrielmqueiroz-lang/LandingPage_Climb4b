@@ -1,241 +1,76 @@
 /* ============================================================
-   autoridade.css — direção: editorial executivo claro,
-   card de autor (placeholder geométrico) à esquerda, texto +
-   credenciais à direita. Citação Porter como elemento gráfico
-   full-width abaixo, com border verde firme.
+   autoridade.css — direção visual:
+   Faixa editorial enxuta entre Hero (dark) e Problema (claro).
+   Quote dominante como elemento principal — peso tipográfico
+   afirma a tese. Atribuição em lead muted abaixo. Sem grid de
+   stats (movidos pra dentro do card da Marissa em #professora).
    ============================================================ */
 
 #autoridade {
-  background: var(--paper);
+  background: var(--bg);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
 }
 
 #autoridade .container {
   max-width: var(--container-base);
 }
 
-#autoridade > .container > .eyebrow {
-  display: block;
-  margin-bottom: var(--space-3);
-}
-
-#autoridade h2 {
-  font-size: clamp(1.875rem, 4.4vw, 3.75rem);
-  margin-bottom: var(--space-16);
-  max-width: 22ch;
-}
-
-/* ---------- Layout principal: card autor + credenciais ---------- */
-.author-block {
-  display: grid;
-  gap: var(--space-12);
-  grid-template-columns: 1fr;
-  align-items: start;
-  margin-bottom: var(--space-24);
-}
-
-@media (min-width: 880px) {
-  .author-block {
-    grid-template-columns: 280px 1fr;
-    gap: var(--space-16);
-  }
-}
-
-/* ---------- Video placeholder · 16:9 com play button ----------
-   Pilar 1 = autoridade. Vídeo da CFO em atuação é o social proof
-   mais forte possível. Aqui é placeholder (badge "Vídeo real
-   entra aqui" sinaliza para o time); substituir por <video> ou
-   embed (Vimeo/YouTube) quando a apresentação for gravada. */
-.video-placeholder {
-  position: relative;
-  background: var(--navy-900);
-  border-radius: var(--radius-lg);
-  aspect-ratio: 16 / 10;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  overflow: hidden;
-  isolation: isolate;
-  cursor: pointer;
-  margin: 0;
-  border: 1px solid var(--rule-on-dark);
-  transition:
-    transform var(--duration-base) var(--ease-emphasized),
-    box-shadow var(--duration-base) var(--ease-emphasized);
-}
-
-.video-placeholder:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 24px 48px -16px rgba(15, 30, 61, 0.4);
-}
-
-.video-placeholder::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(
-      circle at 30% 40%,
-      rgba(46, 190, 90, 0.22),
-      transparent 60%
-    ),
-    radial-gradient(
-      circle at 70% 80%,
-      rgba(27, 43, 92, 0.5),
-      transparent 60%
-    );
-  z-index: -1;
-}
-
-.video-placeholder::after {
-  /* Subtle film-grain texture */
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(
-    circle at 1px 1px,
-    rgba(255, 255, 255, 0.04) 1px,
-    transparent 0
-  );
-  background-size: 16px 16px;
-  z-index: -1;
-}
-
-.video-placeholder__play {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80px;
-  height: 80px;
-  border-radius: var(--radius-pill);
-  background: var(--green-500);
-  color: var(--navy-900);
-  border: 0;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow:
-    0 0 0 8px rgba(46, 190, 90, 0.18),
-    0 16px 32px -8px rgba(46, 190, 90, 0.5);
-  transition:
-    transform var(--duration-base) var(--ease-emphasized),
-    box-shadow var(--duration-base) var(--ease-emphasized),
-    background-color var(--duration-fast) var(--ease-standard);
-}
-
-.video-placeholder:hover .video-placeholder__play,
-.video-placeholder__play:hover {
-  transform: translate(-50%, -50%) scale(1.06);
-  background: var(--green-400);
-  box-shadow:
-    0 0 0 12px rgba(46, 190, 90, 0.22),
-    0 20px 40px -10px rgba(46, 190, 90, 0.6);
-}
-
-.video-placeholder__play svg {
-  width: 32px;
-  height: 32px;
-  margin-left: 4px;
-}
-
-.video-placeholder__meta {
-  position: relative;
-  margin-top: auto;
-  padding: var(--space-4) var(--space-5);
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.55),
-    transparent
-  );
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  z-index: 1;
-}
-
-.video-placeholder__role {
-  font-family: var(--font-body);
-  font-size: var(--fs-xs);
+.authority-quote {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.4vw, 3.5rem);
   font-weight: var(--fw-semibold);
-  text-transform: uppercase;
-  letter-spacing: var(--tracking-eyebrow);
-  color: var(--green-300);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--navy-900);
+  max-width: 22ch;
+  margin-bottom: var(--space-6);
+  text-wrap: balance;
 }
 
-.video-placeholder__duration {
-  font-family: var(--font-body);
+.authority-attribution {
+  color: var(--text-muted);
+  max-width: 64ch;
+  margin-bottom: 0;
+}
+
+/* ============================================================
+   Wordmarks — usado dentro do card da Marissa em #professora.
+   Estilo mantido aqui porque a classe `.authority-wordmarks`
+   ainda é referenciada (linha horizontal de empresas).
+   ============================================================ */
+.authority-wordmarks {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-6);
+}
+
+.authority-wordmarks span {
+  font-family: var(--font-display);
   font-size: var(--fs-sm);
-  font-weight: var(--fw-medium);
-  color: var(--off-white);
-}
-
-/* Badge "vídeo real entra aqui" — propositalmente visível enquanto
-   asset não foi gravado. Remover quando substituir por vídeo real. */
-.video-placeholder[data-placeholder] .placeholder-badge {
-  position: absolute;
-  top: var(--space-3);
-  right: var(--space-3);
-  z-index: 2;
-  padding: 4px var(--space-3);
-  font-family: var(--font-body);
-  font-size: 10px;
   font-weight: var(--fw-semibold);
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
-  color: var(--green-300);
-  background: rgba(46, 190, 90, 0.15);
-  border: 1px dashed var(--green-400);
-  border-radius: var(--radius-xs);
+  color: var(--ink-500);
+  white-space: nowrap;
+  position: relative;
 }
 
-/* ---------- Credenciais · lista com checkmark verde ---------- */
-.credentials {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-  padding: 0;
-  margin: 0;
+.authority-wordmarks span + span::before {
+  content: '';
+  position: absolute;
+  left: calc(var(--space-6) * -0.5);
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  background: var(--ink-300);
+  border-radius: 50%;
+  transform: translateY(-50%);
 }
 
-.credentials li {
-  display: grid;
-  grid-template-columns: 24px 1fr;
-  gap: var(--space-3);
-  align-items: start;
-  font-size: var(--fs-md);
-  line-height: var(--lh-base);
-  color: var(--text);
-  max-width: 38rem;
-}
-
-.credentials li::before {
-  content: "";
-  display: block;
-  width: 24px;
-  height: 24px;
-  margin-top: 2px;
-  background-color: var(--green-200);
-  border-radius: var(--radius-pill);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M3.5 8.5L6.5 11.5L12.5 5.5' stroke='%231FA047' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: center;
-  flex-shrink: 0;
-}
-
-/* ---------- Quote Porter · elemento gráfico dominante ---------- */
-#autoridade .quote {
-  font-size: clamp(1.5rem, 2.6vw, 2.125rem);
-  line-height: 1.25;
-  border-left: 4px solid var(--accent);
-  padding-left: var(--space-8);
-  max-width: 48rem;
-  margin: 0;
-}
-
-#autoridade .quote cite {
-  margin-top: var(--space-4);
-  font-size: var(--fs-sm);
-  color: var(--accent-strong);
+@media (max-width: 719px) {
+  .authority-wordmarks span + span::before {
+    display: none;
+  }
 }

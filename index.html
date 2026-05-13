@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#0F1E3D" />
 
-    <title>Webinar Gratuito · Finanças Empresariais na Prática — Climb4B</title>
+    <title>Climb Pass · Assinatura de educação em finanças empresariais — Climb4B</title>
     <meta
       name="description"
-      content="Webinar gratuito: descubra por que sua empresa mostra lucro mas aperta no caixa. Método de uma CFO em atuação. Inscreva-se agora."
+      content="Climb Pass é a assinatura mensal da Climb4B Academy com novas aulas, ferramentas e lives toda semana. CFO em atuação ensinando o que importa. R$ 99,90/mês, sem fidelidade."
     />
-    <link rel="canonical" href="https://climb4b.com/curso-de-entrada" />
+    <link rel="canonical" href="https://climb4b.com/climb-pass" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -18,31 +18,31 @@
     <meta property="og:site_name" content="Climb4B" />
     <meta
       property="og:title"
-      content="Webinar Gratuito · Finanças Empresariais na Prática — Climb4B"
+      content="Climb Pass · Assinatura de educação em finanças empresariais"
     />
     <meta
       property="og:description"
-      content="Webinar gratuito: descubra por que sua empresa mostra lucro mas aperta no caixa. Método de uma CFO em atuação."
+      content="Assinatura mensal com novas aulas, ferramentas e lives toda semana. CFO em atuação ensinando. R$ 99,90/mês, sem fidelidade."
     />
-    <meta property="og:url" content="https://climb4b.com/curso-de-entrada" />
+    <meta property="og:url" content="https://climb4b.com/climb-pass" />
     <meta property="og:image" content="/og.svg" />
     <meta property="og:image:type" content="image/svg+xml" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta
       property="og:image:alt"
-      content="Curso de Entrada em Finanças Empresariais — R$ 299, por uma CFO em atuação."
+      content="Climb Pass — assinatura de educação em finanças empresariais por R$ 99,90/mês."
     />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="Webinar Gratuito · Finanças Empresariais na Prática — Climb4B"
+      content="Climb Pass · Assinatura de educação em finanças empresariais"
     />
     <meta
       name="twitter:description"
-      content="Webinar gratuito: descubra por que sua empresa mostra lucro mas aperta no caixa. Método de uma CFO em atuação."
+      content="Assinatura mensal com novas aulas, ferramentas e lives toda semana. CFO em atuação ensinando. R$ 99,90/mês."
     />
     <meta name="twitter:image" content="/og.svg" />
 
@@ -77,32 +77,42 @@
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <!-- JSON-LD: schema.org/Course (rich snippets para Google) -->
+    <!-- JSON-LD: schema.org/Service — assinatura mensal de educação -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Course",
-        "name": "Curso de Entrada em Finanças Empresariais",
-        "description": "Curso online em 5 aulas de leitura conectada de DRE, Balanço e Fluxo de Caixa, ministrado por uma CFO em atuação. Para donos de PME, contadores e analistas.",
+        "@type": "Service",
+        "serviceType": "Subscription education service",
+        "name": "Climb Pass",
+        "description": "Assinatura mensal de educação em finanças empresariais. Novas aulas, ferramentas e lives toda semana. CFO em atuação ensinando.",
         "provider": {
           "@type": "Organization",
           "name": "Climb4B",
-          "sameAs": "https://climb4b.com"
+          "url": "https://climb4b.com"
         },
+        "areaServed": "BR",
         "offers": {
           "@type": "Offer",
-          "price": "299.00",
+          "price": "99.90",
           "priceCurrency": "BRL",
           "availability": "https://schema.org/InStock",
-          "category": "Paid"
-        },
-        "hasCourseInstance": {
-          "@type": "CourseInstance",
-          "courseMode": "Online",
-          "courseWorkload": "PT3H20M"
+          "category": "Subscription",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "99.90",
+            "priceCurrency": "BRL",
+            "unitCode": "MON",
+            "referenceQuantity": {
+              "@type": "QuantitativeValue",
+              "value": 1,
+              "unitCode": "MON"
+            }
+          }
         }
       }
     </script>
+
+    <script type="module" src="/src/main.js"></script>
   </head>
 
   <body>
@@ -121,7 +131,7 @@
     <a class="skip-link" href="#main">Pular para o conteúdo</a>
 
     <!-- ============================================================
-         HEADER · marca + CTA rápido (sticky no Sprint 3)
+         HEADER · marca + CTA persistente (aparece quando hero sai de vista)
          ============================================================ -->
     <header role="banner">
       <div class="container">
@@ -144,13 +154,14 @@
           </svg>
           <span>Climb4B</span>
         </a>
-        <button
+        <a
           data-cta="header"
-          type="button"
           class="btn btn--primary btn--compact header-cta"
-          onclick="document.getElementById('typeform-modal').classList.add('is-open')"
+          href="https://sun.eduzz.com/PLACEHOLDER"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          <span>Inscreva-se grátis</span>
+          <span>Assinar</span>
           <svg
             class="btn-arrow"
             viewBox="0 0 16 16"
@@ -166,36 +177,67 @@
               stroke-linejoin="round"
             />
           </svg>
-        </button>
+        </a>
       </div>
     </header>
 
     <main id="main">
       <!-- ============================================================
-           1. HERO · hook + CTA primário + trust strip above-the-fold.
-              Composição: texto 7/12 + diagrama do método 5/12 (desktop).
-              Diagrama serve double-duty: placeholder visual editorial +
-              comunica o mecanismo "leitura conectada" do Pilar 2.
+           1. HERO · hook + CTA above-the-fold + trust strip.
+              Composição: texto 7/12 + mockup editorial 5/12 (desktop).
+              Visual planejado p/ Sprint 3: SVG vetorial de laptop com
+              dashboard + caderno Climb estilizado (inspirado no JPEG).
            ============================================================ -->
       <section id="hero" class="on-dark" aria-labelledby="hero-title">
         <div class="container">
           <div class="hero-text">
-            <span class="badge badge--green hero-badge">AULA 1 &middot; 100% GRATUITA</span>
-            <span class="eyebrow">Webinar Gratuito &middot; Finanças Empresariais na Prática</span>
+            <span class="eyebrow">Climb4B Academy &middot; Climb Pass</span>
 
             <h1 id="hero-title">
-              Descubra por que o lucro aparece,
-              mas o <span class="hl">caixa aperta</span>.
+              Finanças empresariais,
+              <span class="hl">um passo por semana</span>.
             </h1>
 
+            <p class="lead">
+              Climb Pass é a assinatura mensal da Climb4B Academy: a cada semana,
+              novas aulas, ferramentas e lives ao vivo sobre gestão financeira
+              de empresas. CFO em atuação ensinando o que importa &mdash; aplicado
+              à realidade da PME brasileira.
+            </p>
+
+            <ul class="hero-bullets" aria-label="O que você recebe toda semana">
+              <li>
+                <span class="hero-bullet-day">Segunda</span>
+                <span class="hero-bullet-text">
+                  <strong>Nova aula em vídeo</strong> &mdash; um tema prático em
+                  formato direto, com método aplicado
+                </span>
+              </li>
+              <li>
+                <span class="hero-bullet-day">Quarta</span>
+                <span class="hero-bullet-text">
+                  <strong>Ferramenta ou template</strong> &mdash; planilha,
+                  simulador ou modelo pronto pra usar na sua empresa
+                </span>
+              </li>
+              <li>
+                <span class="hero-bullet-day">Sexta</span>
+                <span class="hero-bullet-text">
+                  <strong>Live ou comunidade</strong> &mdash; Q&amp;A ao vivo
+                  com a CFO ou troca com outros assinantes
+                </span>
+              </li>
+            </ul>
+
             <div class="hero-cta">
-              <button
+              <a
                 data-cta="hero"
-                type="button"
                 class="btn btn--primary"
-                onclick="document.getElementById('typeform-modal').classList.add('is-open')"
+                href="https://sun.eduzz.com/PLACEHOLDER"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <span>Garantir minha vaga gratuita</span>
+                <span>Assinar por R$&nbsp;<span class="tabular-nums">99,90</span>/mês</span>
                 <svg
                   class="btn-arrow"
                   viewBox="0 0 16 16"
@@ -211,105 +253,85 @@
                     stroke-linejoin="round"
                   />
                 </svg>
-              </button>
-              <span class="cta-microcopy">
-                Inscrição grátis &middot; Curso completo é opcional ao final
-              </span>
+              </a>
+              <a class="btn btn--ghost" href="#metodo">Como funciona</a>
             </div>
+
+            <ul class="trust-strip" aria-label="Sinais de confiança">
+              <li>CFO em atuação no mercado há 16 anos</li>
+              <li>Conteúdo novo toda semana</li>
+              <li>Sem fidelidade &middot; cancele quando quiser</li>
+              <li>Garantia de 7 dias</li>
+            </ul>
           </div>
 
           <div class="hero-visual" aria-hidden="true">
+            <!-- Mockup vetorial: 3 cards de "semana típica" empilhados
+                 com offset, representando os 3 dias de conteúdo. -->
             <svg
-              class="method-diagram"
-              viewBox="0 0 520 460"
+              class="hero-visual-svg"
+              viewBox="0 0 480 540"
               xmlns="http://www.w3.org/2000/svg"
+              role="img"
+              aria-label="Mockup de três cards representando o conteúdo semanal: Segunda (aula), Quarta (ferramenta), Sexta (live)"
             >
-              <!-- Corner meta -->
-              <text x="20" y="22" class="corner-meta">
-                MÉTODO · LEITURA CONECTADA
-              </text>
+              <defs>
+                <linearGradient id="cardGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#F7F8F5" />
+                  <stop offset="100%" stop-color="#ECEEF3" />
+                </linearGradient>
+                <linearGradient id="chartGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#2EBE5A" stop-opacity="0.25" />
+                  <stop offset="100%" stop-color="#2EBE5A" stop-opacity="0" />
+                </linearGradient>
+              </defs>
 
-              <!-- 3 demonstrative cards com mini-visualizações -->
-              <g class="demo-cards">
-                <!-- DRE card: bar chart representing receita / custo / lucro -->
-                <g transform="translate(15, 40)">
-                  <rect class="demo-card" width="150" height="200" rx="8" />
-                  <text x="75" y="32" class="demo-label">DRE</text>
-                  <g transform="translate(0, 0)">
-                    <rect x="22" y="80" width="14" height="50" fill="#7BD89A" rx="2"/>
-                    <rect x="42" y="100" width="14" height="30" fill="#5BCF7E" rx="2"/>
-                    <rect x="62" y="68" width="14" height="62" fill="#2EBE5A" rx="2"/>
-                    <rect x="82" y="92" width="14" height="38" fill="#5BCF7E" rx="2"/>
-                    <rect x="102" y="110" width="14" height="20" fill="#7BD89A" rx="2"/>
-                    <rect x="122" y="76" width="14" height="54" fill="#2EBE5A" rx="2"/>
-                    <line x1="18" y1="135" x2="142" y2="135" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
-                  </g>
-                  <text x="75" y="160" class="demo-fullname">Demonstrativo</text>
-                  <text x="75" y="176" class="demo-fullname">de Resultado</text>
-                </g>
+              <!-- CARD 3 · Sexta (fundo, mais opacidade reduzida) -->
+              <g transform="translate(60, 280)" opacity="0.65">
+                <rect width="360" height="200" rx="16" fill="url(#cardGradient1)" stroke="rgba(15,30,61,0.08)" stroke-width="1" />
+                <rect x="24" y="24" width="44" height="20" rx="10" fill="#2EBE5A" />
+                <text x="46" y="38" font-family="Inter, sans-serif" font-size="10" font-weight="700" fill="#0F1E3D" text-anchor="middle" letter-spacing="1">SEXTA</text>
+                <text x="24" y="72" font-family="Inter, sans-serif" font-size="11" fill="#5C6680" letter-spacing="0.5">LIVE · 45 MIN</text>
+                <text x="24" y="100" font-family="Montserrat, sans-serif" font-size="18" font-weight="600" fill="#0F1E3D">Q&amp;A com a CFO</text>
+                <text x="24" y="124" font-family="Montserrat, sans-serif" font-size="18" font-weight="600" fill="#0F1E3D">ao vivo</text>
+                <circle cx="320" cy="140" r="20" fill="#2EBE5A" opacity="0.15" />
+                <polygon points="316,132 332,140 316,148" fill="#2EBE5A" />
+              </g>
 
-                <!-- BP card: balance/proportion bars -->
-                <g transform="translate(185, 40)">
-                  <rect class="demo-card is-active" width="150" height="200" rx="8" />
-                  <text x="75" y="32" class="demo-label">BP</text>
-                  <g transform="translate(0, 0)">
-                    <rect x="32" y="65" width="36" height="64" fill="#5BCF7E" rx="3"/>
-                    <text x="50" y="120" font-size="9" fill="#0F1E3D" font-family="Inter, sans-serif" font-weight="700" text-anchor="middle">ATIVO</text>
-                    <rect x="82" y="78" width="36" height="51" fill="#2EBE5A" rx="3"/>
-                    <text x="100" y="120" font-size="9" fill="#0F1E3D" font-family="Inter, sans-serif" font-weight="700" text-anchor="middle">PAS+PL</text>
-                    <line x1="18" y1="135" x2="142" y2="135" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
-                  </g>
-                  <text x="75" y="160" class="demo-fullname">Balanço</text>
-                  <text x="75" y="176" class="demo-fullname">Patrimonial</text>
-                </g>
-
-                <!-- FC card: line chart with arrow -->
-                <g transform="translate(355, 40)">
-                  <rect class="demo-card" width="150" height="200" rx="8" />
-                  <text x="75" y="32" class="demo-label">FC</text>
-                  <g transform="translate(0, 0)">
-                    <polyline
-                      points="22,118 42,98 62,108 82,82 102,90 122,68 138,72"
-                      fill="none"
-                      stroke="#2EBE5A"
-                      stroke-width="2.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <circle cx="22" cy="118" r="2.5" fill="#5BCF7E"/>
-                    <circle cx="42" cy="98" r="2.5" fill="#5BCF7E"/>
-                    <circle cx="62" cy="108" r="2.5" fill="#5BCF7E"/>
-                    <circle cx="82" cy="82" r="2.5" fill="#5BCF7E"/>
-                    <circle cx="102" cy="90" r="2.5" fill="#5BCF7E"/>
-                    <circle cx="122" cy="68" r="3" fill="#7BD89A"/>
-                    <circle cx="138" cy="72" r="3" fill="#7BD89A"/>
-                    <line x1="18" y1="135" x2="142" y2="135" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
-                  </g>
-                  <text x="75" y="160" class="demo-fullname">Fluxo</text>
-                  <text x="75" y="176" class="demo-fullname">de Caixa</text>
+              <!-- CARD 2 · Quarta (meio) -->
+              <g transform="translate(40, 160)" opacity="0.85">
+                <rect width="360" height="200" rx="16" fill="url(#cardGradient1)" stroke="rgba(15,30,61,0.1)" stroke-width="1" />
+                <rect x="24" y="24" width="50" height="20" rx="10" fill="#2EBE5A" />
+                <text x="49" y="38" font-family="Inter, sans-serif" font-size="10" font-weight="700" fill="#0F1E3D" text-anchor="middle" letter-spacing="1">QUARTA</text>
+                <text x="24" y="72" font-family="Inter, sans-serif" font-size="11" fill="#5C6680" letter-spacing="0.5">PLANILHA + TUTORIAL</text>
+                <text x="24" y="100" font-family="Montserrat, sans-serif" font-size="18" font-weight="600" fill="#0F1E3D">Fluxo de caixa</text>
+                <text x="24" y="124" font-family="Montserrat, sans-serif" font-size="18" font-weight="600" fill="#0F1E3D">13 semanas</text>
+                <!-- Mini grid de células de planilha -->
+                <g transform="translate(220, 140)">
+                  <rect x="0" y="0" width="120" height="40" rx="4" fill="#FFFFFF" stroke="rgba(15,30,61,0.1)" stroke-width="1" />
+                  <line x1="40" y1="0" x2="40" y2="40" stroke="rgba(15,30,61,0.1)" stroke-width="1" />
+                  <line x1="80" y1="0" x2="80" y2="40" stroke="rgba(15,30,61,0.1)" stroke-width="1" />
+                  <line x1="0" y1="20" x2="120" y2="20" stroke="rgba(15,30,61,0.1)" stroke-width="1" />
+                  <rect x="2" y="2" width="36" height="16" fill="#2EBE5A" opacity="0.2" />
+                  <rect x="82" y="22" width="36" height="16" fill="#2EBE5A" opacity="0.4" />
                 </g>
               </g>
 
-              <!-- Connectors from each card to decision node -->
-              <g class="connectors">
-                <path class="connector" d="M90 250 Q90 320 260 360" />
-                <path class="connector" d="M260 250 L260 360" />
-                <path class="connector" d="M430 250 Q430 320 260 360" />
-              </g>
-
-              <!-- Decision node -->
-              <g class="decision">
-                <rect
-                  class="decision-node"
-                  x="140"
-                  y="360"
-                  width="240"
-                  height="72"
-                  rx="36"
-                />
-                <text x="260" y="404" class="decision-label">
-                  → UMA DECISÃO
-                </text>
+              <!-- CARD 1 · Segunda (frente, dominante) -->
+              <g transform="translate(20, 40)">
+                <rect width="360" height="200" rx="16" fill="url(#cardGradient1)" stroke="rgba(15,30,61,0.14)" stroke-width="1" filter="drop-shadow(0 18px 36px rgba(15,30,61,0.18))" />
+                <rect x="24" y="24" width="58" height="20" rx="10" fill="#2EBE5A" />
+                <text x="53" y="38" font-family="Inter, sans-serif" font-size="10" font-weight="700" fill="#0F1E3D" text-anchor="middle" letter-spacing="1">SEGUNDA</text>
+                <text x="24" y="72" font-family="Inter, sans-serif" font-size="11" fill="#5C6680" letter-spacing="0.5">AULA EM VÍDEO · 22 MIN</text>
+                <text x="24" y="100" font-family="Montserrat, sans-serif" font-size="18" font-weight="600" fill="#0F1E3D">Por que o lucro</text>
+                <text x="24" y="124" font-family="Montserrat, sans-serif" font-size="18" font-weight="600" fill="#0F1E3D">aparece, mas o caixa</text>
+                <text x="24" y="148" font-family="Montserrat, sans-serif" font-size="18" font-weight="600" fill="#0F1E3D">aperta.</text>
+                <!-- Mini chart -->
+                <g transform="translate(220, 60)">
+                  <path d="M 0 80 L 25 65 L 50 70 L 75 50 L 100 55 L 125 30" fill="none" stroke="#2EBE5A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M 0 80 L 25 65 L 50 70 L 75 50 L 100 55 L 125 30 L 125 100 L 0 100 Z" fill="url(#chartGradient)" />
+                  <circle cx="125" cy="30" r="4" fill="#2EBE5A" />
+                </g>
               </g>
             </svg>
           </div>
@@ -317,669 +339,624 @@
       </section>
 
       <!-- ============================================================
-           2. AUTORIDADE · CFO em atuação (Pilar 1).
-              Composição: card de autor (placeholder geométrico) +
-              credenciais com check verde + quote Porter dominante.
-              "Foto real entra aqui" é badge propositalmente visível —
-              sinaliza ao stakeholder que asset está pendente.
+           2. AUTORIDADE · quote editorial dominante + linha de wordmarks
+              das empresas onde Marissa atuou. Trust signal sem inventar
+              depoimentos.
            ============================================================ -->
       <section id="autoridade" aria-labelledby="autoridade-title">
         <div class="container">
-          <span class="eyebrow">Pilar 1 · CFO em atuação</span>
-
-          <h2 id="autoridade-title">
-            Não é mais um curso. É o método de quem executa.
+          <span class="eyebrow">Por que Climb Pass existe</span>
+          <h2 id="autoridade-title" class="authority-quote">
+            Gestão financeira não se aprende num curso fechado.
+            É <span class="hl">prática contínua</span> &mdash; e o conteúdo
+            precisa acompanhar.
           </h2>
-
-          <div class="author-block">
-            <figure class="video-placeholder" data-placeholder>
-              <span class="placeholder-badge">Vídeo real entra aqui</span>
-              <button
-                type="button"
-                class="video-placeholder__play"
-                aria-label="Reproduzir vídeo de apresentação da CFO"
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M8 5L19 12L8 19V5Z"
-                    fill="currentColor"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </button>
-              <figcaption class="video-placeholder__meta">
-                <span class="video-placeholder__role">
-                  CFO em atuação · Climb4B
-                </span>
-                <span class="video-placeholder__duration">
-                  Vídeo de apresentação · 3 min
-                </span>
-              </figcaption>
-            </figure>
-
-            <ul class="credentials">
-              <li>
-                Decisões reais saem da mesa de gestão para a aula
-                gravada.
-              </li>
-              <li>
-                Nenhum concorrente grande tem uma CFO ativa na linha de
-                frente.
-              </li>
-              <li>
-                Você aprende o que está sendo decidido agora, não o que
-                foi escrito em livro.
-              </li>
-            </ul>
-          </div>
-
-          <blockquote class="quote">
-            A essência da estratégia é escolher o que não fazer.
-            <cite>Michael E. Porter</cite>
-          </blockquote>
+          <p class="lead authority-attribution">
+            O mercado oferece cursos pontuais, livros que envelhecem rápido
+            e planilhas emprestadas que ninguém entende. Climb Pass nasceu
+            pra fechar essa lacuna: educação financeira empresarial entregue
+            no ritmo em que decisões acontecem &mdash; toda semana &mdash;
+            por quem executa finanças há 16 anos no mercado.
+          </p>
         </div>
       </section>
 
       <!-- ============================================================
-           3. DOR · agitation + auto-qualificação por público.
-              Composição: 3 cards "três bolsos" com números editoriais
-              01/02/03 conectados por linha tracejada (sinaliza fluxo,
-              evita o anti-pattern "três cards centralizados em row").
-              Personas como rows com avatar geométrico + nome + dor.
+           3. PROBLEMA · 3 dores que justificam um modelo de assinatura
+              em vez de curso pontual. Grid assimétrico, não 3 cards
+              centralizados em fila.
            ============================================================ -->
-      <section id="dor" aria-labelledby="dor-title">
+      <section id="problema" aria-labelledby="problema-title">
         <div class="container">
           <span class="eyebrow">O problema</span>
-
-          <h2 id="dor-title">
-            Lucro no papel, aperto no caixa.
+          <h2 id="problema-title">
+            Por que cursos pontuais não resolvem gestão financeira de verdade.
           </h2>
+          <p class="lead">
+            Você já investiu em curso, livro ou planilha &mdash; e mesmo assim
+            o caixa segue apertado, a precificação no chute, o fechamento
+            virando madrugada. Três motivos explicam isso:
+          </p>
 
-          <ol class="pockets" data-carousel>
-            <li class="pocket">
-              <span class="pocket-number">01</span>
-              <span class="pocket-label">Estoque</span>
-              <p class="pocket-body">que não gira.</p>
+          <ol class="problema-list">
+            <li class="problema-card">
+              <span class="problema-number" aria-hidden="true">01</span>
+              <h3>O conteúdo congela no dia que o curso termina.</h3>
+              <p>
+                Você terminou o curso em janeiro. Em março mudou a Reforma
+                Tributária, em julho subiu a Selic, em setembro o BCB alterou
+                a taxa de desconto. Seu material continua igual ao de janeiro
+                &mdash; e você pesquisa cada novidade no Google, do zero.
+              </p>
+              <p class="problema-card-callout">
+                <strong>O resultado:</strong> decisão financeira tomada com
+                informação desatualizada.
+              </p>
             </li>
-            <li class="pocket">
-              <span class="pocket-number">02</span>
-              <span class="pocket-label">Prazo de clientes</span>
-              <p class="pocket-body">que estica.</p>
+            <li class="problema-card">
+              <span class="problema-number" aria-hidden="true">02</span>
+              <h3>Planilha emprestada não vira hábito de gestão.</h3>
+              <p>
+                Baixar um template de DRE é fácil. Difícil é entender por que
+                a margem caiu, como ajustar o modelo pra realidade da sua
+                empresa, e usar a planilha toda semana &mdash; em vez de
+                preencher uma vez e esquecer numa pasta perdida.
+              </p>
+              <p class="problema-card-callout">
+                <strong>O resultado:</strong> ferramentas sem método &mdash;
+                e gestão por achismo.
+              </p>
             </li>
-            <li class="pocket">
-              <span class="pocket-number">03</span>
-              <span class="pocket-label">Imobilizado</span>
-              <p class="pocket-body">que come capital de giro.</p>
+            <li class="problema-card">
+              <span class="problema-number" aria-hidden="true">03</span>
+              <h3>Decisão financeira é semanal, não semestral.</h3>
+              <p>
+                Capital de giro precisa ser revisado toda semana. Precificação
+                muda quando o custo da matéria-prima sobe. Tributário muda
+                com cada nota técnica. Educação financeira que cabe nesse
+                ritmo precisa ser entregue no ritmo &mdash; não num módulo
+                de 40h que você atrasa pra ver "depois".
+              </p>
+              <p class="problema-card-callout">
+                <strong>O resultado:</strong> dono atropelado pelo dia a dia,
+                sem tempo de "estudar finanças".
+              </p>
             </li>
           </ol>
 
-          <div class="reconhece">
-            <h3>Você já pensou alguma destas?</h3>
-
-            <ul class="thought-bubbles" data-carousel>
-              <li class="thought-bubble">
-                <p>
-                  "Decido no achismo — o relatório do contador só
-                  confirma o que já passou."
-                </p>
-              </li>
-
-              <li class="thought-bubble">
-                <p>
-                  "Meus clientes me tratam como obrigação fiscal, não
-                  como parceiro estratégico."
-                </p>
-              </li>
-
-              <li class="thought-bubble">
-                <p>
-                  "Domino a técnica, mas a promoção para CFO não chega."
-                </p>
-              </li>
-            </ul>
-          </div>
+          <p class="problema-conclusion">
+            Climb Pass foi desenhado pra resolver exatamente isso &mdash;
+            educação financeira empresarial no ritmo em que decisões acontecem.
+          </p>
         </div>
       </section>
 
       <!-- ============================================================
-           4. MÉTODO · Leitura conectada (Pilar 2).
-              Composição: comparação visual lado-a-lado entre "cursos
-              comuns" (3 cards isolados com ?) e "Método Climb4B"
-              (3 cards conectados a um nó de decisão). O diagrama É a
-              explicação — show, don't tell.
+           4. MÉTODO · como o Climb Pass funciona — diagrama horizontal
+              do ritmo semanal (Seg aula → Qua ferramenta → Sex live).
+              Visual planejado p/ Sprint 3: setas verdes conectando 3
+              cards de "dia da semana".
            ============================================================ -->
       <section id="metodo" class="on-dark" aria-labelledby="metodo-title">
         <div class="container">
-          <span class="eyebrow">Pilar 2 · Leitura conectada</span>
-
+          <span class="eyebrow">Como funciona</span>
           <h2 id="metodo-title">
-            DRE + Balanço + Fluxo de Caixa. Em uma só decisão.
+            Um ritmo semanal de aprendizado prático.
           </h2>
+          <p class="lead">
+            Climb Pass entrega <strong>três pontos de contato por semana</strong>
+            &mdash; vídeo, ferramenta e ao vivo &mdash; em vez de empurrar um
+            módulo gigante que você nunca termina. Cada peça reforça a anterior
+            e prepara a próxima decisão da sua semana.
+          </p>
 
-          <div class="method-comparison" data-carousel aria-hidden="true">
-            <div class="method-half method-half--bad">
-              <span class="method-half__label">
-                <span class="method-half__dot"></span>
-                Como ensinam por aí
-              </span>
-              <svg
-                class="method-half__diagram"
-                viewBox="0 0 320 220"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <!-- 3 isolated cards com mini-charts mas SEM conexão -->
-                <g transform="translate(15, 20)">
-                  <rect class="cmp-card" width="84" height="120" rx="6" />
-                  <text x="42" y="24" class="cmp-label">DRE</text>
-                  <g opacity="0.6">
-                    <rect x="14" y="46" width="8" height="34" fill="#5C6680" rx="1.5"/>
-                    <rect x="26" y="56" width="8" height="24" fill="#5C6680" rx="1.5"/>
-                    <rect x="38" y="38" width="8" height="42" fill="#5C6680" rx="1.5"/>
-                    <rect x="50" y="52" width="8" height="28" fill="#5C6680" rx="1.5"/>
-                    <rect x="62" y="62" width="8" height="18" fill="#5C6680" rx="1.5"/>
-                  </g>
-                  <text x="42" y="106" class="cmp-isolated">isolado</text>
-                </g>
-
-                <g transform="translate(118, 20)">
-                  <rect class="cmp-card" width="84" height="120" rx="6" />
-                  <text x="42" y="24" class="cmp-label">BP</text>
-                  <g opacity="0.6">
-                    <rect x="20" y="48" width="20" height="32" fill="#5C6680" rx="2"/>
-                    <rect x="44" y="56" width="20" height="24" fill="#5C6680" rx="2"/>
-                  </g>
-                  <text x="42" y="106" class="cmp-isolated">isolado</text>
-                </g>
-
-                <g transform="translate(221, 20)">
-                  <rect class="cmp-card" width="84" height="120" rx="6" />
-                  <text x="42" y="24" class="cmp-label">FC</text>
-                  <g opacity="0.6">
-                    <polyline
-                      points="14,68 26,58 38,62 50,48 62,52 70,42"
-                      fill="none"
-                      stroke="#5C6680"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </g>
-                  <text x="42" y="106" class="cmp-isolated">isolado</text>
-                </g>
-
-                <!-- Question marks abaixo, sinalizando "e então?" -->
-                <text x="57" y="182" class="cmp-question">?</text>
-                <text x="160" y="182" class="cmp-question">?</text>
-                <text x="263" y="182" class="cmp-question">?</text>
-
-                <text x="160" y="208" class="cmp-isolated">
-                  e a decisão?
-                </text>
-              </svg>
-              <p class="method-half__caption">
-                Três peças soltas. Nenhuma decisão integrada.
+          <ol class="metodo-flow" aria-label="Ritmo semanal de entregas">
+            <li class="metodo-step">
+              <span class="metodo-day">Segunda</span>
+              <h3>Nova aula em vídeo</h3>
+              <p>
+                Um tema prático em <strong>15 a 30 minutos</strong>, sempre
+                aplicado: por que o lucro aparece mas o caixa aperta, como
+                ler a DRE em 3 olhares, qual o jeito certo de precificar
+                um produto novo, etc. Direto ao ponto &mdash; sem teoria
+                sem aplicação.
               </p>
-            </div>
-
-            <div class="method-vs" data-carousel-skip>vs</div>
-
-            <div class="method-half method-half--good">
-              <span class="method-half__label">
-                <span class="method-half__dot"></span>
-                Método Climb4B
-              </span>
-              <svg
-                class="method-half__diagram"
-                viewBox="0 0 320 220"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <!-- 3 cards conectados, com mini-charts vibrantes -->
-                <g transform="translate(15, 12)">
-                  <rect class="cmp-card" width="84" height="100" rx="6" />
-                  <text x="42" y="24" class="cmp-label">DRE</text>
-                  <g>
-                    <rect x="14" y="46" width="8" height="34" fill="#5BCF7E" rx="1.5"/>
-                    <rect x="26" y="56" width="8" height="24" fill="#5BCF7E" rx="1.5"/>
-                    <rect x="38" y="38" width="8" height="42" fill="#2EBE5A" rx="1.5"/>
-                    <rect x="50" y="52" width="8" height="28" fill="#5BCF7E" rx="1.5"/>
-                    <rect x="62" y="62" width="8" height="18" fill="#7BD89A" rx="1.5"/>
-                  </g>
-                </g>
-
-                <g transform="translate(118, 12)">
-                  <rect class="cmp-card" width="84" height="100" rx="6" />
-                  <text x="42" y="24" class="cmp-label">BP</text>
-                  <g>
-                    <rect x="20" y="48" width="20" height="32" fill="#5BCF7E" rx="2"/>
-                    <rect x="44" y="56" width="20" height="24" fill="#2EBE5A" rx="2"/>
-                  </g>
-                </g>
-
-                <g transform="translate(221, 12)">
-                  <rect class="cmp-card" width="84" height="100" rx="6" />
-                  <text x="42" y="24" class="cmp-label">FC</text>
-                  <g>
-                    <polyline
-                      points="14,68 26,58 38,62 50,48 62,52 70,42"
-                      fill="none"
-                      stroke="#2EBE5A"
-                      stroke-width="2.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <circle cx="70" cy="42" r="2.5" fill="#7BD89A"/>
-                  </g>
-                </g>
-
-                <!-- Connectors verdes -->
-                <path class="cmp-connector" d="M57 112 Q57 145 160 165" />
-                <path class="cmp-connector" d="M160 112 L160 165" />
-                <path class="cmp-connector" d="M263 112 Q263 145 160 165" />
-
-                <!-- Decision pill -->
-                <rect
-                  class="cmp-decision"
-                  x="80"
-                  y="165"
-                  width="160"
-                  height="42"
-                  rx="21"
-                />
-                <text x="160" y="192" class="cmp-decision-label">
-                  → UMA DECISÃO
-                </text>
-              </svg>
-              <p class="method-half__caption">
-                Três demonstrativos integrados. Uma decisão de gestão.
+            </li>
+            <li class="metodo-step">
+              <span class="metodo-day">Quarta</span>
+              <h3>Ferramenta ou template</h3>
+              <p>
+                Planilha, simulador ou modelo já <strong>configurado e
+                comentado</strong> &mdash; DRE projetada, fluxo de caixa
+                semanal, calculadora de capital de giro, simulador de
+                cenário tributário. Tudo pronto pra colar com a realidade
+                da sua empresa.
               </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============================================================
-           5. AULAS · timeline vertical com 5 cards numerados.
-              Bullets viraram chips curtos (2-4 palavras), não frases —
-              scan-friendly. Title encurtado em algumas aulas.
-           ============================================================ -->
-      <section id="aulas" aria-labelledby="aulas-title">
-        <div class="container">
-          <span class="eyebrow">Programa completo · 5 aulas</span>
-
-          <h2 id="aulas-title">
-            O que você vai aprender — aula por aula.
-          </h2>
-
-          </h2>
-
-          <ol class="aulas-list">
-            <li class="aula-webinar-destaque">
-              <details class="aula-card" open>
-                <summary>
-                  <span class="aula-number tabular-nums">01</span>
-                  <div class="aula-summary-body">
-                    <h3 class="aula-title">
-                      Lucro alto, caixa apertado — por quê
-                    </h3>
-                    <span class="aula-badge-webinar">🎥 Webinar Gratuito</span>
-                    <span class="aula-duration">35 min</span>
-                  </div>
-                </summary>
-                <div class="aula-content">
-                  <p class="aula-description">
-                    Por que sua empresa pode mostrar lucro na DRE e ainda
-                    apertar no caixa. Você descobre os três pontos onde o
-                    dinheiro some sem aviso e sai com um autodiagnóstico
-                    aplicado ao seu próprio negócio.
-                  </p>
-                  <p class="aula-webinar-note">
-                    <strong>Esta é a aula do Webinar Gratuito Finanças Empresariais na Prática.</strong>
-                    Inscreva-se para participar ao vivo e tirar suas dúvidas diretamente com a CFO.
-                  </p>
-                  <ul class="aula-topics">
-                    <li>Descasamento DRE × Caixa</li>
-                    <li>Três bolsos do lucro</li>
-                    <li>Autodiagnóstico</li>
-                  </ul>
-                  <button
-                    type="button"
-                    class="btn btn--primary btn--block aula-webinar-cta"
-                    data-cta="aula-webinar"
-                    onclick="document.getElementById('typeform-modal').classList.add('is-open')"
-                  >
-                    <span>Garantir minha vaga gratuita</span>
-                  </button>
-                </div>
-              </details>
             </li>
-
-            <li>
-              <details class="aula-card">
-                <summary>
-                  <span class="aula-number tabular-nums">02</span>
-                  <div class="aula-summary-body">
-                    <h3 class="aula-title">
-                      Ler a DRE para encontrar perdas
-                    </h3>
-                    <span class="aula-duration">40 min</span>
-                  </div>
-                </summary>
-                <div class="aula-content">
-                  <p class="aula-description">
-                    A estrutura da DRE sem jargão e os 4 indicadores que
-                    revelam se a empresa é saudável. Termina com um
-                    exercício prático de encontrar o gargalo de
-                    rentabilidade em até 10 minutos.
-                  </p>
-                  <ul class="aula-topics">
-                    <li>DRE simplificada</li>
-                    <li>4 indicadores de saúde</li>
-                    <li>Gargalo em 10 min</li>
-                  </ul>
-                </div>
-              </details>
-            </li>
-
-            <li>
-              <details class="aula-card">
-                <summary>
-                  <span class="aula-number tabular-nums">03</span>
-                  <div class="aula-summary-body">
-                    <h3 class="aula-title">
-                      Balanço Patrimonial em linguagem de dono
-                    </h3>
-                    <span class="aula-duration">35 min</span>
-                  </div>
-                </summary>
-                <div class="aula-content">
-                  <p class="aula-description">
-                    Ativo, Passivo e Patrimônio Líquido traduzidos para
-                    quem decide. Quando a dívida é saudável e quais três
-                    sinais o Balanço mostra antes do problema explodir.
-                  </p>
-                  <ul class="aula-topics">
-                    <li>Ativo / Passivo / PL sem jargão</li>
-                    <li>Dívida saudável</li>
-                    <li>3 sinais de alerta</li>
-                  </ul>
-                </div>
-              </details>
-            </li>
-
-            <li>
-              <details class="aula-card">
-                <summary>
-                  <span class="aula-number tabular-nums">04</span>
-                  <div class="aula-summary-body">
-                    <h3 class="aula-title">
-                      Fluxo de Caixa — o oxigênio do negócio
-                    </h3>
-                    <span class="aula-duration">40 min</span>
-                  </div>
-                </summary>
-                <div class="aula-content">
-                  <p class="aula-description">
-                    Diferença entre fluxo realizado e projetado, quantos
-                    dias seu dinheiro fica fora do caixa (ciclo
-                    financeiro) e um modelo de fluxo de 12 semanas pronto
-                    para você implementar hoje.
-                  </p>
-                  <ul class="aula-topics">
-                    <li>Realizado × Projetado</li>
-                    <li>Ciclo financeiro</li>
-                    <li>Modelo de 12 semanas</li>
-                  </ul>
-                </div>
-              </details>
-            </li>
-
-            <li>
-              <details class="aula-card">
-                <summary>
-                  <span class="aula-number tabular-nums">05</span>
-                  <div class="aula-summary-body">
-                    <h3 class="aula-title">
-                      Decidir com segurança — o método integrado
-                    </h3>
-                    <span class="aula-duration">40 min</span>
-                  </div>
-                </summary>
-                <div class="aula-content">
-                  <p class="aula-description">
-                    Como olhar os três demonstrativos de uma vez só e o
-                    painel mensal mínimo de 5 indicadores que todo gestor
-                    precisa. Termina mostrando como aprofundar no curso
-                    premium.
-                  </p>
-                  <ul class="aula-topics">
-                    <li>Leitura integrada</li>
-                    <li>Painel de 5 indicadores</li>
-                    <li>Próximos passos</li>
-                  </ul>
-                </div>
-              </details>
+            <li class="metodo-step">
+              <span class="metodo-day">Sexta</span>
+              <h3>Live ou comunidade</h3>
+              <p>
+                Uma vez por mês, <strong>live ao vivo com a CFO</strong> pra
+                resolver dúvidas reais que os assinantes estão enfrentando
+                aquela semana. Nas demais sextas, sessão de troca na
+                comunidade &mdash; outros donos e gestores compartilham
+                como aplicaram o que viram.
+              </p>
             </li>
           </ol>
-        </div>
-      </section>
 
-      <!-- ============================================================
-           6. PARA QUEM É · 3 cards staggered com avatar geométrico,
-              aspas dominante (display italic) e 1 linha de promessa.
-              Avatares reusam SVGs da seção Dor — coerência visual.
-           ============================================================ -->
-      <section id="publicos" aria-labelledby="publicos-title">
-        <div class="container">
-          <span class="eyebrow">Para quem é</span>
-
-          <h2 id="publicos-title">Três perfis. Um único método.</h2>
-
-          <div class="publicos-grid" data-carousel>
-            <article class="publico-card">
-              <h3 class="publico-aspa">
-                "Quero parar de decidir no achismo."
-              </h3>
-              <p class="publico-promise">
-                Você executa, contrata, vende — mas o relatório que chega
-                da contabilidade é uma caixa-preta. Sai do curso sabendo
-                o que decidir sozinho.
-              </p>
-            </article>
-
-            <article class="publico-card">
-              <h3 class="publico-aspa">
-                "Quero pensar e me comunicar como CFO."
-              </h3>
-              <p class="publico-promise">
-                Você domina a obrigação fiscal e os relatórios. Aqui
-                ganha o vocabulário de decisão que te reposiciona como
-                parceiro de gestão, não fornecedor de balanço.
-              </p>
-            </article>
-
-            <article class="publico-card">
-              <h3 class="publico-aspa">
-                "Quero acelerar para a próxima cadeira."
-              </h3>
-              <p class="publico-promise">
-                Você sabe montar o relatório. Falta o raciocínio que
-                conecta os três demonstrativos em uma única decisão — o
-                que separa quem reporta de quem decide.
-              </p>
-            </article>
+          <div class="metodo-compare">
+            <div class="metodo-compare-col metodo-compare-col--bad">
+              <span class="metodo-compare-label">Curso tradicional</span>
+              <ul>
+                <li>Conteúdo congelado no dia da venda</li>
+                <li>40h de vídeo que você nunca termina</li>
+                <li>Planilha que ninguém te ensinou a usar</li>
+                <li>Suporte só por e-mail, se tiver</li>
+                <li>Você fica sozinho aplicando</li>
+              </ul>
+            </div>
+            <div class="metodo-compare-col metodo-compare-col--good">
+              <span class="metodo-compare-label">Climb Pass</span>
+              <ul>
+                <li>Conteúdo atualizado toda semana</li>
+                <li>Aulas curtas que cabem na sua agenda</li>
+                <li>Ferramentas com método de aplicação</li>
+                <li>Live mensal com a CFO + comunidade ativa</li>
+                <li>Outros assinantes aplicando junto com você</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
       <!-- ============================================================
-           7. BÔNUS · grid 2x2 com ícones outline + título + 1 linha.
+           EXEMPLO DE UMA SEMANA · tangibilidade do produto. Timeline
+           horizontal com um exemplo concreto do tipo de conteúdo que
+           o assinante recebe — sem inventar conteúdo específico de
+           uma semana real, mas mostrando formato e densidade.
            ============================================================ -->
-      <section id="bonus" aria-labelledby="bonus-title">
+      <section id="exemplo-semana" aria-labelledby="exemplo-semana-title">
         <div class="container">
-          <span class="eyebrow">Além das aulas</span>
+          <span class="eyebrow">Exemplo de uma semana</span>
+          <h2 id="exemplo-semana-title">
+            Como uma semana típica no Climb Pass se parece.
+          </h2>
+          <p class="lead">
+            Cada semana traz uma combinação de aula, ferramenta e troca ao vivo.
+            Um exemplo concreto do tipo de conteúdo que entra na plataforma:
+          </p>
 
-          <h2 id="bonus-title">O que mais você leva.</h2>
-
-          <ul class="bonus-grid">
-            <li class="bonus-card">
-              <span class="bonus-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect
-                    x="3"
-                    y="4"
-                    width="18"
-                    height="16"
-                    rx="2"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                  />
-                  <path
-                    d="M3 9h18M9 4v16M3 14h18"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                  />
-                </svg>
-              </span>
-              <div class="bonus-body">
-                <h3 class="bonus-title">
-                  Planilha de diagnóstico financeiro
-                </h3>
-                <p class="bonus-desc">
-                  Aplica o método das 5 aulas no seu próprio negócio.
-                </p>
-              </div>
+          <ol class="semana-timeline" aria-label="Exemplo de semana típica">
+            <li class="semana-card">
+              <span class="semana-day">Segunda</span>
+              <span class="semana-format">Aula em vídeo &middot; 22 min</span>
+              <h3>Por que o lucro aparece, mas o caixa aperta.</h3>
+              <p>
+                A diferença prática entre regime de competência e regime de
+                caixa, com exemplo de uma PME que reportava R$ 80k de lucro
+                mensal mas não conseguia pagar fornecedor &mdash; e como
+                identificar isso na sua empresa em 10 minutos.
+              </p>
             </li>
-
-            <li class="bonus-card">
-              <span class="bonus-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M17 11a4 4 0 100-8 4 4 0 000 8zM7 11a4 4 0 100-8 4 4 0 000 8zM3 21v-1a4 4 0 014-4h0a4 4 0 014 4v1M13 21v-1a4 4 0 014-4h0a4 4 0 014 4v1"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </span>
-              <div class="bonus-body">
-                <h3 class="bonus-title">Comunidade de alunos</h3>
-                <p class="bonus-desc">
-                  PME, contador e analista discutindo cases na mesma sala.
-                </p>
-              </div>
+            <li class="semana-card">
+              <span class="semana-day">Quarta</span>
+              <span class="semana-format">Ferramenta &middot; planilha + tutorial</span>
+              <h3>Fluxo de caixa semanal: modelo 13 semanas.</h3>
+              <p>
+                Planilha pronta com projeção rolante de 13 semanas, alertas
+                de risco de caixa em vermelho, e tutorial em vídeo de 8
+                minutos explicando como preencher e ler. Cole com a realidade
+                da sua empresa e use toda segunda.
+              </p>
             </li>
-
-            <li class="bonus-card">
-              <span class="bonus-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3zM19 10v2a7 7 0 01-14 0v-2M12 19v4M8 23h8"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </span>
-              <div class="bonus-body">
-                <h3 class="bonus-title">Aula ao vivo de Q&amp;A</h3>
-                <p class="bonus-desc">
-                  Sessão exclusiva da turma fundadora com a CFO após a
-                  aula 5.
-                </p>
-              </div>
+            <li class="semana-card">
+              <span class="semana-day">Sexta</span>
+              <span class="semana-format">Live ao vivo &middot; 45 min</span>
+              <h3>Q&amp;A: dúvidas reais dos assinantes.</h3>
+              <p>
+                Sessão ao vivo onde a CFO responde dúvidas que os assinantes
+                mandaram durante a semana &mdash; precificação, capital de
+                giro, leitura de DRE, decisão de investimento. Fica gravada
+                na biblioteca pra quem não puder estar ao vivo.
+              </p>
             </li>
+          </ol>
 
-            <li class="bonus-card">
-              <span class="bonus-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect
-                    x="3"
-                    y="5"
-                    width="18"
-                    height="16"
-                    rx="2"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                  />
-                  <path
-                    d="M8 3v4M16 3v4M3 11h18"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                  />
-                </svg>
-              </span>
-              <div class="bonus-body">
-                <h3 class="bonus-title">12 meses de acesso</h3>
-                <p class="bonus-desc">
-                  Revisita aulas e planilha quando o ciclo de gestão
-                  pedir.
-                </p>
-              </div>
+          <p class="semana-note">
+            <strong>Mais uma semana, outro tema.</strong> A biblioteca cresce
+            toda semana &mdash; e tudo fica disponível pra você acessar
+            quando precisar, no seu ritmo.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           5. INCLUSO · 5 benefícios canônicos da assinatura.
+              Grid 2×3 desktop, stack mobile. Cada card: ícone + label +
+              1 linha. Visual planejado p/ Sprint 3: ícones outline.
+           ============================================================ -->
+      <section id="incluso" aria-labelledby="incluso-title">
+        <div class="container">
+          <span class="eyebrow">O que está incluso</span>
+          <h2 id="incluso-title">
+            Tudo que você precisa pra gerir finanças, em uma única assinatura.
+          </h2>
+          <p class="lead">
+            A assinatura libera acesso completo à plataforma, ferramentas
+            e comunidade. Toda semana, novos itens entram &mdash; e o que
+            já está lá continua acessível pra você consultar quando precisar.
+          </p>
+
+          <ul class="incluso-grid">
+            <li class="incluso-card">
+              <span class="incluso-icon" data-icon="play" aria-hidden="true"></span>
+              <h3>Biblioteca de cursos em vídeo</h3>
+              <p>
+                Novas aulas práticas publicadas <strong>toda segunda-feira</strong>,
+                organizadas por trilha (fundamentos, gestão de caixa, contabilidade
+                aplicada, decisão estratégica). Aulas curtas, sempre com método
+                de aplicação. A biblioteca cresce semana a semana e fica
+                acessível enquanto você for assinante.
+              </p>
+            </li>
+            <li class="incluso-card">
+              <span class="incluso-icon" data-icon="grid" aria-hidden="true"></span>
+              <h3>Ferramentas e templates prontos</h3>
+              <p>
+                Planilhas financeiras, modelo de DRE, simulador de capital
+                de giro, projeção de fluxo de caixa, calculadora tributária
+                &mdash; tudo <strong>configurado e comentado</strong>, pronto
+                pra colar com a realidade da sua empresa. Nova ferramenta
+                publicada toda quarta-feira.
+              </p>
+            </li>
+            <li class="incluso-card">
+              <span class="incluso-icon" data-icon="users" aria-hidden="true"></span>
+              <h3>Comunidade ativa de assinantes</h3>
+              <p>
+                Espaço fechado pra tirar dúvidas, trocar experiências com
+                outros donos, gestores e profissionais de finanças, e ver
+                como outras empresas estão aplicando o que aprenderam.
+                Curadoria semanal das melhores discussões.
+              </p>
+            </li>
+            <li class="incluso-card">
+              <span class="incluso-icon" data-icon="mic" aria-hidden="true"></span>
+              <h3>Lives mensais e Q&amp;A com a CFO</h3>
+              <p>
+                Uma vez por mês, <strong>live ao vivo de 45 min</strong> com
+                a Marissa respondendo dúvidas reais dos assinantes &mdash;
+                escolhidas por quem mais ajuda quem está aplicando. Lives
+                ficam gravadas e ganham resumo escrito na biblioteca.
+              </p>
+            </li>
+            <li class="incluso-card">
+              <span class="incluso-icon" data-icon="award" aria-hidden="true"></span>
+              <h3>Certificados de conclusão por trilha</h3>
+              <p>
+                A cada trilha completada na plataforma (fundamentos, gestão
+                de caixa, etc), você ganha um <strong>certificado nominal</strong>
+                emitido pela Climb4B Academy &mdash; comprove sua evolução,
+                some no LinkedIn e leve pra apresentação executiva.
+              </p>
             </li>
           </ul>
         </div>
       </section>
 
       <!-- ============================================================
-           8. OFERTA · A peça mais importante. Pricing card navy
-              centralizado em background paper. R$ 299 em display
-              gigante (até 7rem), R$ 1.998 ancorado riscado acima.
-              Badge pulsante "turma fundadora", inclusões com check,
-              CTA full-width dentro do card.
+           6. TEMAS · 7 áreas que a assinatura cobre. Barra horizontal
+              scrollável no mobile (carrossel reusa carousel.css/js) e
+              grid 7-up no desktop. Cada chip: ícone outline + label.
            ============================================================ -->
-      <section id="oferta" aria-labelledby="oferta-title" hidden>
+      <section id="temas" aria-labelledby="temas-title">
         <div class="container">
-          <span class="eyebrow">Sua entrada</span>
-
-          <h2 id="oferta-title">
-            Por menos do que custou a última decisão errada.
+          <span class="eyebrow">Temas que você vai dominar</span>
+          <h2 id="temas-title">
+            Sete áreas, uma assinatura.
           </h2>
+          <p class="lead">
+            A biblioteca cobre as sete áreas que mais aparecem na rotina de
+            gestão financeira de PMEs. Cada tema tem trilha estruturada,
+            ferramentas próprias e materiais que entram toda semana.
+          </p>
 
-          <div class="pricing-card">
-            <span class="pricing-badge">Turma fundadora</span>
+          <ul class="temas-grid">
+            <li class="tema-card">
+              <span class="tema-icon" data-icon="cash" aria-hidden="true"></span>
+              <h3>Fluxo de caixa</h3>
+              <p>
+                Projeção rolante, gestão de prazos de pagamento e recebimento,
+                identificação de gargalos e plano de ação semanal.
+              </p>
+            </li>
+            <li class="tema-card">
+              <span class="tema-icon" data-icon="ledger" aria-hidden="true"></span>
+              <h3>Contabilidade e DRE</h3>
+              <p>
+                Como ler a DRE da sua empresa, ajustes para gestão, conexão
+                com o balanço patrimonial e leitura conectada dos três
+                demonstrativos.
+              </p>
+            </li>
+            <li class="tema-card">
+              <span class="tema-icon" data-icon="tag" aria-hidden="true"></span>
+              <h3>Precificação</h3>
+              <p>
+                Formação de preço com margem-alvo, impacto tributário,
+                precificação por valor percebido e simulação de cenários
+                de elasticidade.
+              </p>
+            </li>
+            <li class="tema-card">
+              <span class="tema-icon" data-icon="circulation" aria-hidden="true"></span>
+              <h3>Capital de giro</h3>
+              <p>
+                Necessidade de capital de giro, ciclo financeiro, política
+                de estoques e estratégias para reduzir custo de financiamento
+                do dia a dia.
+              </p>
+            </li>
+            <li class="tema-card">
+              <span class="tema-icon" data-icon="chart" aria-hidden="true"></span>
+              <h3>Indicadores e KPIs</h3>
+              <p>
+                Quais indicadores realmente importam para a sua etapa,
+                construção de painel executivo e uso de KPIs para decidir
+                &mdash; não só para reportar.
+              </p>
+            </li>
+            <li class="tema-card">
+              <span class="tema-icon" data-icon="doc" aria-hidden="true"></span>
+              <h3>Planejamento tributário</h3>
+              <p>
+                Regimes de tributação, comparativos de cenário, atualizações
+                de legislação relevantes para PME e impacto da Reforma
+                Tributária no seu negócio.
+              </p>
+            </li>
+            <li class="tema-card">
+              <span class="tema-icon" data-icon="target" aria-hidden="true"></span>
+              <h3>Planejamento e decisão</h3>
+              <p>
+                Orçamento anual, plano de investimentos, leitura de risco
+                e estrutura de decisão financeira &mdash; do "comprar
+                máquina nova?" ao "aceitar novo sócio?".
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
 
-            <div class="pricing-anchor">
-              <span class="pricing-anchor__label">
-                Programa completo Climb4B
-              </span>
-              <span class="pricing-anchor__value">R$&nbsp;1.998</span>
+      <!-- ============================================================
+           7. PUBLICOS · 3 personas para auto-seleção do lead.
+              Cards de cabeçalho + bullet curto.
+           ============================================================ -->
+      <section id="publicos" aria-labelledby="publicos-title">
+        <div class="container">
+          <span class="eyebrow">Para quem é</span>
+          <h2 id="publicos-title">
+            Climb Pass faz sentido se você é&hellip;
+          </h2>
+          <p class="lead">
+            Três perfis se beneficiam de forma direta da assinatura. Se você
+            se reconhece em um deles, Climb Pass foi feito pra você.
+          </p>
+
+          <ul class="publicos-grid">
+            <li class="publico-card">
+              <span class="publico-tag">Perfil 01</span>
+              <h3>Empresário ou sócio de PME</h3>
+              <p class="publico-pain">
+                <strong>A dor:</strong> você decide investimento, contratação
+                e preço toda semana, mas só vê o resultado três meses
+                depois &mdash; quando o contador entrega o relatório.
+              </p>
+              <p>
+                Climb Pass dá o que falta: <strong>leitura conectada de
+                DRE, balanço e fluxo de caixa</strong> em linguagem prática,
+                ferramentas pra antecipar problema de caixa, e fundamentos
+                pra parar de decidir no achismo. Você passa a entender
+                onde a empresa está &mdash; não o "achismo" do contador.
+              </p>
+            </li>
+            <li class="publico-card">
+              <span class="publico-tag">Perfil 02</span>
+              <h3>Profissional de finanças ou contabilidade</h3>
+              <p class="publico-pain">
+                <strong>A dor:</strong> você quer evoluir para uma posição
+                de CFO ou controller sênior, mas o trabalho do dia a dia
+                não te expõe a M&amp;A, captação, reestruturação,
+                planejamento estratégico.
+              </p>
+              <p>
+                Climb Pass entrega <strong>visão de CFO em atuação</strong>:
+                processos de M&amp;A, captação, escolha de ERP, planejamento
+                tributário comparativo. Conteúdo aplicado &mdash; não teoria
+                acadêmica &mdash; com quem implantou os 4 principais ERPs
+                do mercado.
+              </p>
+            </li>
+            <li class="publico-card">
+              <span class="publico-tag">Perfil 03</span>
+              <h3>Em transição ou começando</h3>
+              <p class="publico-pain">
+                <strong>A dor:</strong> você está mudando de área, abrindo
+                negócio próprio ou começando na função financeira &mdash; e
+                não sabe por onde começar, qual livro confiar, ou se o
+                curso que pagou cobre o que você precisa.
+              </p>
+              <p>
+                Climb Pass tem <strong>trilha estruturada do básico ao
+                aplicado</strong>: fundamentos de contabilidade, leitura
+                de demonstrativos, decisões financeiras práticas. Avance
+                no seu ritmo, com base sólida &mdash; sem ter que escolher
+                "qual curso comprar".
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           8. PROFESSORA · card editorial Marissa Guimarães.
+              Visual planejado p/ Sprint 3: retrato placeholder SVG
+              (iniciais "MG") até receber foto real do usuário.
+           ============================================================ -->
+      <section id="professora" aria-labelledby="professora-title">
+        <div class="container">
+          <span class="eyebrow">Quem ensina</span>
+          <h2 id="professora-title">A CFO por trás do Climb Pass.</h2>
+
+          <article class="professora-card">
+            <!-- COLUNA ESQUERDA · retrato + identidade + stats -->
+            <aside class="professora-side">
+              <figure class="professora-portrait" aria-label="Retrato placeholder de Marissa Guimarães">
+                <div class="professora-portrait-frame" aria-hidden="true">
+                  <span class="professora-initials">MG</span>
+                  <svg
+                    class="professora-portrait-silhouette"
+                    viewBox="0 0 240 240"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                  >
+                    <circle cx="120" cy="92" r="38" />
+                    <path d="M 36 240 C 36 184 70 158 120 158 C 170 158 204 184 204 240 Z" />
+                  </svg>
+                </div>
+                <figcaption class="professora-portrait-caption">
+                  <strong>Marissa Guimarães</strong>
+                  <span>CFO &middot; Conselheira &middot; Professora</span>
+                </figcaption>
+              </figure>
+
+              <ul class="professora-stats" aria-label="Anos de experiência">
+                <li>
+                  <span class="professora-stat-num tabular-nums">16</span>
+                  <span class="professora-stat-label">anos executiva<br />em finanças</span>
+                </li>
+                <li>
+                  <span class="professora-stat-num tabular-nums">10</span>
+                  <span class="professora-stat-label">anos como professora<br />universitária</span>
+                </li>
+                <li>
+                  <span class="professora-stat-num tabular-nums">6+</span>
+                  <span class="professora-stat-label">empresas como CFO<br />ou diretora</span>
+                </li>
+                <li>
+                  <span class="professora-stat-num tabular-nums">4</span>
+                  <span class="professora-stat-label">ERPs implantados<br />ao longo da carreira</span>
+                </li>
+              </ul>
+            </aside>
+
+            <!-- COLUNA DIREITA · narrativa + conquistas + creds + wordmarks -->
+            <div class="professora-body">
+              <p class="professora-bio">
+                São <strong>10 anos como professora universitária</strong> em
+                cursos de graduação de escola de negócios, somados a
+                <strong>16 anos de experiência executiva</strong> em finanças,
+                controladoria, contabilidade e tributos. O Climb Pass nasce
+                dessa interseção &mdash; ensino estruturado encontra prática
+                de quem decide finanças todo dia.
+              </p>
+
+              <p class="professora-bio">
+                Atua hoje como <strong>CFO da Pgmais</strong> e foi Diretora
+                Executiva de Finanças do Grupo Fiberx Telecom, CFO da Samba
+                Mobile e Head of Finance da Prime Control. Passou também por
+                Votorantim e American Glass Products. Conduziu processos de
+                M&amp;A, captações de recursos, reestruturação de dívidas e
+                implantação dos quatro principais ERPs do mercado.
+              </p>
+
+              <div class="professora-stack">
+                <h4>Já executou e ensina sobre:</h4>
+                <ul class="professora-achievements">
+                  <li>Processos de M&amp;A do lado comprador e vendedor</li>
+                  <li>Captação de recursos via dívida e equity</li>
+                  <li>Reestruturação financeira e renegociação com credores</li>
+                  <li>Implantação de SAP, Oracle, TOTVS e Senior</li>
+                  <li>Planejamento tributário comparativo em múltiplos regimes</li>
+                  <li>Construção de painel executivo e governança financeira</li>
+                </ul>
+              </div>
+
+              <div class="professora-creds-block">
+                <h4>Formação acadêmica</h4>
+                <ul class="professora-creds">
+                  <li>Formação Executiva de Líderes &mdash; FGV</li>
+                  <li>Especialização CFO &mdash; Universidade Positivo</li>
+                  <li>MBA em Contabilidade e Controladoria com ênfase em IFRS</li>
+                  <li>Bacharel em Ciências Contábeis</li>
+                </ul>
+              </div>
+
+              <div class="professora-wordmarks-block">
+                <h4>Atuou ou atua em</h4>
+                <div class="authority-wordmarks" aria-label="Empresas onde Marissa Guimarães atuou">
+                  <span>Pgmais</span>
+                  <span>Fiberx Telecom</span>
+                  <span>Samba Mobile</span>
+                  <span>Prime Control</span>
+                  <span>Votorantim</span>
+                  <span>American Glass Products</span>
+                </div>
+              </div>
             </div>
+          </article>
+        </div>
+      </section>
 
-            <div class="pricing-main">
+      <!-- ============================================================
+           9. OFERTA · pricing card único, R$ 99,90 em display gigante,
+              CTA dominante. Fundo navy-deep para destacar do resto.
+           ============================================================ -->
+      <section id="oferta" class="on-dark-deep" aria-labelledby="oferta-title">
+        <div class="container">
+          <span class="eyebrow">Assinatura Climb Pass</span>
+          <h2 id="oferta-title">
+            Um valor mensal, biblioteca sem fim de prazo.
+          </h2>
+          <p class="lead">
+            R$ 99,90 por mês &mdash; menos do que sai um almoço executivo
+            por semana &mdash; pra ter acesso completo ao Climb Pass.
+            Cobrança recorrente, sem fidelidade, garantia de 7 dias.
+            Cancele quando quiser, do seu jeito.
+          </p>
+
+          <article class="pricing-card">
+            <span class="pricing-badge">Inclui tudo</span>
+
+            <div class="pricing-amount">
               <span class="pricing-currency">R$</span>
-              <span class="pricing-amount">299</span>
+              <span class="pricing-value tabular-nums">99,90</span>
+              <span class="pricing-period">/ mês</span>
             </div>
 
-            <p class="pricing-installments">
-              <strong>à vista</strong> ou em até <strong>12x</strong> no
-              cartão
+            <p class="pricing-meta">
+              Sem fidelidade &middot; cancele quando quiser &middot;
+              garantia de 7 dias
             </p>
 
-            <ul class="pricing-inclusions">
-              <li>5 aulas gravadas (2h30 a 3h20 no total)</li>
-              <li>Acesso por 12 meses</li>
-              <li>Planilha + comunidade + Q&amp;A ao vivo</li>
-              <li>Garantia incondicional de 7 dias</li>
+            <ul class="pricing-stack" aria-label="O que está incluído na assinatura">
+              <li>Biblioteca completa de aulas, atualizada toda segunda</li>
+              <li>Planilhas, simuladores e templates novos toda quarta</li>
+              <li>Live mensal de Q&amp;A com a CFO Marissa Guimarães</li>
+              <li>Comunidade fechada de assinantes</li>
+              <li>Certificados nominais por trilha concluída</li>
             </ul>
 
             <a
               data-cta="oferta"
-              class="btn btn--primary"
+              class="btn btn--primary btn--large pricing-cta"
               href="https://sun.eduzz.com/PLACEHOLDER"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span>Quero entrar na turma fundadora — R$&nbsp;299</span>
+              <span>Assinar agora</span>
               <svg
                 class="btn-arrow"
                 viewBox="0 0 16 16"
@@ -997,139 +974,165 @@
               </svg>
             </a>
 
-            <div class="pricing-guarantee" aria-label="Garantia">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M12 2L4 6v6c0 5 3.5 9.4 8 10 4.5-.6 8-5 8-10V6l-8-4z"
-                  fill="rgba(46,190,90,0.18)"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M9 12l2 2 4-4"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <span>
-                <strong>Garantia de 7 dias.</strong> Devolução integral
-                sem perguntas se não fizer sentido para você.
-              </span>
-            </div>
-
             <p class="pricing-fineprint">
-              Pagamento processado pela Eduzz. Nota fiscal disponível.
+              Acesso liberado imediatamente após a confirmação do pagamento.
+              Cobrança recorrente mensal via cartão de crédito ou Pix.
+              <br />Você pode cancelar a qualquer momento pela sua conta &mdash;
+              sem ligação, sem retenção, sem multa.
             </p>
-          </div>
+          </article>
+
+          <p class="pricing-anchor">
+            <strong>Compare:</strong> um curso fechado de finanças
+            empresariais com CFO em atuação custa entre R$ 1.500 e R$ 4.000
+            de uma vez &mdash; e congela no dia da venda. Mentoria individual
+            mensal começa em R$ 1.500. Climb Pass entrega <strong>biblioteca
+            viva + comunidade + lives + ferramentas</strong> por R$ 99,90 ao
+            mês, sem fidelidade.
+          </p>
         </div>
       </section>
 
       <!-- ============================================================
-           9. FAQ · objeções neutralizadas. <details>/<summary> nativo
-              com chevron custom (rotaciona ao abrir, sem JS), hover
-              sutil, border verde quando aberto.
+           10. FAQ · 6 perguntas em <details> nativos (acessibilidade
+               gratuita: foco por teclado, screen reader compatível).
            ============================================================ -->
       <section id="faq" aria-labelledby="faq-title">
         <div class="container">
           <span class="eyebrow">Perguntas frequentes</span>
+          <h2 id="faq-title">Tire suas dúvidas antes de assinar.</h2>
 
-          <h2 id="faq-title">
-            Perguntas que você provavelmente está fazendo agora.
-          </h2>
-
-          <div class="faq-list">
-          <details>
-            <summary>
-              <h3>A inscrição para o webinar é totalmente gratuita?</h3>
-            </summary>
-            <p>
-              Sim. A aula introdutória é 100% gratuita. Não há cobranças ocultas e não solicitamos dados de cartão de crédito para a sua inscrição.
-            </p>
-          </details>
-
-          <details>
-            <summary>
-              <h3>A participação no webinar me obriga a adquirir o programa completo?</h3>
-            </summary>
-            <p>
-              De forma alguma. Você tem total liberdade para assistir apenas à aula gratuita e absorver o conteúdo ensinado. A decisão de avançar para as demais aulas e adquirir o programa completo é estritamente opcional.
-            </p>
-          </details>
-
-          <details>
-            <summary>
-              <h3>Qual é o investimento caso eu decida continuar no programa completo?</h3>
-            </summary>
-            <p>
-              O acesso ao programa "Finanças Empresariais na Prática", que inclui as aulas complementares, planilhas e o acesso à comunidade de alunos, possui o valor de R$ 299. Esta oferta será detalhada ao final da primeira aula.
-            </p>
-          </details>
-
-          <details>
-            <summary>
-              <h3>O conteúdo do webinar é gravado ou ao vivo?</h3>
-            </summary>
-            <p>
-              O conteúdo do webinar principal é transmitido de forma estruturada para o melhor aproveitamento técnico. No entanto, as interações, a exclusividade no grupo VIP e o suporte da equipe ocorrem em tempo real.
-            </p>
-          </details>
-
-          <details>
-            <summary>
-              <h3>Já possuo conhecimentos financeiros. O webinar ainda será útil para mim?</h3>
-            </summary>
-            <p>
-              Certamente. O grande diferencial do nosso método não é a análise isolada de indicadores, mas sim a <strong>leitura conectada</strong>. Você aprenderá como integrar DRE, Balanço Patrimonial e Fluxo de Caixa em uma única visão executiva, aprimorando seu raciocínio estratégico.
-            </p>
-          </details>
-
-          <details>
-            <summary>
-              <h3>Haverá emissão de certificado?</h3>
-            </summary>
-            <p>
-              O certificado digital de conclusão é exclusivo para os alunos que decidirem avançar e concluírem todas as etapas do programa completo (Aulas 1 a 5).
-            </p>
-          </details>
-          </div>
+          <ul class="faq-list">
+            <li>
+              <details>
+                <summary>Como recebo os novos conteúdos toda semana?</summary>
+                <p>
+                  Tudo fica na plataforma do Climb Pass. Toda segunda
+                  publicamos uma nova aula, toda quarta uma nova ferramenta
+                  e na sexta há live ou curadoria da comunidade. Você
+                  recebe aviso por e-mail e acessa quando quiser, pelo
+                  navegador ou celular &mdash; no seu ritmo. Tudo fica
+                  gravado e disponível na biblioteca pra consultar depois.
+                </p>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>Posso cancelar a qualquer momento?</summary>
+                <p>
+                  Sim, sem multa nem burocracia. Você cancela direto na sua
+                  conta com 2 cliques &mdash; sem ligação, sem retenção,
+                  sem "deixa eu te oferecer um desconto". Mantém o acesso
+                  até o fim do ciclo já pago e ponto.
+                </p>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>Tem garantia? Como funciona?</summary>
+                <p>
+                  Sim. Você tem <strong>7 dias completos</strong> pra
+                  conhecer a plataforma, assistir aulas, baixar ferramentas
+                  e participar da comunidade. Se em algum momento desses
+                  7 dias não fizer sentido, devolvemos 100% do valor pago
+                  &mdash; basta pedir por e-mail ou pelo chat. Sem
+                  questionamento.
+                </p>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>Quais formas de pagamento?</summary>
+                <p>
+                  Cartão de crédito com cobrança recorrente automática ou
+                  Pix recorrente. Você escolhe no checkout. Cobrança
+                  acontece todo dia 1º do mês (ou na data correspondente
+                  à sua adesão), com aviso prévio por e-mail.
+                </p>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>Preciso ter conhecimento prévio em finanças?</summary>
+                <p>
+                  Não. A plataforma é organizada em trilhas: <strong>trilha
+                  Fundamentos</strong> pra quem está começando (parte do
+                  básico, sem assumir conhecimento prévio), <strong>trilhas
+                  aplicadas</strong> por tema (capital de giro, precificação,
+                  tributário etc.) e <strong>trilhas avançadas</strong> pra
+                  profissionais de finanças que querem visão de CFO em
+                  atuação.
+                </p>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>Posso assinar com CNPJ da minha empresa?</summary>
+                <p>
+                  Sim. No checkout você escolhe entre nota fiscal pessoa
+                  física ou pessoa jurídica &mdash; e pode usar o cartão
+                  da empresa. A nota fiscal de PJ é emitida automaticamente
+                  a cada cobrança recorrente.
+                </p>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>Quanto tempo preciso dedicar por semana?</summary>
+                <p>
+                  Tipicamente <strong>1 a 2 horas semanais</strong> dão pra
+                  acompanhar bem &mdash; uma aula curta (15-30 min), aplicar
+                  a ferramenta da semana e participar de uma live mensal.
+                  Tudo fica gravado, então você pode acumular e consumir
+                  em ritmo de "fim de semana de estudo" se preferir.
+                </p>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>Isso substitui o Curso de Entrada (R$ 299)?</summary>
+                <p>
+                  São produtos diferentes. O Curso de Entrada é uma formação
+                  fechada de 5 aulas, ideal para quem quer estudar uma vez
+                  e ter um certificado específico do tema. O Climb Pass é a
+                  evolução contínua &mdash; conteúdo novo toda semana,
+                  comunidade, lives mensais com a CFO e acesso a todas as
+                  ferramentas da Academy. Quem já fez o Curso de Entrada
+                  costuma assinar o Climb Pass pra continuar evoluindo.
+                </p>
+              </details>
+            </li>
+          </ul>
         </div>
       </section>
 
       <!-- ============================================================
-           10. CTA FINAL · full-bleed navy continuous (até o footer).
-              Drucker quote como elemento dominante (display 4xl),
-              CTA único grande, assinatura discreta. Sem lead.
+           11. CTA FINAL · last call. Quote curto + repetição da oferta.
            ============================================================ -->
-      <section
-        id="cta-final"
-        class="on-dark"
-        aria-labelledby="cta-final-title"
-      >
+      <section id="cta-final" class="on-dark" aria-labelledby="cta-final-title">
         <div class="container">
-          <blockquote class="cta-final-quote">
-            A melhor maneira de prever o futuro é criá-lo.
-          </blockquote>
-          <cite class="cta-final-cite">Peter F. Drucker</cite>
+          <p class="cta-final-quote">
+            &ldquo;Gerir empresa é tomar decisão financeira todo dia.
+            O Climb Pass é a única assinatura pensada para esse ritmo.&rdquo;
+          </p>
 
-          <h2 id="cta-final-title">
-            Continuar no achismo, ou começar a decidir com método.
-          </h2>
+          <h2 id="cta-final-title">Comece esta semana.</h2>
 
-          <button
+          <p class="cta-final-body">
+            Na próxima segunda, uma nova aula entra. Na próxima quarta, uma
+            ferramenta nova. Na próxima sexta, live ou comunidade. Você pode
+            seguir adiando &mdash; ou começar agora, com 7 dias de garantia
+            e a possibilidade de cancelar com 2 cliques se não fizer sentido.
+          </p>
+
+          <a
             data-cta="cta-final"
-            type="button"
-            class="btn btn--primary"
-            onclick="document.getElementById('typeform-modal').classList.add('is-open')"
+            class="btn btn--primary btn--large"
+            href="https://sun.eduzz.com/PLACEHOLDER"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <span>Garantir minha vaga gratuita</span>
+            <span>Assinar por R$&nbsp;<span class="tabular-nums">99,90</span>/mês</span>
             <svg
               class="btn-arrow"
               viewBox="0 0 16 16"
@@ -1145,8 +1148,11 @@
                 stroke-linejoin="round"
               />
             </svg>
-          </button>
-
+          </a>
+          <p class="cta-final-meta">
+            Sem fidelidade &middot; cancele quando quiser &middot;
+            garantia de 7 dias &middot; acesso imediato
+          </p>
         </div>
       </section>
     </main>
@@ -1202,19 +1208,17 @@
     </a>
 
     <!-- ============================================================
-         STICKY CTA · só mobile (visível ao rolar para fora do hero)
+         STICKY CTA · mobile (visível ao rolar para fora do hero)
          ============================================================ -->
-    <!-- Sticky CTA de checkout oculto — preservado para reativação futura -->
     <aside
       class="sticky-cta"
       role="complementary"
-      aria-label="Inscrição webinar"
-      style="display: none !important;"
+      aria-label="Assinar Climb Pass"
     >
       <div class="sticky-cta__inner">
         <span class="sticky-cta__price">
-          <span class="sticky-cta__price-amount">R$&nbsp;299</span>
-          <span class="sticky-cta__price-label">à vista ou 12x</span>
+          <span class="sticky-cta__price-amount">R$&nbsp;<span class="tabular-nums">99,90</span></span>
+          <span class="sticky-cta__price-label">/ mês &middot; sem fidelidade</span>
         </span>
         <a
           data-cta="sticky-mobile"
@@ -1223,194 +1227,9 @@
           target="_blank"
           rel="noopener noreferrer"
         >
-          Quero entrar
+          Assinar
         </a>
       </div>
     </aside>
-
-    <!-- ============================================================
-         MODAL: Formulário nativo de qualificação de ICP + WhatsApp
-         Fluxo: CTA → abre modal → PASSO 01 (form inline) →
-         após envio, transiciona → PASSO 02 (WhatsApp grupo).
-         Dados enviados para Google Sheets via Apps Script.
-         ============================================================ -->
-    <div id="typeform-modal" class="typeform-overlay" role="dialog" aria-modal="true" aria-labelledby="typeform-modal-title">
-      <div class="typeform-overlay__backdrop" onclick="document.getElementById('typeform-modal').classList.remove('is-open')"></div>
-      <div class="typeform-overlay__panel">
-        <button
-          type="button"
-          class="typeform-overlay__close"
-          aria-label="Fechar"
-          onclick="document.getElementById('typeform-modal').classList.remove('is-open')"
-        >
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-
-        <!-- ===== PASSO 01: Formulário de qualificação ===== -->
-        <div id="form-step" class="typeform-form-step">
-          <h2 id="typeform-modal-title" class="typeform-overlay__title">
-            Inscreva-se no Webinar Finanças Empresariais na Prática
-          </h2>
-          <p class="typeform-overlay__subtitle">
-            Para concluir sua inscrição, responda a pesquisa e depois entre no grupo VIP no WhatsApp!
-          </p>
-
-          <form id="icp-form" class="icp-form" novalidate>
-
-            <!-- ── Bloco 1: Dados de contato ── -->
-            <fieldset class="icp-form__section">
-              <legend class="icp-form__legend">Seus dados</legend>
-
-              <div class="icp-form__field">
-                <label for="icp-nome">Nome completo *</label>
-                <input type="text" id="icp-nome" name="nome" required autocomplete="name" placeholder="Seu nome" />
-              </div>
-
-              <div class="icp-form__field">
-                <label for="icp-email">E-mail *</label>
-                <input type="email" id="icp-email" name="email" required autocomplete="email" placeholder="seu@email.com" />
-              </div>
-
-              <div class="icp-form__field">
-                <label for="icp-whatsapp">WhatsApp (com DDD) *</label>
-                <input type="tel" id="icp-whatsapp" name="whatsapp" required autocomplete="tel" placeholder="(11) 99999-9999" />
-              </div>
-            </fieldset>
-
-            <!-- ── Bloco 2: Faixa etária ── -->
-            <fieldset class="icp-form__section">
-              <legend class="icp-form__legend">Qual a sua faixa etária? *</legend>
-              <div class="icp-blocks" data-field="faixa_etaria">
-                <label class="icp-block"><input type="radio" name="faixa_etaria" value="18_24" required /><span class="icp-block__letter">A</span><span class="icp-block__text">18 a 24 anos</span></label>
-                <label class="icp-block"><input type="radio" name="faixa_etaria" value="25_31" /><span class="icp-block__letter">B</span><span class="icp-block__text">25 a 31 anos</span></label>
-                <label class="icp-block"><input type="radio" name="faixa_etaria" value="32_40" /><span class="icp-block__letter">C</span><span class="icp-block__text">32 a 40 anos</span></label>
-                <label class="icp-block"><input type="radio" name="faixa_etaria" value="41_50" /><span class="icp-block__letter">D</span><span class="icp-block__text">41 a 50 anos</span></label>
-                <label class="icp-block"><input type="radio" name="faixa_etaria" value="51_plus" /><span class="icp-block__letter">E</span><span class="icp-block__text">Acima de 50 anos</span></label>
-              </div>
-            </fieldset>
-
-            <!-- ── Bloco 3: Perfil profissional ── -->
-            <fieldset class="icp-form__section">
-              <legend class="icp-form__legend">Qual é o seu perfil profissional? *</legend>
-              <div class="icp-blocks" data-field="perfil">
-                <label class="icp-block"><input type="radio" name="perfil" value="dono_pme" required /><span class="icp-block__letter">A</span><span class="icp-block__text">Dono(a) de empresa / PME</span></label>
-                <label class="icp-block"><input type="radio" name="perfil" value="socio_diretor" /><span class="icp-block__letter">B</span><span class="icp-block__text">Sócio(a) / Diretor(a)</span></label>
-                <label class="icp-block"><input type="radio" name="perfil" value="contador" /><span class="icp-block__letter">C</span><span class="icp-block__text">Contador(a) / Escritório Contábil</span></label>
-                <label class="icp-block"><input type="radio" name="perfil" value="analista_controller" /><span class="icp-block__letter">D</span><span class="icp-block__text">Analista Financeiro / Controller</span></label>
-                <label class="icp-block"><input type="radio" name="perfil" value="gestor_coordenador" /><span class="icp-block__letter">E</span><span class="icp-block__text">Gestor(a) / Coordenador(a)</span></label>
-                <label class="icp-block"><input type="radio" name="perfil" value="estudante" /><span class="icp-block__letter">F</span><span class="icp-block__text">Estudante / Em transição de carreira</span></label>
-                <label class="icp-block"><input type="radio" name="perfil" value="outro" /><span class="icp-block__letter">G</span><span class="icp-block__text">Outro</span></label>
-                <input type="text" class="icp-form__outro-input" name="perfil_outro" placeholder="Qual o seu perfil?" style="display: none;" />
-              </div>
-            </fieldset>
-
-            <!-- ── Bloco 4: Escolaridade ── -->
-            <fieldset class="icp-form__section">
-              <legend class="icp-form__legend">Qual sua escolaridade? *</legend>
-              <div class="icp-blocks" data-field="escolaridade">
-                <label class="icp-block"><input type="radio" name="escolaridade" value="ensino_medio" required /><span class="icp-block__letter">A</span><span class="icp-block__text">Ensino Médio</span></label>
-                <label class="icp-block"><input type="radio" name="escolaridade" value="tecnico" /><span class="icp-block__letter">B</span><span class="icp-block__text">Ensino Técnico</span></label>
-                <label class="icp-block"><input type="radio" name="escolaridade" value="graduacao" /><span class="icp-block__letter">C</span><span class="icp-block__text">Graduação (completa ou em curso)</span></label>
-                <label class="icp-block"><input type="radio" name="escolaridade" value="pos_graduacao" /><span class="icp-block__letter">D</span><span class="icp-block__text">Pós-Graduação / MBA</span></label>
-                <label class="icp-block"><input type="radio" name="escolaridade" value="mestrado_doutorado" /><span class="icp-block__letter">E</span><span class="icp-block__text">Mestrado / Doutorado</span></label>
-              </div>
-            </fieldset>
-
-            <!-- ── Bloco 5: Faturamento da empresa ── -->
-            <fieldset class="icp-form__section">
-              <legend class="icp-form__legend">Faturamento mensal da sua empresa (ou do seu cliente principal)? *</legend>
-              <div class="icp-blocks" data-field="faturamento">
-                <label class="icp-block"><input type="radio" name="faturamento" value="ate_50k" required /><span class="icp-block__letter">A</span><span class="icp-block__text">Até R$ 50 mil</span></label>
-                <label class="icp-block"><input type="radio" name="faturamento" value="50k_200k" /><span class="icp-block__letter">B</span><span class="icp-block__text">R$ 50 mil a R$ 200 mil</span></label>
-                <label class="icp-block"><input type="radio" name="faturamento" value="200k_500k" /><span class="icp-block__letter">C</span><span class="icp-block__text">R$ 200 mil a R$ 500 mil</span></label>
-                <label class="icp-block"><input type="radio" name="faturamento" value="500k_1m" /><span class="icp-block__letter">D</span><span class="icp-block__text">R$ 500 mil a R$ 1 milhão</span></label>
-                <label class="icp-block"><input type="radio" name="faturamento" value="acima_1m" /><span class="icp-block__letter">E</span><span class="icp-block__text">Acima de R$ 1 milhão</span></label>
-                <label class="icp-block"><input type="radio" name="faturamento" value="nao_aplica" /><span class="icp-block__letter">F</span><span class="icp-block__text">Não se aplica / Não sei</span></label>
-              </div>
-            </fieldset>
-
-            <!-- ── Bloco 6: Maior desafio financeiro ── -->
-            <fieldset class="icp-form__section">
-              <legend class="icp-form__legend">Qual seu maior desafio financeiro hoje? *</legend>
-              <div class="icp-blocks" data-field="desafio">
-                <label class="icp-block"><input type="radio" name="desafio" value="lucro_caixa" required /><span class="icp-block__letter">A</span><span class="icp-block__text">Empresa mostra lucro mas o caixa aperta</span></label>
-                <label class="icp-block"><input type="radio" name="desafio" value="decisao_achismo" /><span class="icp-block__letter">B</span><span class="icp-block__text">Tomo decisões financeiras no achismo</span></label>
-                <label class="icp-block"><input type="radio" name="desafio" value="ler_demonstrativos" /><span class="icp-block__letter">C</span><span class="icp-block__text">Não sei ler DRE / Balanço / Fluxo de Caixa</span></label>
-                <label class="icp-block"><input type="radio" name="desafio" value="precificar" /><span class="icp-block__letter">D</span><span class="icp-block__text">Não sei se estou precificando certo</span></label>
-                <label class="icp-block"><input type="radio" name="desafio" value="crescer_sem_controle" /><span class="icp-block__letter">E</span><span class="icp-block__text">Empresa está crescendo mas sem controle</span></label>
-                <label class="icp-block"><input type="radio" name="desafio" value="outro" /><span class="icp-block__letter">F</span><span class="icp-block__text">Outro</span></label>
-                <input type="text" class="icp-form__outro-input" name="desafio_outro" placeholder="Qual o seu desafio?" style="display: none;" />
-              </div>
-            </fieldset>
-
-            <!-- ── Bloco 7: Objetivo profissional ── -->
-            <fieldset class="icp-form__section">
-              <legend class="icp-form__legend">Qual seu principal objetivo profissional? *</legend>
-              <div class="icp-blocks" data-field="objetivo">
-                <label class="icp-block"><input type="radio" name="objetivo" value="dominar_financas_empresa" required /><span class="icp-block__letter">A</span><span class="icp-block__text">Dominar as finanças da minha empresa</span></label>
-                <label class="icp-block"><input type="radio" name="objetivo" value="virar_cfo" /><span class="icp-block__letter">B</span><span class="icp-block__text">Crescer para cargo de CFO / Diretor Financeiro</span></label>
-                <label class="icp-block"><input type="radio" name="objetivo" value="parceiro_estrategico" /><span class="icp-block__letter">C</span><span class="icp-block__text">Ser parceiro estratégico do meu cliente</span></label>
-                <label class="icp-block"><input type="radio" name="objetivo" value="migrar_area" /><span class="icp-block__letter">D</span><span class="icp-block__text">Migrar / entrar na área financeira</span></label>
-                <label class="icp-block"><input type="radio" name="objetivo" value="aprender_basico" /><span class="icp-block__letter">E</span><span class="icp-block__text">Aprender o básico de finanças</span></label>
-              </div>
-            </fieldset>
-
-            <!-- ── Bloco 8: Como conheceu ── -->
-            <fieldset class="icp-form__section">
-              <legend class="icp-form__legend">Como conheceu a Climb4B? *</legend>
-              <div class="icp-blocks" data-field="origem">
-                <label class="icp-block"><input type="radio" name="origem" value="instagram" required /><span class="icp-block__letter">A</span><span class="icp-block__text">Instagram</span></label>
-                <label class="icp-block"><input type="radio" name="origem" value="linkedin" /><span class="icp-block__letter">B</span><span class="icp-block__text">LinkedIn</span></label>
-                <label class="icp-block"><input type="radio" name="origem" value="google" /><span class="icp-block__letter">C</span><span class="icp-block__text">Google / Pesquisa</span></label>
-                <label class="icp-block"><input type="radio" name="origem" value="indicacao" /><span class="icp-block__letter">D</span><span class="icp-block__text">Indicação de alguém</span></label>
-                <label class="icp-block"><input type="radio" name="origem" value="anuncio" /><span class="icp-block__letter">E</span><span class="icp-block__text">Anúncio patrocinado</span></label>
-                <label class="icp-block"><input type="radio" name="origem" value="outro" /><span class="icp-block__letter">F</span><span class="icp-block__text">Outro</span></label>
-                <input type="text" class="icp-form__outro-input" name="origem_outro" placeholder="Como nos conheceu?" style="display: none;" />
-              </div>
-            </fieldset>
-
-            <p id="icp-form-error" class="icp-form__error" style="display:none;">
-              Por favor, preencha todos os campos obrigatórios marcados com *.
-            </p>
-
-            <button type="submit" class="btn btn--primary btn--block icp-form__submit" data-cta="form-submit">
-              <span class="icp-form__submit-text">Garantir minha vaga gratuita</span>
-              <span class="icp-form__submit-loading" style="display:none;">
-                <svg class="icp-form__spinner" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-dasharray="31.4 31.4" />
-                </svg>
-                Enviando...
-              </span>
-            </button>
-
-            <p class="icp-form__privacy">🔒 Seus dados estão seguros e não serão compartilhados.</p>
-          </form>
-        </div>
-
-        <!-- ===== PASSO 02: Sucesso + WhatsApp ===== -->
-        <div id="success-step" class="typeform-success-step" style="display:none;">
-          <span class="typeform-success-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5 12.5L10 17.5L19 7.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-          <h2 class="typeform-overlay__title">Inscrição confirmada! 🎉</h2>
-          <p class="typeform-overlay__subtitle">Agora entre no grupo VIP para receber tudo sobre o webinar.</p>
-          <div class="typeform-step">
-            <a id="whatsapp-group-btn" class="typeform-step__btn typeform-step__btn--whatsapp" href="#" target="_blank" rel="noopener noreferrer" data-cta="whatsapp-group">
-              <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="24" height="24">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413"/>
-              </svg>
-              Entrar no Grupo VIP do WhatsApp
-            </a>
-          </div>
-          <p class="typeform-overlay__note">No grupo você receberá todos os links oficiais, materiais complementares e ficará por dentro das novidades do webinar.</p>
-        </div>
-      </div>
-    </div>
-
-    <script type="module" src="/src/main.js"></script>
   </body>
 </html>

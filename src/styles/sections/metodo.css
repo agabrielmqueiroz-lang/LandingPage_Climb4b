@@ -1,233 +1,222 @@
 /* ============================================================
-   metodo.css — direção: dark navy full-bleed, peça central é
-   um diagrama comparativo "antes vs depois" mostrando o método.
-   Rítmica alternada com Dor (light) e Aulas (light).
+   metodo.css — direção visual:
+   Faixa navy continuando do hero. Diagrama horizontal de 3
+   steps (Seg / Qua / Sex) com conectores em SVG inline via
+   pseudo-elementos — setas verdes saindo do final de cada step
+   para o início do próximo. Mobile: stack vertical, conector
+   muda para borda esquerda. Eyebrow "Segunda/Quarta/Sexta" em
+   verde acentua o ritmo semanal.
    ============================================================ */
 
 #metodo {
   background: var(--navy-900);
-  color: var(--text-on-dark);
   position: relative;
   overflow: hidden;
-  isolation: isolate;
 }
 
 #metodo::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(
-    ellipse at 50% 100%,
-    rgba(46, 190, 90, 0.06),
-    transparent 60%
+  background: radial-gradient(
+    1100px 700px at 50% 0%,
+    rgba(46, 190, 90, 0.08),
+    transparent 70%
   );
-  z-index: -1;
   pointer-events: none;
 }
 
 #metodo .container {
-  max-width: var(--container-base);
-}
-
-#metodo .eyebrow {
-  color: var(--green-300);
+  position: relative;
 }
 
 #metodo h2 {
   color: var(--off-white);
-  font-size: clamp(1.875rem, 4.4vw, 3.75rem);
+  max-width: 18ch;
+  margin-bottom: var(--space-4);
+}
+
+#metodo .lead {
+  color: var(--text-on-dark-muted);
   margin-bottom: var(--space-16);
-  max-width: 26ch;
-  line-height: 1.05;
+  max-width: 56ch;
 }
 
-/* ---------- Comparison: cursos comuns × Climb4B ----------
-   Mantém lado a lado em mobile (2 cols) — usuário consegue ver
-   "antes vs depois" numa olhada só, mesmo em viewport pequeno.
-   Em ≥880px ganha o divisor "vs" e gap maior. */
-.method-comparison {
+.metodo-flow {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-3);
-  align-items: stretch;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
 }
 
-@media (min-width: 880px) {
-  .method-comparison {
-    grid-template-columns: 1fr auto 1fr;
+@media (min-width: 720px) {
+  .metodo-flow {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--space-6);
+    align-items: stretch;
+  }
+}
+
+.metodo-step {
+  position: relative;
+  padding: var(--space-8);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--rule-on-dark);
+  border-radius: var(--radius-lg);
+}
+
+.metodo-step::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  transition: border-color var(--duration-base) var(--ease-standard);
+}
+
+.metodo-step:hover::after {
+  border: 1px solid var(--green-400);
+}
+
+/* Conector entre steps — seta para a direita no desktop */
+@media (min-width: 720px) {
+  .metodo-step:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    right: calc(var(--space-6) * -0.5 - 7px);
+    top: 50%;
+    width: 14px;
+    height: 14px;
+    border-top: 2px solid var(--green-400);
+    border-right: 2px solid var(--green-400);
+    transform: translateY(-50%) rotate(45deg);
+    z-index: 1;
+  }
+}
+
+/* Conector mobile: linha vertical descendente */
+@media (max-width: 719px) {
+  .metodo-step:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: calc(var(--space-8) * -1 + 6px);
+    width: 2px;
+    height: var(--space-6);
+    background: var(--green-400);
+    transform: translateX(-50%);
+  }
+}
+
+.metodo-day {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--green-300);
+  margin-bottom: var(--space-4);
+}
+
+.metodo-step h3 {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: var(--fw-semibold);
+  color: var(--off-white);
+  margin-bottom: var(--space-3);
+  line-height: var(--lh-snug);
+}
+
+.metodo-step p {
+  color: var(--text-on-dark-muted);
+  font-size: var(--fs-base);
+  max-width: none;
+}
+
+.metodo-step p strong {
+  color: var(--off-white);
+  font-weight: var(--fw-semibold);
+}
+
+/* ---------- Comparativo Curso tradicional vs Climb Pass ---------- */
+.metodo-compare {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  margin-top: var(--space-16);
+  border-top: 1px solid var(--rule-on-dark);
+  padding-top: var(--space-12);
+}
+
+@media (min-width: 720px) {
+  .metodo-compare {
+    grid-template-columns: 1fr 1fr;
     gap: var(--space-8);
   }
 }
 
-.method-half {
+.metodo-compare-col {
+  padding: var(--space-8);
+  border: 1px solid var(--rule-on-dark);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.metodo-compare-col--good {
+  border-color: var(--green-400);
+  background: rgba(46, 190, 90, 0.06);
+}
+
+.metodo-compare-label {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--text-on-dark-muted);
+  margin-bottom: var(--space-4);
+}
+
+.metodo-compare-col--good .metodo-compare-label {
+  color: var(--green-300);
+}
+
+.metodo-compare-col ul {
   display: flex;
   flex-direction: column;
-  gap: var(--space-5);
-  padding: var(--space-6);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--rule-on-dark);
-  background: rgba(255, 255, 255, 0.02);
-  /* Carrossel mobile precisa de altura igual entre slides para
-     o scroll-snap não pular alturas diferentes. */
-  height: 100%;
+  gap: var(--space-3);
 }
 
-@media (min-width: 720px) {
-  .method-half {
-    gap: var(--space-6);
-    padding: var(--space-8);
-  }
-}
-
-.method-half--good {
-  border-color: var(--green-500);
-  background: rgba(46, 190, 90, 0.06);
-  box-shadow: 0 24px 60px -30px rgba(46, 190, 90, 0.5);
-}
-
-.method-half__label {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  font-family: var(--font-body);
-  font-size: 10px;
-  font-weight: var(--fw-semibold);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+.metodo-compare-col li {
+  position: relative;
+  padding-left: var(--space-6);
+  font-size: var(--fs-base);
+  line-height: var(--lh-snug);
   color: var(--text-on-dark-muted);
-  line-height: 1.2;
 }
 
-@media (min-width: 720px) {
-  .method-half__label {
-    font-size: var(--fs-xs);
-    letter-spacing: var(--tracking-eyebrow);
-  }
+.metodo-compare-col--bad li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 12px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.3);
 }
 
-.method-half__dot {
-  width: 8px;
-  height: 8px;
-  border-radius: var(--radius-pill);
-  background: var(--ink-300);
-  flex-shrink: 0;
+.metodo-compare-col--good li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.4em;
+  width: 14px;
+  height: 14px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M3 8.5L6 11.5L13 4.5' stroke='%237BD89A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
-.method-half--good .method-half__label {
-  color: var(--green-300);
-}
-
-.method-half--good .method-half__dot {
-  background: var(--green-400);
-  box-shadow: 0 0 0 4px rgba(46, 190, 90, 0.2);
-}
-
-.method-half__diagram {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-height: 280px;
-}
-
-/* Label "isolado" abaixo dos cards no half--bad */
-.cmp-isolated {
-  fill: var(--ink-300);
-  font-family: var(--font-body);
-  font-size: 9px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  text-anchor: middle;
-  font-style: italic;
-}
-
-.method-half__caption {
-  font-family: var(--font-display);
-  font-size: var(--fs-sm);
-  font-style: italic;
-  line-height: 1.3;
+.metodo-compare-col--good li {
   color: var(--off-white);
-  margin: 0;
-  max-width: 28ch;
-}
-
-@media (min-width: 720px) {
-  .method-half__caption {
-    font-size: var(--fs-md);
-    line-height: var(--lh-snug);
-  }
-}
-
-.method-half--bad .method-half__caption {
-  color: var(--text-on-dark-muted);
-}
-
-/* SVG token inside diagrams */
-.cmp-card {
-  fill: var(--navy-700);
-  stroke: var(--navy-600);
-  stroke-width: 1;
-}
-
-.method-half--good .cmp-card {
-  stroke: var(--green-500);
-}
-
-.cmp-label {
-  fill: var(--off-white);
-  font-family: var(--font-body);
-  font-size: 13px;
-  font-weight: var(--fw-semibold);
-  letter-spacing: 0.04em;
-  text-anchor: middle;
-}
-
-.cmp-question {
-  fill: var(--text-on-dark-muted);
-  font-family: var(--font-display);
-  font-size: 28px;
-  font-weight: var(--fw-bold);
-  text-anchor: middle;
-}
-
-.cmp-connector {
-  stroke: var(--green-400);
-  stroke-width: 1.5;
-  stroke-linecap: round;
-  fill: none;
-  stroke-dasharray: 4 4;
-}
-
-.cmp-decision {
-  fill: var(--green-500);
-  stroke: var(--green-300);
-  stroke-width: 1.5;
-}
-
-.cmp-decision-label {
-  fill: var(--navy-900);
-  font-family: var(--font-display);
-  font-size: 14px;
-  font-weight: var(--fw-bold);
-  text-anchor: middle;
-}
-
-/* Divisor central "vs" — só desktop */
-.method-vs {
-  display: none;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-display);
-  font-size: var(--fs-xl);
-  font-weight: var(--fw-bold);
-  font-style: italic;
-  color: var(--green-300);
-  letter-spacing: -0.02em;
-  padding-inline: var(--space-4);
-}
-
-@media (min-width: 880px) {
-  .method-vs {
-    display: flex;
-  }
 }

@@ -1,0 +1,281 @@
+/* ============================================================
+   professora.css — direção visual:
+   "Card editorial de autoridade pessoal" inspirado em about-pages
+   de consultorias (estilo INSDR). Coluna esquerda fixa (320px no
+   desktop): retrato placeholder sofisticado com silhueta SVG +
+   iniciais "MG" + nameplate embaixo, seguido de grid 2x2 de stats
+   dominantes (numerais display gigantes em verde). Coluna direita:
+   narrativa em 2 parágrafos + 3 blocos rotulados (conquistas,
+   formação, wordmarks de empresas). Quando a foto real chegar,
+   trocar a div .professora-portrait-frame por <img>.
+   ============================================================ */
+
+#professora {
+  background: var(--bg-alt);
+}
+
+#professora h2 {
+  margin-bottom: var(--space-12);
+  max-width: 28ch;
+}
+
+.professora-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-12);
+  padding: var(--space-12);
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-1);
+}
+
+@media (min-width: 1080px) {
+  .professora-card {
+    grid-template-columns: 320px 1fr;
+    gap: var(--space-16);
+    align-items: start;
+    padding: var(--space-16);
+  }
+}
+
+/* ============================================================
+   COLUNA ESQUERDA · identidade + stats
+   ============================================================ */
+.professora-side {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+@media (min-width: 1080px) {
+  .professora-side {
+    position: sticky;
+    top: calc(var(--header-height) + var(--space-8));
+  }
+}
+
+/* ---------- Retrato placeholder ---------- */
+.professora-portrait {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin: 0;
+}
+
+.professora-portrait-frame {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  width: 100%;
+  max-width: 320px;
+  margin-inline: auto;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background:
+    radial-gradient(
+      ellipse at 30% 0%,
+      rgba(46, 190, 90, 0.25) 0%,
+      transparent 55%
+    ),
+    linear-gradient(160deg, var(--navy-700) 0%, var(--navy-900) 100%);
+  border: 1px solid var(--rule-strong);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+/* Silhueta SVG sutil — sugere onde a foto vai entrar sem
+   parecer um avatar genérico. Cor muito apagada (10% white). */
+.professora-portrait-silhouette {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  fill: rgba(255, 255, 255, 0.07);
+}
+
+.professora-initials {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: var(--fw-light);
+  letter-spacing: -0.04em;
+  color: rgba(255, 255, 255, 0.45);
+  z-index: 2;
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-sm);
+}
+
+/* Nameplate verde no canto inferior — quando a foto entrar, fica
+   sobreposta na parte de baixo do retrato. */
+.professora-portrait-frame::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--green-400) 0%,
+    var(--green-500) 100%
+  );
+  z-index: 3;
+}
+
+.professora-portrait-caption {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding-top: var(--space-2);
+}
+
+.professora-portrait-caption strong {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.02em;
+  color: var(--navy-900);
+}
+
+.professora-portrait-caption span {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--accent-strong);
+}
+
+/* ---------- Stats em grid 2×2 ---------- */
+.professora-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-1);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--rule);
+}
+
+.professora-stats > li {
+  padding: var(--space-4) var(--space-3);
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.professora-stat-num {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  font-weight: var(--fw-light);
+  letter-spacing: -0.04em;
+  color: var(--accent-strong);
+  line-height: 1;
+}
+
+.professora-stat-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  line-height: 1.35;
+}
+
+/* ============================================================
+   COLUNA DIREITA · narrativa + blocos rotulados
+   ============================================================ */
+.professora-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.professora-bio {
+  font-size: var(--fs-md);
+  line-height: var(--lh-relaxed);
+  color: var(--text);
+  max-width: 60ch;
+  margin: 0;
+}
+
+.professora-bio strong {
+  color: var(--navy-900);
+  font-weight: var(--fw-semibold);
+}
+
+.professora-stack,
+.professora-creds-block,
+.professora-wordmarks-block {
+  padding: var(--space-6) var(--space-8);
+  background: var(--bg-alt);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--accent);
+}
+
+.professora-stack h4,
+.professora-creds-block h4,
+.professora-wordmarks-block h4 {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--accent-strong);
+  margin-bottom: var(--space-4);
+}
+
+.professora-achievements,
+.professora-creds {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2);
+}
+
+@media (min-width: 720px) {
+  .professora-achievements {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2) var(--space-6);
+  }
+}
+
+.professora-achievements li,
+.professora-creds li {
+  position: relative;
+  padding-left: var(--space-4);
+  font-size: var(--fs-sm);
+  color: var(--text);
+  line-height: var(--lh-snug);
+}
+
+.professora-achievements li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+.professora-creds li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 8px;
+  height: 2px;
+  background: var(--accent);
+}
+
+/* Wordmarks dentro do bloco da Marissa (estilo herdado de
+   autoridade.css mas com aria-label diferente) */
+.professora-wordmarks-block .authority-wordmarks {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}

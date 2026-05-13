@@ -1,74 +1,56 @@
 /* ============================================================
-   hero.css — direção: editorial executivo, full-bleed navy,
-   tipografia display dominante, composição assimétrica
-   (texto 7/12 + visual 5/12 desktop, stack mobile).
-   Visual = diagrama do método (DRE+BP+FC → Decisão) cumprindo
-   double-duty: placeholder visual + comunicação do mecanismo.
+   hero.css — direção visual:
+   Editorial executivo sobre fundo navy. Lado esquerdo: H1
+   dominante, lead, CTA primário verde + secundário em outline,
+   trust strip de três pontos. Lado direito: mockup vetorial
+   (laptop com dashboard) inspirado no JPEG, mas leve em SVG.
+   Mobile: stack vertical, mockup recua de tamanho.
    ============================================================ */
 
 #hero {
+  background: var(--navy-900);
   position: relative;
-  background:
-    radial-gradient(
-      ellipse at 80% 0%,
-      rgba(46, 190, 90, 0.08),
-      transparent 55%
-    ),
-    linear-gradient(180deg, var(--navy-900) 0%, var(--navy-800) 100%);
-  color: var(--text-on-dark);
-  /* Top padding inclui header-height — hero estende ATRÁS do header
-     fixo, garantindo que a marca light fique visível sobre o navy. */
-  padding-block:
-    calc(var(--header-height) + var(--space-16))
-    var(--space-24);
   overflow: hidden;
-  isolation: isolate;
+  padding-top: clamp(7rem, 14vw, 12rem);
 }
 
-/* Textura sutil — pontilhado em opacidade baixa.
-   Camada de respiração visual sobre o fundo plano. */
 #hero::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(
-    circle at 1px 1px,
-    rgba(255, 255, 255, 0.04) 1px,
-    transparent 0
-  );
-  background-size: 24px 24px;
+  background:
+    radial-gradient(
+      900px 600px at 90% 10%,
+      rgba(46, 190, 90, 0.12),
+      transparent 70%
+    ),
+    radial-gradient(
+      700px 500px at 10% 90%,
+      rgba(27, 43, 92, 0.6),
+      transparent 70%
+    );
   pointer-events: none;
-  z-index: -1;
 }
 
 #hero .container {
   display: grid;
-  gap: var(--space-12);
   grid-template-columns: 1fr;
-  max-width: var(--container-wide);
+  gap: var(--space-12);
+  align-items: center;
+  position: relative;
 }
 
 @media (min-width: 1080px) {
   #hero .container {
     grid-template-columns: 7fr 5fr;
-    align-items: center;
     gap: var(--space-16);
   }
 }
 
-/* ---------- Texto ----------
-   Sem .lead — o H1 é a única peça textual entre eyebrow e CTA.
-   Gap generoso para o headline dominar a viewport. */
 .hero-text {
   display: flex;
   flex-direction: column;
-  gap: clamp(1.5rem, 3vw, 2.5rem);
-  max-width: 36rem;
-}
-
-.hero-badge {
-  margin-bottom: var(--space-2);
-  align-self: flex-start;
+  gap: var(--space-6);
 }
 
 .hero-text .eyebrow {
@@ -77,169 +59,131 @@
 }
 
 #hero h1 {
-  color: var(--off-white);
-  font-size: clamp(2.25rem, 6.4vw, 5.5rem);
-  line-height: 1.05;
+  font-size: clamp(2.25rem, 5vw, 4.25rem);
+  font-weight: var(--fw-semibold);
   letter-spacing: -0.025em;
-  margin: 0;
+  line-height: var(--lh-tight);
+  color: var(--off-white);
 }
 
-#hero h1 .hl {
-  background: none;
-  color: var(--green-300);
-  padding: 0;
-  font-style: italic;
-  font-weight: var(--fw-regular);
+#hero .lead {
+  color: var(--text-on-dark-muted);
+  font-size: var(--fs-md);
+  max-width: 56ch;
 }
 
 .hero-cta {
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4) var(--space-6);
+  margin-top: var(--space-2);
+}
+
+.hero-cta .btn--ghost {
+  color: var(--text-on-dark);
+  border-bottom: 1px solid var(--rule-on-dark);
+  padding-bottom: 4px;
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-sm);
+  text-decoration: none;
+  transition:
+    border-color var(--duration-fast) var(--ease-standard),
+    color var(--duration-fast) var(--ease-standard);
+}
+
+.hero-cta .btn--ghost:hover {
+  color: var(--off-white);
+  border-bottom-color: var(--green-400);
+}
+
+.hero-bullets {
+  display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: var(--space-3);
-  width: 100%;
+  margin-top: var(--space-4);
+  padding: var(--space-6) 0;
+  border-top: 1px solid var(--rule-on-dark);
+  border-bottom: 1px solid var(--rule-on-dark);
 }
 
-/* Mobile: CTA principal toma a largura toda — texto longo
-   "Quero entrar na turma fundadora — R$ 299" cabe sem nowrap forçar
-   overflow horizontal da página. */
-@media (max-width: 719px) {
-  .hero-cta .btn--primary {
-    width: 100%;
-  }
+.hero-bullets li {
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  gap: var(--space-4);
+  align-items: baseline;
+  font-size: var(--fs-base);
+  color: var(--text-on-dark-muted);
+  line-height: var(--lh-snug);
 }
 
-/* Microcopy "autoridade" — mesma família visual do .cta-microcopy
-   mas com ícone star em vez de check. Substituiu o trust-strip
-   card grande, que pesava demais above-the-fold. */
-.cta-microcopy--auth::before {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M8 1.5L9.85 5.7L14.5 6.15L11 9.3L12.05 13.85L8 11.5L3.95 13.85L5 9.3L1.5 6.15L6.15 5.7L8 1.5Z' fill='%237BD89A' stroke='%237BD89A' stroke-width='1.2' stroke-linejoin='round'/%3E%3C/svg%3E");
+.hero-bullet-day {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--green-300);
 }
 
-/* ---------- Visual: diagrama do método ---------- */
+.hero-bullet-text strong {
+  color: var(--off-white);
+  font-weight: var(--fw-semibold);
+}
+
+.trust-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-6);
+  margin-top: var(--space-4);
+  font-size: var(--fs-sm);
+  color: var(--text-on-dark-muted);
+}
+
+.trust-strip li {
+  position: relative;
+  padding-left: var(--space-4);
+}
+
+.trust-strip li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  background: var(--green-400);
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+/* ---------- Mockup vetorial: 3 cards de semana típica ---------- */
 .hero-visual {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.method-diagram {
   width: 100%;
-  max-width: 460px;
+  max-width: 480px;
+  margin-inline: auto;
+}
+
+.hero-visual-svg {
+  display: block;
+  width: 100%;
   height: auto;
-  filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.35));
+  filter: drop-shadow(0 24px 60px rgba(0, 0, 0, 0.35));
 }
 
-.method-diagram .demo-fullname {
-  fill: var(--off-white);
-  font-family: var(--font-display);
-  font-size: 14px;
-  font-weight: 500;
-  text-anchor: middle;
-}
-
-.method-diagram .demo-card {
-  fill: var(--navy-700);
-  stroke: var(--navy-600);
-  stroke-width: 1;
-  transition: fill var(--duration-base) var(--ease-standard);
-}
-
-.method-diagram .demo-card.is-active {
-  fill: var(--navy-600);
-  stroke: var(--green-400);
-}
-
-.method-diagram .demo-label {
-  fill: var(--off-white);
-  font-family: var(--font-body);
-  font-size: 14px;
-  font-weight: var(--fw-semibold);
-  letter-spacing: 0.04em;
-  text-anchor: middle;
-}
-
-.method-diagram .demo-sublabel {
-  fill: var(--text-on-dark-muted);
-  font-family: var(--font-body);
-  font-size: 9px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  text-anchor: middle;
-}
-
-.method-diagram .connector {
-  stroke: var(--green-400);
-  stroke-width: 1.5;
-  stroke-linecap: round;
-  fill: none;
-  stroke-dasharray: 4 4;
-  opacity: 0.7;
-}
-
-.method-diagram .decision-node {
-  fill: var(--green-500);
-  stroke: var(--green-300);
-  stroke-width: 2;
-}
-
-.method-diagram .decision-label {
-  fill: var(--navy-900);
-  font-family: var(--font-display);
-  font-size: 16px;
-  font-weight: var(--fw-bold);
-  letter-spacing: 0.02em;
-  text-anchor: middle;
-}
-
-.method-diagram .corner-meta {
-  fill: var(--text-on-dark-muted);
-  font-family: var(--font-body);
-  font-size: 10px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
-/* Animação inicial: entram com fade + slide */
 @media (prefers-reduced-motion: no-preference) {
-  .hero-text > * {
-    opacity: 0;
-    transform: translateY(12px);
-    animation: hero-rise 0.7s var(--ease-emphasized) forwards;
-  }
-
-  .hero-text .eyebrow { animation-delay: 0ms; }
-  .hero-text h1       { animation-delay: 80ms; }
-  .hero-cta           { animation-delay: 200ms; }
-
-  .hero-visual {
-    opacity: 0;
-    transform: scale(0.96);
-    animation: hero-pop 0.9s var(--ease-emphasized) 200ms forwards;
-  }
-
-  /* Conectores tracejados pulsam suavemente */
-  .method-diagram .connector {
-    animation: connector-pulse 3s ease-in-out infinite;
+  .hero-visual-svg {
+    animation: hero-float 8s ease-in-out infinite;
   }
 }
 
-@keyframes hero-rise {
-  to {
-    opacity: 1;
+@keyframes hero-float {
+  0%,
+  100% {
     transform: translateY(0);
   }
-}
-
-@keyframes hero-pop {
-  to {
-    opacity: 1;
-    transform: scale(1);
+  50% {
+    transform: translateY(-8px);
   }
-}
-
-@keyframes connector-pulse {
-  0%, 100% { opacity: 0.4; }
-  50%      { opacity: 0.85; }
 }
