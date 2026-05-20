@@ -33,6 +33,25 @@
     grid-template-columns: 1fr 1fr 1fr;
     gap: var(--space-8);
   }
+
+  .semana-timeline--two {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+  }
+}
+
+/* Card "live" recebe destaque visual extra (verde + glow) */
+.semana-card--live {
+  border-color: var(--accent);
+  background: var(--bg);
+  box-shadow:
+    0 0 0 4px rgba(46, 190, 90, 0.06),
+    0 12px 32px rgba(46, 190, 90, 0.12);
+}
+
+.semana-card--live::before {
+  width: 6px;
+  background: linear-gradient(180deg, var(--green-400) 0%, var(--green-600) 100%);
 }
 
 .semana-card {

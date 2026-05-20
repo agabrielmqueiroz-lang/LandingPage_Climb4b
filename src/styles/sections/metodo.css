@@ -50,8 +50,8 @@
 
 @media (min-width: 720px) {
   .metodo-flow {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: var(--space-6);
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
     align-items: stretch;
   }
 }
