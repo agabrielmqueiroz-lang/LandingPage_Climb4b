@@ -113,6 +113,24 @@
   color: var(--off-white);
 }
 
+/* ---------- Secondary: outline verde sobre fundo escuro ----------
+   Usado em CTAs secundárias dentro de seções on-dark (pricing card
+   coluna anual à vista). Mantém clareza de "ação" sem competir
+   com o CTA primário verde sólido. */
+.btn--secondary {
+  background: transparent;
+  color: var(--off-white);
+  border: 1.5px solid var(--green-400);
+  box-shadow: 0 8px 24px -10px rgba(46, 190, 90, 0.3);
+}
+
+.btn--secondary:hover {
+  background: rgba(46, 190, 90, 0.12);
+  color: var(--off-white);
+  border-color: var(--accent);
+  box-shadow: 0 12px 30px -10px rgba(46, 190, 90, 0.5);
+}
+
 /* ---------- Block: full width (mobile / cards) ---------- */
 .btn--block {
   width: 100%;

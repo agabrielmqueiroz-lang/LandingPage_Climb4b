@@ -28,10 +28,10 @@
   margin-bottom: var(--space-8);
 }
 
-@media (min-width: 1080px) {
+@media (min-width: 880px) {
   .semana-timeline {
     grid-template-columns: 1fr 1fr 1fr;
-    gap: var(--space-8);
+    gap: var(--space-6);
   }
 
   .semana-timeline--two {

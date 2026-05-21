@@ -177,10 +177,12 @@ hr {
 }
 
 /* ---------- Section base ----------
-   Padding editorial — equilíbrio entre respirar e não esvaziar.
-   clamp dá escala suave entre mobile e desktop. */
+   Padding editorial — mais respirador no mobile (4.5rem = 72px mín)
+   pra dar peso editorial e separação clara entre seções.
+   Recuperado do padrão da branch_main_site após feedback de
+   usabilidade mobile. */
 section {
-  padding-block: clamp(3.5rem, 6vw, 6.5rem);
+  padding-block: clamp(4rem, 8vw, 8rem);
 }
 
 /* ---------- Scroll-margin para anchor links ---------- */

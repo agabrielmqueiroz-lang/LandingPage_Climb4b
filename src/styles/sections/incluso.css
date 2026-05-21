@@ -28,7 +28,7 @@
   border-top: 1px solid var(--rule);
 }
 
-@media (min-width: 720px) {
+@media (min-width: 880px) {
   .incluso-grid {
     grid-template-columns: 1fr 1fr;
     gap: 1px;
@@ -45,11 +45,24 @@
 }
 
 .incluso-card {
-  padding: var(--space-8) var(--space-6);
+  padding: var(--space-6) var(--space-4);
   border-bottom: 1px solid var(--rule);
 }
 
-@media (min-width: 720px) {
+/* Carrossel mobile: cards ganham borda + radius pra parecer cards
+   independentes (não mais lista de hairlines). */
+@media (max-width: 879px) {
+  .incluso-card {
+    border: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    border-radius: var(--radius-lg);
+    padding: var(--space-8) var(--space-6);
+    background: var(--bg);
+    box-shadow: var(--shadow-1);
+  }
+}
+
+@media (min-width: 880px) {
   .incluso-card {
     border-bottom: none;
     padding: var(--space-12) var(--space-8);

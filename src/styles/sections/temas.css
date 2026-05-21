@@ -30,7 +30,7 @@
   overflow: hidden;
 }
 
-@media (min-width: 720px) {
+@media (min-width: 880px) {
   .temas-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -58,6 +58,17 @@
 
 .tema-card:hover {
   background: var(--bg-alt);
+}
+
+/* Carrossel mobile: o "trick" de gap+bg do parent não funciona, então
+   cada card precisa de borda própria pra parecer um card de verdade. */
+@media (max-width: 879px) {
+  .tema-card {
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-1);
+  }
 }
 
 .tema-icon {

@@ -1,15 +1,15 @@
 /* ============================================================
    carousel.css — transforma grids verticais em carrossel
-   horizontal SÓ em mobile (≤719px). Desktop mantém o layout
-   original (grid 3 cols). Auto-rotate é cuidado pelo JS.
+   horizontal SÓ em mobile/tablet pequeno (≤879px). Desktop mantém
+   o layout original. Auto-rotate é cuidado pelo JS quando o data-
+   carousel NÃO tem `data-carousel-manual`.
    ============================================================ */
 
-/* Wrapper que recebe os dots indicadores via JS */
 .carousel-wrap {
   position: relative;
 }
 
-@media (max-width: 719px) {
+@media (max-width: 879px) {
   /* O elemento marcado data-carousel vira flex row scrollável.
      Margens negativas + padding compensam o container-pad para
      que os cards toquem as bordas do viewport (com peek do próximo). */
@@ -26,27 +26,41 @@
     padding-block: var(--space-2) var(--space-4);
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
-    /* Reseta grid-template-columns que possa existir */
+    align-items: stretch;
+
+    /* Reseta grid-template-columns + borda/background de "trick"
+       de grids (temas-grid usa gap+bg pra criar hairlines). */
     grid-template-columns: none !important;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    overflow-x: auto !important;
   }
 
   [data-carousel]::-webkit-scrollbar {
     display: none;
   }
 
+  /* Cada slide ocupa 86% do viewport — peek do próximo card sinaliza
+     que tem mais conteúdo pra direita. */
   [data-carousel] > * {
     flex: 0 0 calc(100% - var(--space-12));
     scroll-snap-align: center;
-    /* Reseta stagger margins de layouts grid (thought-bubbles,
-       publicos-grid usam nth-child margin-top em desktop). */
     margin-top: 0 !important;
+
+    /* Cards que normalmente tem borda visível no grid (incluso,
+       publicos, problema-card) mantêm suas bordas próprias. */
   }
 
-  /* Pseudo-elementos decorativos (linhas conectoras dos pockets,
-     timeline das aulas) ficariam quebrados num scroll horizontal —
-     escondemos no carousel. */
+  /* Pseudo-elementos decorativos (conectores do método, etc) ficariam
+     quebrados num scroll horizontal — escondemos no carousel. */
   [data-carousel]::before {
     display: none !important;
+  }
+
+  [data-carousel] > *::before {
+    /* Mantém ::before dos cards individuais (números do problema,
+       etc) — só escondemos o ::before do CONTAINER do carousel. */
   }
 }
 
@@ -61,7 +75,7 @@
   list-style: none;
 }
 
-@media (max-width: 719px) {
+@media (max-width: 879px) {
   .carousel-dots {
     display: flex;
   }
@@ -91,7 +105,7 @@
   width: 24px;
 }
 
-/* Em seções dark (Método se virar carousel um dia), inverter a cor */
+/* Em seções dark, inverter cor dos dots */
 .on-dark .carousel-dot {
   background: rgba(255, 255, 255, 0.3);
 }

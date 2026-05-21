@@ -1,10 +1,11 @@
 /* ============================================================
-   checkout.js — montagem da URL do Eduzz com UTMs do referrer.
-   Sem isso, o Eduzz recebe o lead mas não consegue atribuir a
-   campanha que o trouxe. Conversão "vira órfã" no painel de Ads.
+   checkout.js — montagem da URL do gateway de checkout (Ticto)
+   com UTMs do referrer. Sem isso, o gateway recebe o lead mas
+   não consegue atribuir a campanha que o trouxe. Conversão
+   "vira órfã" no painel de Ads.
    ============================================================ */
 
-import { EDUZZ_CHECKOUT_URL, TRACKED_PARAMS } from './config.js';
+import { CHECKOUT_URL, TRACKED_PARAMS } from './config.js';
 
 /**
  * Monta a URL final do checkout, propagando UTMs (e click IDs do
@@ -13,7 +14,7 @@ import { EDUZZ_CHECKOUT_URL, TRACKED_PARAMS } from './config.js';
  * @param {string} baseUrl - URL base do checkout (default: config)
  * @returns {string} URL com UTMs adicionadas
  */
-export function buildCheckoutUrl(baseUrl = EDUZZ_CHECKOUT_URL) {
+export function buildCheckoutUrl(baseUrl = CHECKOUT_URL) {
   if (typeof window === 'undefined') return baseUrl;
 
   try {

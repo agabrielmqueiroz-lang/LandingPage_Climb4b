@@ -8,7 +8,7 @@
     <title>Climb Pass · Assinatura de educação em finanças empresariais — Climb4B</title>
     <meta
       name="description"
-      content="Climb Pass é a assinatura mensal da Climb4B Academy para profissionais de finanças e controladoria. Aulas, ferramentas e encontros ao vivo com a CFO, toda sexta e sábado de manhã. R$ 99,90/mês, sem fidelidade."
+      content="Climb Pass é a assinatura mensal da Climb4B Academy para profissionais de finanças e controladoria. Aulas, ferramentas e encontros ao vivo com a CFO, toda sexta e sábado de manhã. R$ 99,90/mês ou R$ 999,90/ano à vista."
     />
     <link rel="canonical" href="https://climb4b.com/climb-pass" />
 
@@ -91,24 +91,35 @@
           "url": "https://climb4b.com"
         },
         "areaServed": "BR",
-        "offers": {
-          "@type": "Offer",
-          "price": "99.90",
-          "priceCurrency": "BRL",
-          "availability": "https://schema.org/InStock",
-          "category": "Subscription",
-          "priceSpecification": {
-            "@type": "UnitPriceSpecification",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Climb Pass — Assinatura Mensal",
             "price": "99.90",
             "priceCurrency": "BRL",
-            "unitCode": "MON",
-            "referenceQuantity": {
-              "@type": "QuantitativeValue",
-              "value": 1,
-              "unitCode": "MON"
+            "availability": "https://schema.org/InStock",
+            "category": "Subscription",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "99.90",
+              "priceCurrency": "BRL",
+              "unitCode": "MON",
+              "referenceQuantity": {
+                "@type": "QuantitativeValue",
+                "value": 1,
+                "unitCode": "MON"
+              }
             }
+          },
+          {
+            "@type": "Offer",
+            "name": "Climb Pass — Anuidade à vista (12 meses)",
+            "price": "999.90",
+            "priceCurrency": "BRL",
+            "availability": "https://schema.org/InStock",
+            "category": "AnnualSubscription"
           }
-        }
+        ]
       }
     </script>
 
@@ -156,8 +167,9 @@
         </a>
         <a
           data-cta="header"
+          data-plan="monthly"
           class="btn btn--primary btn--compact header-cta"
-          href="https://sun.eduzz.com/PLACEHOLDER"
+          href="https://checkout.ticto.app/OD06121A0"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -228,8 +240,9 @@
             <div class="hero-cta">
               <a
                 data-cta="hero"
+                data-plan="monthly"
                 class="btn btn--primary"
-                href="https://sun.eduzz.com/PLACEHOLDER"
+                href="https://checkout.ticto.app/OD06121A0"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -302,13 +315,15 @@
                 <rect x="24" y="24" width="88" height="22" rx="11" fill="#2EBE5A" />
                 <text x="68" y="40" font-family="Inter, sans-serif" font-size="10" font-weight="700" fill="#0F1E3D" text-anchor="middle" letter-spacing="1">SÁBADO · 9H</text>
 
-                <!-- AO VIVO badge -->
-                <g transform="translate(280, 24)">
-                  <rect width="60" height="22" rx="11" fill="#FFFFFF" stroke="#E53935" stroke-width="1" />
-                  <circle cx="14" cy="11" r="4" fill="#E53935">
+                <!-- AO VIVO badge (centralizado: dot+gap+text como grupo,
+                     padding simétrico ~14px em badge de 84px, gap de 12px
+                     entre o dot e o texto) -->
+                <g transform="translate(256, 24)">
+                  <rect width="84" height="22" rx="11" fill="#FFFFFF" stroke="#E53935" stroke-width="1" />
+                  <circle cx="18" cy="11" r="4" fill="#E53935">
                     <animate attributeName="opacity" values="1;0.3;1" dur="1.6s" repeatCount="indefinite" />
                   </circle>
-                  <text x="38" y="15" font-family="Inter, sans-serif" font-size="9" font-weight="700" fill="#E53935" letter-spacing="1">AO VIVO</text>
+                  <text x="52" y="14.5" font-family="Inter, sans-serif" font-size="10" font-weight="700" fill="#E53935" text-anchor="middle" letter-spacing="0.5">AO VIVO</text>
                 </g>
 
                 <text x="24" y="74" font-family="Inter, sans-serif" font-size="11" fill="#5C6680" letter-spacing="0.5">LIVE + FERRAMENTA · 1H</text>
@@ -367,7 +382,7 @@
             resolvem isso. Três motivos explicam por quê:
           </p>
 
-          <ol class="problema-list">
+          <ol class="problema-list" data-carousel="problema" data-carousel-manual>
             <li class="problema-card">
               <span class="problema-number" aria-hidden="true">01</span>
               <h3>Você executa, mas falta segurança pra decidir.</h3>
@@ -564,7 +579,7 @@
             já está lá continua acessível pra você consultar quando precisar.
           </p>
 
-          <ul class="incluso-grid">
+          <ul class="incluso-grid" data-carousel="incluso">
             <li class="incluso-card">
               <span class="incluso-icon" data-icon="play" aria-hidden="true"></span>
               <h3>Biblioteca de aulas em vídeo</h3>
@@ -641,7 +656,7 @@
             ferramentas próprias e materiais que entram toda semana.
           </p>
 
-          <ul class="temas-grid">
+          <ul class="temas-grid" data-carousel="temas">
             <li class="tema-card">
               <span class="tema-icon" data-icon="cash" aria-hidden="true"></span>
               <h3>Fluxo de caixa</h3>
@@ -724,7 +739,7 @@
             em um destes perfis, Climb Pass faz sentido pra você.
           </p>
 
-          <ul class="publicos-grid">
+          <ul class="publicos-grid" data-carousel="publicos" data-carousel-manual>
             <li class="publico-card">
               <span class="publico-tag">Perfil 01</span>
               <h3>Analista, coordenador ou gerente financeiro</h3>
@@ -896,68 +911,143 @@
         <div class="container">
           <span class="eyebrow">Assinatura Climb Pass</span>
           <h2 id="oferta-title">
-            Um valor mensal, biblioteca sem fim de prazo.
+            Escolha sua forma de pagamento.
           </h2>
           <p class="lead">
-            Menos que sai uma jantar executivo &mdash; com acesso completo
-            ao Climb Pass: biblioteca de aulas, ferramentas, encontros ao
-            vivo de sábado e comunidade. Cobrança recorrente, sem fidelidade,
-            garantia de 7 dias. Cancele quando quiser, do seu jeito.
+            Mesmo conteúdo, mesmo acesso. Duas formas de começar &mdash;
+            ambas com garantia de 7 dias.
           </p>
 
+          <!-- Aesthetic: editorial executive. ONE card.
+               Dois "rows" empilhados verticalmente, separados por uma
+               regra horizontal com "ou" inline. Sem boxes aninhados.
+               Numerais dominam (display weight 300). -->
           <article class="pricing-card">
-            <span class="pricing-badge">Inclui tudo</span>
 
-            <div class="pricing-amount">
-              <span class="pricing-currency">R$</span>
-              <span class="pricing-value tabular-nums">99,90</span>
-              <span class="pricing-period">/ mês</span>
+            <!-- LINHA 1 · MENSAL -->
+            <div class="pricing-row">
+              <div class="pricing-row-head">
+                <span class="pricing-row-tag pricing-row-tag--primary">
+                  Mais flexível
+                </span>
+                <h3 class="pricing-row-title">Mensal recorrente</h3>
+              </div>
+
+              <p class="pricing-row-anchor">
+                De <s class="tabular-nums">R$&nbsp;159,90</s> por
+              </p>
+
+              <div class="pricing-row-amount">
+                <span class="pricing-currency">R$</span>
+                <span class="pricing-value tabular-nums">99,90</span>
+                <span class="pricing-period">/ mês</span>
+              </div>
+
+              <p class="pricing-row-context">
+                Cartão de crédito recorrente &middot;
+                cancele quando quiser, sem fidelidade.
+              </p>
+
+              <a
+                data-cta="oferta-mensal"
+                data-plan="monthly"
+                class="btn btn--primary btn--large pricing-row-cta"
+                href="https://checkout.ticto.app/OD06121A0"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>Assinar mensal</span>
+                <svg
+                  class="btn-arrow"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M3 8h10M9 4l4 4-4 4"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
             </div>
 
-            <p class="pricing-meta">
-              Sem fidelidade &middot; cancele quando quiser &middot;
-              garantia de 7 dias
-            </p>
+            <!-- DIVISOR EDITORIAL · "ou" inline na régua horizontal -->
+            <div class="pricing-rule" aria-hidden="true">
+              <span>ou</span>
+            </div>
 
-            <ul class="pricing-stack" aria-label="O que está incluído na assinatura">
-              <li>Nova aula toda sexta-feira às 18h</li>
-              <li>Encontro ao vivo com a CFO todo sábado às 9h</li>
-              <li>Ferramentas e templates entregues nos encontros</li>
-              <li>Comunidade fechada de profissionais de finanças</li>
-              <li>Certificados nominais por trilha concluída</li>
-            </ul>
+            <!-- LINHA 2 · ANUIDADE À VISTA -->
+            <div class="pricing-row">
+              <div class="pricing-row-head">
+                <span class="pricing-row-tag">1 ano &middot; Pix ou boleto</span>
+                <h3 class="pricing-row-title">Anuidade à vista</h3>
+              </div>
 
-            <a
-              data-cta="oferta"
-              class="btn btn--primary btn--large pricing-cta"
-              href="https://sun.eduzz.com/PLACEHOLDER"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span>Assinar agora</span>
-              <svg
-                class="btn-arrow"
-                viewBox="0 0 16 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
+              <p class="pricing-row-anchor">
+                De <s class="tabular-nums">R$&nbsp;1.198,80</s> por
+              </p>
+
+              <div class="pricing-row-amount">
+                <span class="pricing-currency">R$</span>
+                <span class="pricing-value tabular-nums">999,90</span>
+                <span class="pricing-period">/ ano</span>
+              </div>
+
+              <p class="pricing-row-context">
+                Pague 1 ano à vista via Pix ou boleto &middot;
+                12 meses de acesso completo, sem cobrança mensal.
+                Renova só se você quiser, ao fim do período.
+              </p>
+
+              <a
+                data-cta="oferta-anual"
+                data-plan="annual"
+                class="btn btn--secondary btn--large pricing-row-cta"
+                href="https://checkout.ticto.app/OB5AADACB"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <path
-                  d="M3 8h10M9 4l4 4-4 4"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </a>
+                <span>Pagar 1 ano à vista</span>
+                <svg
+                  class="btn-arrow"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M3 8h10M9 4l4 4-4 4"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+            </div>
 
-            <p class="pricing-fineprint">
-              Acesso liberado imediatamente após a confirmação do pagamento.
-              Cobrança recorrente mensal via cartão de crédito ou Pix.
-              <br />Você pode cancelar a qualquer momento pela sua conta &mdash;
-              sem ligação, sem retenção, sem multa.
-            </p>
+            <!-- BLOCO COMPARTILHADO · o que está incluso nos dois planos -->
+            <div class="pricing-shared">
+              <p class="pricing-shared-label">
+                Em ambos os planos
+              </p>
+              <ul class="pricing-stack" aria-label="O que está incluído nos dois planos">
+                <li>Nova aula em vídeo toda sexta-feira às 18h</li>
+                <li>Encontro ao vivo com a CFO todo sábado às 9h</li>
+                <li>Ferramentas e templates aplicáveis</li>
+                <li>Comunidade fechada de profissionais</li>
+                <li>Certificados nominais por trilha</li>
+              </ul>
+              <p class="pricing-fineprint">
+                Acesso liberado imediatamente após a confirmação do pagamento.
+                <strong>Garantia de 7 dias</strong> em ambos os planos &mdash;
+                se não fizer sentido, devolvemos 100%.
+              </p>
+            </div>
           </article>
 
           <p class="pricing-anchor">
@@ -965,8 +1055,8 @@
             corporativas começa em R$ 5.000–15.000 (in-company) ou R$ 30k+
             (MBA). Mentoria individual com CFO custa de R$ 2.000 a R$ 5.000
             por mês. Climb Pass entrega <strong>biblioteca viva + encontros
-            ao vivo + ferramentas + comunidade</strong> por R$ 99,90 ao mês,
-            sem fidelidade.
+            ao vivo + ferramentas + comunidade</strong> por R$ 99,90/mês
+            ou R$ 999,90/ano à vista.
           </p>
         </div>
       </section>
@@ -977,8 +1067,10 @@
            ============================================================ -->
       <section id="faq" aria-labelledby="faq-title">
         <div class="container">
-          <span class="eyebrow">Perguntas frequentes</span>
-          <h2 id="faq-title">Tire suas dúvidas antes de assinar.</h2>
+          <div class="faq-intro">
+            <span class="eyebrow">Perguntas frequentes</span>
+            <h2 id="faq-title">Tire suas dúvidas antes de assinar.</h2>
+          </div>
 
           <ul class="faq-list">
             <li>
@@ -1035,10 +1127,25 @@
               <details>
                 <summary>Quais formas de pagamento?</summary>
                 <p>
-                  Cartão de crédito com cobrança recorrente automática ou
-                  Pix recorrente. Você escolhe no checkout. Cobrança
-                  acontece todo dia 1º do mês (ou na data correspondente
-                  à sua adesão), com aviso prévio por e-mail.
+                  Você escolhe entre dois planos: <strong>Mensal recorrente
+                  R$ 99,90/mês</strong> (cartão de crédito com cobrança
+                  automática mensal) ou
+                  <strong>Anuidade à vista R$ 999,90/ano</strong> (Pix ou
+                  boleto pagos de uma vez, 12 meses de acesso, sem cobrança
+                  mensal). O conteúdo é o mesmo nos dois planos.
+                </p>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>O que acontece depois dos 12 meses se eu pagar à vista?</summary>
+                <p>
+                  Ao final dos 12 meses pagos, seu acesso encerra
+                  automaticamente &mdash; <strong>sem cobrança surpresa,
+                  sem renovação automática</strong>. Se quiser continuar,
+                  você renova manualmente (pagando outra anuidade à vista
+                  ou migrando pro plano mensal). Te avisamos por e-mail
+                  uns 30 dias antes do vencimento.
                 </p>
               </details>
             </li>
@@ -1120,8 +1227,9 @@
 
           <a
             data-cta="cta-final"
+            data-plan="monthly"
             class="btn btn--primary btn--large"
-            href="https://sun.eduzz.com/PLACEHOLDER"
+            href="https://checkout.ticto.app/OD06121A0"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -1202,25 +1310,26 @@
 
     <!-- ============================================================
          STICKY CTA · mobile (visível ao rolar para fora do hero)
+         Vai pra seção #oferta onde o usuário escolhe entre mensal
+         ou anuidade à vista — não tem checkout direto aqui pra
+         evitar empurrar o usuário pro plano "errado".
          ============================================================ -->
     <aside
       class="sticky-cta"
       role="complementary"
-      aria-label="Assinar Climb Pass"
+      aria-label="Ir para a seção de planos do Climb Pass"
     >
       <div class="sticky-cta__inner">
         <span class="sticky-cta__price">
-          <span class="sticky-cta__price-amount">R$&nbsp;<span class="tabular-nums">99,90</span></span>
-          <span class="sticky-cta__price-label">/ mês &middot; sem fidelidade</span>
+          <span class="sticky-cta__price-amount">R$&nbsp;<span class="tabular-nums">97</span></span>
+          <span class="sticky-cta__price-label">/ mês &middot; ou R$ 999,90/ano à vista</span>
         </span>
         <a
           data-cta="sticky-mobile"
           class="btn btn--primary btn--compact"
-          href="https://sun.eduzz.com/PLACEHOLDER"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="#oferta"
         >
-          Assinar
+          Ver planos
         </a>
       </div>
     </aside>

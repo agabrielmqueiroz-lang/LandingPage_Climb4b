@@ -38,8 +38,9 @@
   <g transform="translate(840, 200)">
     <rect x="0" y="0" width="280" height="220" rx="20" fill="rgba(255,255,255,0.04)" stroke="#2EBE5A" stroke-width="2"/>
     <text x="140" y="48" font-family="-apple-system, sans-serif" font-size="14" font-weight="600" fill="#7BD89A" letter-spacing="3" text-anchor="middle">ASSINATURA</text>
-    <text x="140" y="120" font-family="Georgia, serif" font-size="68" font-weight="300" fill="#F7F8F5" text-anchor="middle" letter-spacing="-2">R$ 99,90</text>
-    <text x="140" y="168" font-family="-apple-system, sans-serif" font-size="18" fill="#B4BCD0" text-anchor="middle">por mês · sem fidelidade</text>
+    <text x="140" y="92" font-family="-apple-system, sans-serif" font-size="16" fill="#7D8AAA" text-anchor="middle" text-decoration="line-through">De R$ 159,90</text>
+    <text x="140" y="138" font-family="Georgia, serif" font-size="58" font-weight="300" fill="#F7F8F5" text-anchor="middle" letter-spacing="-1.5">R$ 99,90/mês</text>
+    <text x="140" y="172" font-family="-apple-system, sans-serif" font-size="16" fill="#B4BCD0" text-anchor="middle">ou R$ 999,90/ano à vista</text>
     <line x1="40" y1="184" x2="240" y2="184" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
     <text x="140" y="206" font-family="-apple-system, sans-serif" font-size="14" fill="#7BD89A" text-anchor="middle">Garantia de 7 dias</text>
   </g>

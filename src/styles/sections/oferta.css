@@ -1,12 +1,15 @@
 /* ============================================================
    oferta.css — direção visual:
-   Faixa navy mais profundo que hero (~navy-800 com glow verde)
-   para criar pausa visual entre as seções claras anteriores e
-   o FAQ. Pricing card único, centralizado, max-width 560px.
-   Valor R$ 99,90 em display ~120px (fs-display) com tabular-nums
-   — o número dominante da página. CTA grande sob o preço, com
-   seta verde. Meta "sem fidelidade · garantia" abaixo do valor,
-   fineprint embaixo do CTA. Selo de garantia em badge minimal.
+   "Editorial executive pricing block" — UM card único, dois rows
+   de pagamento empilhados verticalmente (mensal → "ou" → anual),
+   separados apenas por uma régua horizontal fina com "ou" inline.
+   Sem boxes aninhados. Sem mini-cards dentro do card. Numerais
+   em display dominante (clamp 4-7rem, weight 300). Cada row tem
+   tag + título + preço + contexto + CTA, alinhado em coluna
+   única dentro de um max-width 720px. Embaixo das duas rows, um
+   bloco "Em ambos os planos" lista o que é comum, separado por
+   régua tracejada. Inspirado em pricing pages da Stripe, Linear,
+   FT — não em comparadores de planos genéricos SaaS.
    ============================================================ */
 
 #oferta {
@@ -20,7 +23,7 @@
   position: absolute;
   inset: 0;
   background: radial-gradient(
-    900px 600px at 50% 50%,
+    1000px 700px at 50% 50%,
     rgba(46, 190, 90, 0.1),
     transparent 70%
   );
@@ -41,63 +44,125 @@
 
 #oferta h2 {
   color: var(--off-white);
-  max-width: 24ch;
+  max-width: 22ch;
   margin-bottom: var(--space-4);
   text-wrap: balance;
 }
 
 #oferta .lead {
   color: var(--text-on-dark-muted);
-  max-width: 62ch;
+  max-width: 56ch;
   margin-bottom: var(--space-12);
   text-align: center;
 }
 
+/* ============================================================
+   CARD ÚNICO — 720px, sem nesting visual
+   ============================================================ */
 .pricing-card {
   position: relative;
   width: 100%;
-  max-width: 560px;
-  padding: var(--space-12);
+  max-width: 720px;
+  padding: var(--space-12) var(--space-8);
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--green-400);
   border-radius: var(--radius-xl);
   backdrop-filter: blur(10px);
+  text-align: left;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: var(--space-6);
+  gap: var(--space-10, 2.5rem);
   box-shadow:
-    0 0 0 4px rgba(46, 190, 90, 0.08),
-    0 18px 48px rgba(46, 190, 90, 0.18);
-}
-
-.pricing-badge {
-  position: absolute;
-  top: -14px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--accent);
-  color: var(--navy-900);
-  font-family: var(--font-body);
-  font-size: var(--fs-xs);
-  font-weight: var(--fw-bold);
-  text-transform: uppercase;
-  letter-spacing: var(--tracking-eyebrow);
-  padding: var(--space-2) var(--space-4);
-  border-radius: var(--radius-pill);
+    0 0 0 4px rgba(46, 190, 90, 0.06),
+    0 24px 60px rgba(0, 0, 0, 0.4),
+    0 0 80px rgba(46, 190, 90, 0.08);
 }
 
 @media (min-width: 720px) {
   .pricing-card {
     padding: var(--space-16) var(--space-12);
+    gap: var(--space-12);
   }
 }
 
-.pricing-amount {
+/* ============================================================
+   ROW DE PAGAMENTO — sem border, sem background próprio
+   Cada row é uma "linha editorial" no card unificado
+   ============================================================ */
+.pricing-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.pricing-row-head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.pricing-row-tag {
+  display: inline-block;
+  align-self: flex-start;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--green-300);
+  border: 1px solid var(--rule-on-dark);
+}
+
+.pricing-row-tag--primary {
+  background: var(--accent);
+  color: var(--navy-900);
+  border-color: transparent;
+}
+
+.pricing-row-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-semibold);
+  color: var(--off-white);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+/* ---------- ANCORAGEM RISCADA (preço promocional "de X por Y") ----------
+   Tamanho médio (fs-base = 16px), muted, com riscado em vermelho
+   apagado pra sugerir desconto sem competir com o preço principal. */
+.pricing-row-anchor {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-regular);
+  color: var(--text-on-dark-muted);
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.pricing-row-anchor s {
+  font-family: var(--font-display);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-medium);
+  color: var(--text-on-dark-muted);
+  font-variant-numeric: tabular-nums;
+  text-decoration: line-through;
+  text-decoration-thickness: 1.5px;
+  text-decoration-color: rgba(229, 57, 53, 0.7);
+  margin: 0 0.2em;
+}
+
+/* ---------- PREÇO — numeral dominante ---------- */
+.pricing-row-amount {
   display: flex;
   align-items: baseline;
   gap: var(--space-2);
   color: var(--off-white);
+  flex-wrap: wrap;
 }
 
 .pricing-currency {
@@ -109,10 +174,10 @@
 
 .pricing-value {
   font-family: var(--font-display);
-  font-size: clamp(4.5rem, 13vw, 8rem);
+  font-size: clamp(4rem, 10vw, 6.5rem);
   font-weight: var(--fw-light);
   letter-spacing: -0.04em;
-  line-height: 0.95;
+  line-height: 0.9;
   color: var(--off-white);
   font-variant-numeric: tabular-nums;
 }
@@ -124,36 +189,90 @@
   font-weight: var(--fw-medium);
 }
 
-.pricing-meta {
-  font-size: var(--fs-sm);
+/* ---------- Contexto do plano ---------- */
+.pricing-row-context {
+  font-size: var(--fs-base);
   color: var(--text-on-dark-muted);
+  margin: 0;
+  max-width: 48ch;
+  line-height: var(--lh-relaxed);
+}
+
+/* ---------- CTA da row — alinhado à esquerda, full em mobile ---------- */
+.pricing-row-cta {
+  align-self: flex-start;
+  margin-top: var(--space-2);
+  min-width: 240px;
+}
+
+@media (max-width: 719px) {
+  .pricing-row-cta {
+    width: 100%;
+    align-self: stretch;
+  }
+}
+
+/* ============================================================
+   RÉGUA EDITORIAL "ou" — separador entre as 2 rows
+   ============================================================ */
+.pricing-rule {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 1px;
+  background: var(--rule-on-dark);
+  margin: var(--space-2) 0;
+}
+
+.pricing-rule span {
+  display: inline-block;
+  padding: 0 var(--space-4);
+  background: var(--navy-900);
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--text-on-dark-muted);
+  /* Compensa o gradient do #oferta::before — mantém aparência sólida */
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================================
+   BLOCO COMPARTILHADO — "Em ambos os planos"
+   ============================================================ */
+.pricing-shared {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding-top: var(--space-8);
+  border-top: 1px dashed var(--rule-on-dark);
+}
+
+.pricing-shared-label {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--green-300);
   margin: 0;
   max-width: none;
-  text-align: center;
-}
-
-.pricing-cta {
-  margin-top: var(--space-2);
-  min-width: 280px;
-}
-
-.pricing-fineprint {
-  font-size: var(--fs-xs);
-  color: var(--text-on-dark-muted);
-  max-width: 44ch;
-  text-align: center;
-  margin: 0;
-  line-height: var(--lh-base);
 }
 
 .pricing-stack {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: var(--space-2);
-  padding: var(--space-4) 0;
-  border-top: 1px solid var(--rule-on-dark);
-  border-bottom: 1px solid var(--rule-on-dark);
+}
+
+@media (min-width: 720px) {
+  .pricing-stack {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2) var(--space-6);
+  }
 }
 
 .pricing-stack li {
@@ -176,6 +295,24 @@
   background-repeat: no-repeat;
 }
 
+.pricing-fineprint {
+  font-size: var(--fs-xs);
+  color: var(--text-on-dark-muted);
+  max-width: none;
+  margin: var(--space-2) 0 0 0;
+  line-height: var(--lh-base);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--rule-on-dark);
+}
+
+.pricing-fineprint strong {
+  color: var(--off-white);
+  font-weight: var(--fw-semibold);
+}
+
+/* ============================================================
+   Pricing anchor (paragraph comparativo) — fora do card
+   ============================================================ */
 .pricing-anchor {
   margin-top: var(--space-12);
   max-width: 64ch;

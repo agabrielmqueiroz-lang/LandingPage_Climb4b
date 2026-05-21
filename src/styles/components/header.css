@@ -89,7 +89,7 @@ header[role="banner"].is-scrolled .brand:hover {
 
 @media (max-width: 1079px) {
   .header-cta {
-    display: none;
+    display: none !important;
   }
 }
 

@@ -1,17 +1,18 @@
 /* ============================================================
    carousel.js — converte qualquer [data-carousel] em carrossel
-   horizontal auto-rotativo no mobile (≤719px). Desktop mantém
-   o layout original (CSS já cuida disso).
+   horizontal no mobile (≤879px). Desktop mantém grid via CSS.
 
    Comportamento:
-   - Auto-advance a cada AUTO_ADVANCE_MS
+   - Auto-advance a cada AUTO_ADVANCE_MS (default 3s)
+   - Atributo `data-carousel-manual` desativa auto-rotate (swipe only)
+   - Atributo `data-carousel-interval="N"` sobrescreve timing (ms)
    - Pausa em touch / hover / focus
    - Dots clicáveis para pular pra slide específica
    - Respeita prefers-reduced-motion (sem auto-advance)
    ============================================================ */
 
-const AUTO_ADVANCE_MS = 4000;
-const MOBILE_BREAKPOINT = '(max-width: 719px)';
+const AUTO_ADVANCE_MS = 3000;
+const MOBILE_BREAKPOINT = '(max-width: 879px)';
 
 export function initCarousels() {
   const mobileMq = window.matchMedia(MOBILE_BREAKPOINT);
@@ -22,12 +23,20 @@ export function initCarousels() {
 }
 
 function setupCarousel(carousel, mobileMq) {
-  // Children com data-carousel-skip não viram slide (ex.: divisor "vs"
-  // do Pilar 2, que só faz sentido na visão lado a lado em desktop).
+  // Children com data-carousel-skip não viram slide.
   const items = Array.from(carousel.children).filter(
     (child) => !child.hasAttribute('data-carousel-skip')
   );
   if (items.length < 2) return;
+
+  // Carousels marcados como manual não giram automaticamente.
+  const isManual = carousel.hasAttribute('data-carousel-manual');
+
+  // Timing customizado via data-carousel-interval="N" (ms).
+  const customInterval = parseInt(carousel.dataset.carouselInterval, 10);
+  const intervalMs = Number.isFinite(customInterval) && customInterval > 0
+    ? customInterval
+    : AUTO_ADVANCE_MS;
 
   // Cria o container de dots e insere imediatamente após o carousel
   const dotsList = document.createElement('ul');
@@ -57,6 +66,8 @@ function setupCarousel(carousel, mobileMq) {
     currentIndex: 0,
     timer: null,
     paused: false,
+    isManual,
+    intervalMs,
   };
 
   setActiveDot(state, 0);
@@ -108,12 +119,13 @@ function setupCarousel(carousel, mobileMq) {
 }
 
 function startRotation(state) {
+  if (state.isManual) return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   stopRotation(state);
   state.timer = window.setInterval(() => {
     const nextIndex = (state.currentIndex + 1) % state.items.length;
     scrollToIndex(state.carousel, state.items, nextIndex);
-  }, AUTO_ADVANCE_MS);
+  }, state.intervalMs);
 }
 
 function stopRotation(state) {

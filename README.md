@@ -184,7 +184,9 @@ Antes do checkout funcionar, configurar na Eduzz:
    - Preço: R$ 99,90/mês
    - **Tipo: assinatura recorrente** (não pagamento único)
    - Periodicidade: mensal
-   - Métodos de pagamento: cartão de crédito recorrente + Pix recorrente
+   - Métodos de pagamento: cartão de crédito com cobrança recorrente
+     (Pix recorrente fica desabilitado por enquanto — disponibilizar depois
+     quando o fluxo estiver pronto)
    - Garantia: 7 dias
 2. **Copiar o link único** (formato `https://sun.eduzz.com/{ID}`) e colar em [src/config.js](src/config.js) → `EDUZZ_CHECKOUT_URL`.
 3. **Configurar `success_url`** no painel do produto apontando para `https://{seu-dominio}/obrigado.html`. Sem isso, o evento `purchase` não dispara e a métrica de conversão fica perdida.

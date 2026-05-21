@@ -5,7 +5,7 @@
    trocar/adicionar pixel não exige mexer no código.
    ============================================================ */
 
-import { PRODUCT, SCROLL_DEPTHS } from './config.js';
+import { PRODUCT, PRODUCTS_BY_PLAN, SCROLL_DEPTHS } from './config.js';
 
 // Garante que dataLayer existe ANTES do GTM tentar inicializá-lo.
 // O snippet GTM no <head> do HTML já cria dataLayer, mas isso aqui
@@ -33,22 +33,29 @@ export function trackSectionView(sectionId) {
  * Disparado em cada clique de CTA. Dispara DOIS eventos:
  * - cta_click: granular, identifica QUAL CTA foi clicado
  * - begin_checkout: padrão GA4 ecommerce, alimenta funil
+ *
+ * `plan` pode ser 'monthly' ou 'annual' — vem do data-plan do CTA.
+ * Default = monthly se ausente.
  */
-export function trackCtaClick(sectionLabel, ctaText) {
+export function trackCtaClick(sectionLabel, ctaText, plan = 'monthly') {
+  const product = PRODUCTS_BY_PLAN[plan] || PRODUCT;
+
   track('cta_click', {
     section_name: sectionLabel,
     cta_label: ctaText,
+    plan,
   });
 
   track('begin_checkout', {
-    currency: PRODUCT.currency,
-    value: PRODUCT.price,
+    currency: product.currency,
+    value: product.price,
+    plan,
     items: [
       {
-        item_id: PRODUCT.sku,
-        item_name: PRODUCT.name,
-        item_category: PRODUCT.category,
-        price: PRODUCT.price,
+        item_id: product.sku,
+        item_name: product.name,
+        item_category: product.category,
+        price: product.price,
         quantity: 1,
       },
     ],
@@ -133,17 +140,26 @@ export function initCtaTracking() {
     const sectionLabel = cta.dataset.cta || 'unknown';
     const ctaText = (cta.textContent || '').trim().replace(/\s+/g, ' ');
 
-    // CTAs de contato (whatsapp, email) não são intent de checkout —
-    // disparamos só cta_click, sem evento ecommerce.
-    if (sectionLabel === 'whatsapp' || sectionLabel === 'contact') {
+    // CTAs de contato (whatsapp, email) e navegação interna (href="#...")
+    // não são intent de checkout — disparamos só cta_click sem evento
+    // ecommerce. O sticky-mobile, por exemplo, rola pra #oferta onde
+    // o usuário escolhe o plano antes de comprar.
+    const href = cta.getAttribute('href') || '';
+    const isInternalNav = href.startsWith('#');
+
+    if (sectionLabel === 'whatsapp' || sectionLabel === 'contact' || isInternalNav) {
       track('cta_click', {
         section_name: sectionLabel,
         cta_label: ctaText || sectionLabel,
+        nav_type: isInternalNav ? 'scroll' : 'contact',
       });
       return;
     }
 
-    trackCtaClick(sectionLabel, ctaText);
+    // Plano vem do data-plan do CTA — diferencia mensal vs anual
+    // pra GA4 ecommerce. Default = monthly.
+    const plan = cta.dataset.plan || 'monthly';
+    trackCtaClick(sectionLabel, ctaText, plan);
   });
 }
 
@@ -162,20 +178,27 @@ export function trackPurchase() {
     params.get('order') ||
     `unknown-${Date.now()}`;
 
-  // Eduzz às vezes envia value/currency — se não, usa do PRODUCT.
-  const value = parseFloat(params.get('value')) || PRODUCT.price;
-  const currency = params.get('currency') || PRODUCT.currency;
+  // Plano vem do success_url da Eduzz (configurar como
+  // /obrigado.html?plan=monthly ou /obrigado.html?plan=annual).
+  // Default = monthly se não vier.
+  const plan = params.get('plan') || 'monthly';
+  const product = PRODUCTS_BY_PLAN[plan] || PRODUCT;
+
+  // Eduzz às vezes envia value/currency — se não, usa do produto.
+  const value = parseFloat(params.get('value')) || product.price;
+  const currency = params.get('currency') || product.currency;
 
   track('purchase', {
     transaction_id: transactionId,
     value,
     currency,
+    plan,
     items: [
       {
-        item_id: PRODUCT.sku,
-        item_name: PRODUCT.name,
-        item_category: PRODUCT.category,
-        price: PRODUCT.price,
+        item_id: product.sku,
+        item_name: product.name,
+        item_category: product.category,
+        price: product.price,
         quantity: 1,
       },
     ],

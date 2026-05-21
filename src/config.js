@@ -6,25 +6,66 @@
    ============================================================ */
 
 /**
- * URL do checkout Eduzz para o produto recorrente Climb Pass.
- * IMPORTANTE: o produto na Eduzz precisa estar configurado como
- * cobrança recorrente mensal (não pagamento único). Padrão:
- * `https://sun.eduzz.com/{ID}` ou `https://chk.eduzz.com/...`.
+ * URL do checkout Ticto da ASSINATURA MENSAL recorrente R$ 99,90/mês.
+ * Produto na Ticto configurado como cobrança recorrente mensal SOMENTE
+ * no cartão de crédito (Pix recorrente desabilitado por enquanto —
+ * disponibilizar depois quando o fluxo estiver pronto).
  */
-export const EDUZZ_CHECKOUT_URL = 'https://sun.eduzz.com/PLACEHOLDER';
+export const CHECKOUT_URL_MONTHLY = 'https://checkout.ticto.app/OD06121A0';
 
 /**
- * Metadata do produto — usado nos eventos de ecommerce GA4
- * (begin_checkout, purchase) para alimentar relatórios de funil.
- * `billing` é metadado nosso (não padrão GA4) — descreve o modelo.
+ * URL do checkout Ticto da ANUIDADE À VISTA R$ 999,90/ano (Pix ou boleto).
+ * Produto na Ticto configurado como pagamento único à vista, acesso de
+ * 12 meses (não vitalício). Configurar revogação automática de acesso
+ * no dia 366 caso o assinante não renove.
  */
-export const PRODUCT = {
+export const CHECKOUT_URL_ANNUAL = 'https://checkout.ticto.app/OB5AADACB';
+
+/**
+ * Alias pra compatibilidade: rewriteCheckoutLinks em checkout.js usa
+ * CHECKOUT_URL como fallback se um link não tiver href próprio.
+ * Aponta pra mensal por ser o caminho recomendado.
+ */
+export const CHECKOUT_URL = CHECKOUT_URL_MONTHLY;
+
+/**
+ * Metadata dos produtos — usado nos eventos GA4 ecommerce
+ * (begin_checkout, purchase) pra alimentar relatórios de funil.
+ * Tracking diferencia os dois planos via data-plan no CTA.
+ */
+export const PRODUCT_MONTHLY = {
   name: 'Climb Pass — Assinatura Mensal',
   sku: 'climb4b-climb-pass-monthly',
   price: 99.9,
+  priceAnchor: 159.9, // de R$ 159,90 (riscado) → por R$ 99,90
   currency: 'BRL',
   category: 'Assinatura',
   billing: 'monthly_recurring',
+};
+
+export const PRODUCT_ANNUAL = {
+  name: 'Climb Pass — Anuidade à vista (12 meses)',
+  sku: 'climb4b-climb-pass-annual',
+  price: 999.9,
+  priceAnchor: 1198.8, // de R$ 1.198,80 (riscado) → por R$ 999,90
+  currency: 'BRL',
+  category: 'Anuidade',
+  billing: 'annual_upfront',
+};
+
+/**
+ * Alias do produto padrão (mensal). tracking.js usa esse pra
+ * eventos sem data-plan explícito.
+ */
+export const PRODUCT = PRODUCT_MONTHLY;
+
+/**
+ * Mapa de planos pra lookup em tracking.js — quando um CTA tem
+ * data-plan="annual", busca aqui o produto correspondente.
+ */
+export const PRODUCTS_BY_PLAN = {
+  monthly: PRODUCT_MONTHLY,
+  annual: PRODUCT_ANNUAL,
 };
 
 /**
@@ -42,7 +83,6 @@ export const TRACKING = {
 /**
  * Suporte via WhatsApp — widget flutuante no canto inferior direito.
  * Número no formato internacional sem símbolos: 55 + DDD + número.
- * Exemplo: 5511987654321 (Brasil 11 9 8765-4321).
  */
 export const WHATSAPP = {
   NUMBER: '5511000000000', // ← substituir pelo número real antes do go-live
@@ -52,13 +92,12 @@ export const WHATSAPP = {
 
 /**
  * URL do grupo de assinantes no WhatsApp, exibido em /obrigado.html
- * após confirmação da assinatura. Substituir pelo link real antes do go-live.
+ * após confirmação da assinatura.
  */
 export const WHATSAPP_GROUP_URL = 'https://chat.whatsapp.com/D6qZHcqDz4sHlUuZp6tx3k';
 
 /**
- * Marcos de scroll a disparar (em % da página). Mantido enxuto —
- * cada evento extra polui o relatório sem ganho proporcional.
+ * Marcos de scroll a disparar (em % da página).
  */
 export const SCROLL_DEPTHS = [25, 50, 75, 90];
 
@@ -72,7 +111,7 @@ export const TRACKED_PARAMS = [
   'utm_campaign',
   'utm_term',
   'utm_content',
-  'gclid',   // Google Ads click ID
-  'fbclid',  // Facebook click ID
-  'msclkid', // Microsoft Ads click ID
+  'gclid',
+  'fbclid',
+  'msclkid',
 ];

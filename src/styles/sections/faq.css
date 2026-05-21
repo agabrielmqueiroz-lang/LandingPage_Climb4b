@@ -15,7 +15,7 @@
 #faq .container {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-12);
+  gap: var(--space-8);
 }
 
 @media (min-width: 1080px) {
@@ -23,6 +23,21 @@
     grid-template-columns: 1fr 1.4fr;
     gap: var(--space-16);
     align-items: start;
+  }
+}
+
+/* Bloco de título (eyebrow + h2) à esquerda no desktop, sticky no
+   topo enquanto o usuário rola a lista de perguntas à direita. */
+.faq-intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+@media (min-width: 1080px) {
+  .faq-intro {
+    position: sticky;
+    top: calc(var(--header-height) + var(--space-8));
   }
 }
 

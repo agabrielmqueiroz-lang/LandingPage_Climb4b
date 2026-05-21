@@ -26,11 +26,11 @@
 .problema-list {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-8);
+  gap: var(--space-6);
   counter-reset: problema;
 }
 
-@media (min-width: 720px) {
+@media (min-width: 880px) {
   .problema-list {
     grid-template-columns: 1fr 1fr;
     gap: var(--space-12) var(--space-8);
@@ -49,6 +49,19 @@
   align-items: start;
   padding-top: var(--space-8);
   border-top: 1px solid var(--rule-strong);
+}
+
+/* Carrossel mobile: cada dor vira um card completo (sem border-top
+   isolado) pra fluir bem no scroll horizontal. */
+@media (max-width: 879px) {
+  .problema-card {
+    padding: var(--space-6);
+    border-top: 0;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-lg);
+    background: var(--bg);
+    box-shadow: var(--shadow-1);
+  }
 }
 
 .problema-number {

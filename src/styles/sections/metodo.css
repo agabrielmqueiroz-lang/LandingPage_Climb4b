@@ -45,10 +45,10 @@
 .metodo-flow {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-8);
+  gap: var(--space-6);
 }
 
-@media (min-width: 720px) {
+@media (min-width: 880px) {
   .metodo-flow {
     grid-template-columns: 1fr 1fr;
     gap: var(--space-8);
@@ -78,11 +78,11 @@
 }
 
 /* Conector entre steps — seta para a direita no desktop */
-@media (min-width: 720px) {
+@media (min-width: 880px) {
   .metodo-step:not(:last-child)::before {
     content: '';
     position: absolute;
-    right: calc(var(--space-6) * -0.5 - 7px);
+    right: calc(var(--space-8) * -0.5 - 7px);
     top: 50%;
     width: 14px;
     height: 14px;
@@ -93,13 +93,13 @@
   }
 }
 
-/* Conector mobile: linha vertical descendente */
-@media (max-width: 719px) {
+/* Conector mobile/tablet pequeno: linha vertical descendente */
+@media (max-width: 879px) {
   .metodo-step:not(:last-child)::before {
     content: '';
     position: absolute;
     left: 50%;
-    bottom: calc(var(--space-8) * -1 + 6px);
+    bottom: calc(var(--space-6) * -1 + 6px);
     width: 2px;
     height: var(--space-6);
     background: var(--green-400);
@@ -142,12 +142,12 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-4);
-  margin-top: var(--space-16);
+  margin-top: var(--space-12);
   border-top: 1px solid var(--rule-on-dark);
   padding-top: var(--space-12);
 }
 
-@media (min-width: 720px) {
+@media (min-width: 880px) {
   .metodo-compare {
     grid-template-columns: 1fr 1fr;
     gap: var(--space-8);

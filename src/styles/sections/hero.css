@@ -50,7 +50,7 @@
 .hero-text {
   display: flex;
   flex-direction: column;
-  gap: var(--space-6);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
 }
 
 .hero-text .eyebrow {
@@ -78,6 +78,26 @@
   align-items: center;
   gap: var(--space-4) var(--space-6);
   margin-top: var(--space-2);
+}
+
+/* Mobile: stack vertical, CTAs full-width — recuperado de
+   branch_main_site. Evita wrap esquisito e dá tap-target grande
+   em telas pequenas. */
+@media (max-width: 719px) {
+  .hero-cta {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-3);
+  }
+
+  .hero-cta .btn--primary {
+    width: 100%;
+  }
+
+  .hero-cta .btn--ghost {
+    text-align: center;
+    align-self: center;
+  }
 }
 
 .hero-cta .btn--ghost {
@@ -109,12 +129,21 @@
 
 .hero-bullets li {
   display: grid;
-  grid-template-columns: 88px 1fr;
+  grid-template-columns: 108px 1fr;
   gap: var(--space-4);
   align-items: baseline;
   font-size: var(--fs-base);
   color: var(--text-on-dark-muted);
   line-height: var(--lh-snug);
+}
+
+/* Mobile: dia em cima, texto embaixo (stack) pra evitar coluna fixa
+   apertada com tracking-eyebrow + uppercase. */
+@media (max-width: 480px) {
+  .hero-bullets li {
+    grid-template-columns: 1fr;
+    gap: var(--space-1);
+  }
 }
 
 .hero-bullet-day {
