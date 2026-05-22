@@ -770,18 +770,23 @@
           <article class="professora-card">
             <!-- COLUNA ESQUERDA · retrato + identidade + stats -->
             <aside class="professora-side">
-              <figure class="professora-portrait" aria-label="Retrato placeholder de Marissa Guimarães">
-                <div class="professora-portrait-frame" aria-hidden="true">
-                  <span class="professora-initials">MG</span>
-                  <svg
-                    class="professora-portrait-silhouette"
-                    viewBox="0 0 240 240"
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                  >
-                    <circle cx="120" cy="92" r="38" />
-                    <path d="M 36 240 C 36 184 70 158 120 158 C 170 158 204 184 204 240 Z" />
-                  </svg>
+              <figure class="professora-portrait">
+                <div class="professora-portrait-frame">
+                  <picture>
+                    <source
+                      type="image/webp"
+                      srcset="/marissa-portrait.webp 1x, /marissa-portrait@2x.webp 2x"
+                    />
+                    <img
+                      src="/marissa-portrait.jpg"
+                      srcset="/marissa-portrait.jpg 1x, /marissa-portrait@2x.jpg 2x"
+                      alt="Marissa Guimarães, CFO em atuação e professora do Climb Pass"
+                      width="320"
+                      height="320"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </picture>
                 </div>
                 <figcaption class="professora-portrait-caption">
                   <strong>Marissa Guimarães</strong>
