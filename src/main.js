@@ -20,7 +20,6 @@ import './styles/sections/hero.css';
 import './styles/sections/autoridade.css';
 import './styles/sections/problema.css';
 import './styles/sections/metodo.css';
-import './styles/sections/exemplo-semana.css';
 import './styles/sections/incluso.css';
 import './styles/sections/temas.css';
 import './styles/sections/publicos.css';
