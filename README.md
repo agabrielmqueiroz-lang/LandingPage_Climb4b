@@ -93,7 +93,7 @@ Em [src/config.js](src/config.js):
 
 ```js
 export const WHATSAPP = {
-  NUMBER: '5511000000000', // formato internacional sem símbolos: 55 + DDD + número
+  NUMBER: '554192155299', // formato internacional sem símbolos: 55 + DDD + número (atual: +55 41 9215-5299)
   MESSAGE: 'Olá! Cheguei pela página do Climb Pass...',
 };
 ```

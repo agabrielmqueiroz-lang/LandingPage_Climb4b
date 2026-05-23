@@ -85,7 +85,7 @@ export const TRACKING = {
  * Número no formato internacional sem símbolos: 55 + DDD + número.
  */
 export const WHATSAPP = {
-  NUMBER: '5511000000000', // ← substituir pelo número real antes do go-live
+  NUMBER: '554192155299', // +55 41 9215-5299 (Climb4B suporte)
   MESSAGE:
     'Olá! Cheguei pela página do Climb Pass e queria tirar uma dúvida sobre a assinatura.',
 };
