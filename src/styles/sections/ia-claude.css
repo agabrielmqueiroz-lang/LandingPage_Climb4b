@@ -1,0 +1,131 @@
+/* ============================================================
+   ia-claude.css — direção visual:
+   "Spotlight" card — fundo claro contrastando com seções dark
+   ao redor. Card centralizado max-width 880px com border verde
+   forte e glow externo. Tag "DIFERENCIAL" no topo, h2 grande
+   com hl no "Claude", quote em itálico como elemento dominante,
+   parágrafo de contexto, e bullets de aplicação. Comunica que
+   essa é a sauce secreta do produto — não é mais um curso
+   "com IA", é IA aplicada com método.
+   ============================================================ */
+
+#ia-claude {
+  background: var(--bg-alt);
+  position: relative;
+  overflow: hidden;
+}
+
+#ia-claude .container {
+  display: flex;
+  justify-content: center;
+}
+
+.ia-claude-card {
+  position: relative;
+  width: 100%;
+  max-width: 880px;
+  padding: var(--space-12) var(--space-8);
+  background: var(--bg);
+  border: 2px solid var(--accent);
+  border-radius: var(--radius-xl);
+  box-shadow:
+    0 0 0 6px rgba(46, 190, 90, 0.08),
+    0 24px 60px rgba(15, 30, 61, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  text-align: center;
+  align-items: center;
+}
+
+@media (min-width: 720px) {
+  .ia-claude-card {
+    padding: var(--space-16) var(--space-12);
+  }
+}
+
+.ia-claude-tag {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  padding: var(--space-1) var(--space-4);
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+  color: var(--navy-900);
+}
+
+#ia-claude h2 {
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  font-weight: var(--fw-semibold);
+  color: var(--navy-900);
+  margin: 0;
+  max-width: 22ch;
+  letter-spacing: -0.02em;
+  line-height: var(--lh-tight);
+  text-wrap: balance;
+}
+
+.ia-claude-quote {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.2vw, 1.625rem);
+  font-style: italic;
+  font-weight: var(--fw-regular);
+  color: var(--accent-strong);
+  margin: 0;
+  max-width: 32ch;
+  line-height: var(--lh-snug);
+}
+
+.ia-claude-body {
+  font-size: var(--fs-md);
+  line-height: var(--lh-relaxed);
+  color: var(--text);
+  max-width: 60ch;
+  margin: 0;
+}
+
+.ia-claude-body strong {
+  color: var(--navy-900);
+  font-weight: var(--fw-semibold);
+}
+
+.ia-claude-bullets {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2);
+  padding: var(--space-4) 0 0 0;
+  border-top: 1px dashed var(--rule);
+  width: 100%;
+  max-width: 56ch;
+  text-align: left;
+}
+
+@media (min-width: 720px) {
+  .ia-claude-bullets {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2) var(--space-6);
+  }
+}
+
+.ia-claude-bullets li {
+  position: relative;
+  padding-left: var(--space-6);
+  font-size: var(--fs-sm);
+  color: var(--text);
+  line-height: var(--lh-snug);
+}
+
+.ia-claude-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.4em;
+  width: 14px;
+  height: 14px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M3 8.5L6 11.5L13 4.5' stroke='%231FA047' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}

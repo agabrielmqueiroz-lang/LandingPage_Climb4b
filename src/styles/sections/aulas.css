@@ -1,0 +1,164 @@
+/* ============================================================
+   aulas.css — direção visual:
+   Faixa navy escuro. Grid 2×2 de cards das 4 aulas (desktop),
+   stack mobile. Cada card tem: header (número + tema), pergunta
+   como h3 (display dominante), descrição em body muted, e meta
+   inferior com data + horário em chips. Cards com border + glow
+   verde no hover. Editorial executive — sem cookie-cutter.
+   ============================================================ */
+
+#aulas {
+  background: var(--navy-900);
+  position: relative;
+  overflow: hidden;
+}
+
+#aulas::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    1100px 700px at 50% 0%,
+    rgba(46, 190, 90, 0.1),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+#aulas .container {
+  position: relative;
+}
+
+#aulas h2 {
+  color: var(--off-white);
+  max-width: 20ch;
+  margin-bottom: var(--space-4);
+}
+
+#aulas .lead {
+  color: var(--text-on-dark-muted);
+  margin-bottom: var(--space-12);
+  max-width: 56ch;
+}
+
+.aulas-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 880px) {
+  .aulas-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+  }
+}
+
+.aula-card {
+  position: relative;
+  padding: var(--space-8);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--rule-on-dark);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  transition:
+    border-color var(--duration-base) var(--ease-standard),
+    background var(--duration-base) var(--ease-standard);
+}
+
+.aula-card:hover {
+  border-color: var(--green-400);
+  background: rgba(46, 190, 90, 0.04);
+}
+
+.aula-header {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-4);
+  border-bottom: 1px solid var(--rule-on-dark);
+  padding-bottom: var(--space-3);
+}
+
+.aula-number {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: var(--fw-light);
+  letter-spacing: -0.04em;
+  color: var(--accent);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.aula-tema {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--green-300);
+}
+
+.aula-pergunta {
+  font-size: clamp(1.25rem, 2vw, 1.625rem);
+  font-weight: var(--fw-semibold);
+  color: var(--off-white);
+  line-height: var(--lh-snug);
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  margin: 0;
+}
+
+.aula-card > p {
+  color: var(--text-on-dark-muted);
+  font-size: var(--fs-base);
+  line-height: var(--lh-relaxed);
+  max-width: none;
+  margin: 0;
+}
+
+.aula-card > p strong {
+  color: var(--off-white);
+  font-weight: var(--fw-semibold);
+}
+
+.aula-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  align-items: center;
+  margin-top: auto;
+  padding-top: var(--space-4);
+  border-top: 1px dashed var(--rule-on-dark);
+}
+
+.aula-data,
+.aula-horario {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.04em;
+}
+
+.aula-data {
+  background: var(--accent);
+  color: var(--navy-900);
+}
+
+.aula-horario {
+  background: transparent;
+  color: var(--green-300);
+  border: 1px solid var(--green-400);
+}
+
+/* Carrossel mobile: cada aula vira um card no swipe */
+@media (max-width: 879px) {
+  .aula-card {
+    padding: var(--space-6);
+  }
+}

@@ -1,5 +1,5 @@
 /* ============================================================
-   main.js — entrada da landing page Climb Pass (assinatura).
+   main.js — entrada da landing page Intensivo CFO (mentoria).
    ============================================================ */
 
 // Sistema de design
@@ -15,15 +15,15 @@ import './styles/components/footer.css';
 import './styles/components/whatsapp.css';
 import './styles/components/carousel.css';
 
-// Seções (importadas conforme implementadas no Sprint 3)
+// Seções
 import './styles/sections/hero.css';
 import './styles/sections/autoridade.css';
 import './styles/sections/problema.css';
-import './styles/sections/metodo.css';
-import './styles/sections/incluso.css';
-import './styles/sections/temas.css';
+import './styles/sections/aulas.css';
+import './styles/sections/ia-claude.css';
 import './styles/sections/publicos.css';
 import './styles/sections/professora.css';
+import './styles/sections/incluso.css';
 import './styles/sections/oferta.css';
 import './styles/sections/faq.css';
 import './styles/sections/cta-final.css';

@@ -5,7 +5,7 @@
       <stop offset="100%" stop-color="#142654"/>
     </linearGradient>
     <radialGradient id="glow" cx="100%" cy="0%" r="80%">
-      <stop offset="0%" stop-color="#2EBE5A" stop-opacity="0.18"/>
+      <stop offset="0%" stop-color="#2EBE5A" stop-opacity="0.22"/>
       <stop offset="60%" stop-color="#2EBE5A" stop-opacity="0"/>
     </radialGradient>
     <pattern id="dots" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
@@ -17,34 +17,37 @@
   <rect width="1200" height="630" fill="url(#dots)"/>
   <rect width="1200" height="630" fill="url(#glow)"/>
 
-  <!-- Brand mark -->
+  <!-- Brand mark + Climb4B Academy -->
   <g transform="translate(80, 80)">
     <path d="M0 24L14 -6L24 14L36 -10" stroke="#F7F8F5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
     <circle cx="36" cy="-10" r="6" fill="#2EBE5A"/>
-    <text x="56" y="14" font-family="Georgia, serif" font-size="28" font-weight="600" fill="#F7F8F5" letter-spacing="-0.5">Climb4B</text>
+    <text x="56" y="14" font-family="Georgia, serif" font-size="28" font-weight="600" fill="#F7F8F5" letter-spacing="-0.5">Climb4B Academy</text>
   </g>
 
   <!-- Eyebrow -->
-  <text x="80" y="240" font-family="-apple-system, sans-serif" font-size="22" font-weight="600" fill="#7BD89A" letter-spacing="3">CLIMB PASS · ASSINATURA MENSAL</text>
+  <text x="80" y="230" font-family="-apple-system, sans-serif" font-size="22" font-weight="600" fill="#7BD89A" letter-spacing="4">MENTORIA AO VIVO · TURMA ÚNICA</text>
 
   <!-- Headline (display) -->
-  <text x="80" y="340" font-family="Georgia, serif" font-size="78" font-weight="600" fill="#F7F8F5" letter-spacing="-2">Finanças empresariais,</text>
-  <text x="80" y="430" font-family="Georgia, serif" font-size="78" font-weight="400" fill="#7BD89A" font-style="italic" letter-spacing="-2">um passo por semana.</text>
+  <text x="80" y="320" font-family="Georgia, serif" font-size="72" font-weight="600" fill="#F7F8F5" letter-spacing="-2">Intensivo CFO</text>
 
-  <!-- Sub line -->
-  <text x="80" y="490" font-family="-apple-system, sans-serif" font-size="26" fill="#B4BCD0" letter-spacing="-0.2">Novas aulas, ferramentas e lives toda semana. CFO em atuação ensinando.</text>
+  <!-- Subline -->
+  <text x="80" y="385" font-family="Georgia, serif" font-size="34" font-weight="400" fill="#7BD89A" font-style="italic" letter-spacing="-1">Leia qualquer empresa pelos números</text>
+  <text x="80" y="425" font-family="Georgia, serif" font-size="34" font-weight="400" fill="#7BD89A" font-style="italic" letter-spacing="-1">e decida com clareza.</text>
+
+  <!-- Sub line: descrição -->
+  <text x="80" y="490" font-family="-apple-system, sans-serif" font-size="22" fill="#B4BCD0" letter-spacing="-0.2">4 encontros ao vivo · IA com Claude · Prof. Marissa Guimarães</text>
 
   <!-- Right-side: price card -->
   <g transform="translate(840, 200)">
     <rect x="0" y="0" width="280" height="220" rx="20" fill="rgba(255,255,255,0.04)" stroke="#2EBE5A" stroke-width="2"/>
-    <text x="140" y="48" font-family="-apple-system, sans-serif" font-size="14" font-weight="600" fill="#7BD89A" letter-spacing="3" text-anchor="middle">ASSINATURA</text>
-    <text x="140" y="92" font-family="-apple-system, sans-serif" font-size="16" fill="#7D8AAA" text-anchor="middle" text-decoration="line-through">De R$ 159,90</text>
-    <text x="140" y="138" font-family="Georgia, serif" font-size="58" font-weight="300" fill="#F7F8F5" text-anchor="middle" letter-spacing="-1.5">R$ 99,90/mês</text>
-    <text x="140" y="172" font-family="-apple-system, sans-serif" font-size="16" fill="#B4BCD0" text-anchor="middle">ou R$ 999,90/ano à vista</text>
-    <line x1="40" y1="184" x2="240" y2="184" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
-    <text x="140" y="206" font-family="-apple-system, sans-serif" font-size="14" fill="#7BD89A" text-anchor="middle">Garantia de 7 dias</text>
+    <text x="140" y="42" font-family="-apple-system, sans-serif" font-size="13" font-weight="700" fill="#7BD89A" letter-spacing="3" text-anchor="middle">1º LOTE</text>
+    <text x="140" y="78" font-family="-apple-system, sans-serif" font-size="16" fill="#7D8AAA" text-anchor="middle" text-decoration="line-through">De R$ 1.297</text>
+    <text x="140" y="138" font-family="Georgia, serif" font-size="68" font-weight="300" fill="#F7F8F5" text-anchor="middle" letter-spacing="-2">R$ 997</text>
+    <text x="140" y="172" font-family="-apple-system, sans-serif" font-size="14" fill="#B4BCD0" text-anchor="middle">pagamento único</text>
+    <line x1="40" y1="186" x2="240" y2="186" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+    <text x="140" y="208" font-family="-apple-system, sans-serif" font-size="13" fill="#E53935" text-anchor="middle" letter-spacing="1">VAGAS LIMITADAS</text>
   </g>
 
   <!-- Footer line -->
-  <text x="80" y="580" font-family="-apple-system, sans-serif" font-size="16" fill="#5C6680" letter-spacing="2">CLIMB4B.COM · CLIMB4B ACADEMY</text>
+  <text x="80" y="580" font-family="-apple-system, sans-serif" font-size="16" fill="#5C6680" letter-spacing="2">07, 09, 14 E 16/07 · TERÇAS E QUINTAS · 20H ÀS 21H30</text>
 </svg>

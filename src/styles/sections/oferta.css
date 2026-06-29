@@ -1,15 +1,10 @@
 /* ============================================================
    oferta.css — direção visual:
-   "Editorial executive pricing block" — UM card único, dois rows
-   de pagamento empilhados verticalmente (mensal → "ou" → anual),
-   separados apenas por uma régua horizontal fina com "ou" inline.
-   Sem boxes aninhados. Sem mini-cards dentro do card. Numerais
-   em display dominante (clamp 4-7rem, weight 300). Cada row tem
-   tag + título + preço + contexto + CTA, alinhado em coluna
-   única dentro de um max-width 720px. Embaixo das duas rows, um
-   bloco "Em ambos os planos" lista o que é comum, separado por
-   régua tracejada. Inspirado em pricing pages da Stripe, Linear,
-   FT — não em comparadores de planos genéricos SaaS.
+   Faixa navy escuro com glow verde. Card único centralizado
+   max-width 560px com badge "1º lote", ancoragem riscada
+   pequena (De R$ 1.297), preço dominante (R$ 997), bullets
+   de "o que está incluso", CTA grande verde, fineprint da
+   garantia. Editorial executivo — sem comparador SaaS de planos.
    ============================================================ */
 
 #oferta {
@@ -24,7 +19,7 @@
   inset: 0;
   background: radial-gradient(
     1000px 700px at 50% 50%,
-    rgba(46, 190, 90, 0.1),
+    rgba(46, 190, 90, 0.12),
     transparent 70%
   );
   pointer-events: none;
@@ -56,22 +51,28 @@
   text-align: center;
 }
 
+#oferta .lead strong {
+  color: var(--off-white);
+  font-weight: var(--fw-semibold);
+}
+
 /* ============================================================
-   CARD ÚNICO — 720px, sem nesting visual
+   CARD ÚNICO
    ============================================================ */
 .pricing-card {
   position: relative;
   width: 100%;
-  max-width: 720px;
+  max-width: 560px;
   padding: var(--space-12) var(--space-8);
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--green-400);
   border-radius: var(--radius-xl);
   backdrop-filter: blur(10px);
-  text-align: left;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  gap: var(--space-10, 2.5rem);
+  align-items: center;
+  gap: var(--space-4);
   box-shadow:
     0 0 0 4px rgba(46, 190, 90, 0.06),
     0 24px 60px rgba(0, 0, 0, 0.4),
@@ -81,67 +82,36 @@
 @media (min-width: 720px) {
   .pricing-card {
     padding: var(--space-16) var(--space-12);
-    gap: var(--space-12);
   }
 }
 
-/* ============================================================
-   ROW DE PAGAMENTO — sem border, sem background próprio
-   Cada row é uma "linha editorial" no card unificado
-   ============================================================ */
-.pricing-row {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-}
-
-.pricing-row-head {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-}
-
-.pricing-row-tag {
-  display: inline-block;
-  align-self: flex-start;
+/* ---------- Badge "1º lote" no topo ---------- */
+.pricing-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: var(--navy-900);
   font-family: var(--font-body);
-  font-size: 0.7rem;
+  font-size: var(--fs-xs);
   font-weight: var(--fw-bold);
   text-transform: uppercase;
   letter-spacing: var(--tracking-eyebrow);
-  padding: var(--space-1) var(--space-3);
+  padding: var(--space-2) var(--space-4);
   border-radius: var(--radius-pill);
-  background: transparent;
-  color: var(--green-300);
-  border: 1px solid var(--rule-on-dark);
+  white-space: nowrap;
 }
 
-.pricing-row-tag--primary {
-  background: var(--accent);
-  color: var(--navy-900);
-  border-color: transparent;
-}
-
-.pricing-row-title {
-  font-family: var(--font-display);
-  font-size: var(--fs-md);
-  font-weight: var(--fw-semibold);
-  color: var(--off-white);
-  margin: 0;
-  letter-spacing: -0.01em;
-}
-
-/* ---------- ANCORAGEM RISCADA (preço promocional "de X por Y") ----------
-   Tamanho médio (fs-base = 16px), muted, com riscado em vermelho
-   apagado pra sugerir desconto sem competir com o preço principal. */
+/* ---------- Ancoragem riscada "De R$ 1.297 por" ---------- */
 .pricing-row-anchor {
   margin: 0;
   font-family: var(--font-body);
   font-size: var(--fs-base);
   font-weight: var(--fw-regular);
   color: var(--text-on-dark-muted);
-  letter-spacing: 0;
   line-height: 1;
+  max-width: none;
 }
 
 .pricing-row-anchor s {
@@ -156,13 +126,14 @@
   margin: 0 0.2em;
 }
 
-/* ---------- PREÇO — numeral dominante ---------- */
-.pricing-row-amount {
+/* ---------- Preço dominante ---------- */
+.pricing-amount {
   display: flex;
   align-items: baseline;
   gap: var(--space-2);
   color: var(--off-white);
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .pricing-currency {
@@ -174,7 +145,7 @@
 
 .pricing-value {
   font-family: var(--font-display);
-  font-size: clamp(4rem, 10vw, 6.5rem);
+  font-size: clamp(4.5rem, 13vw, 8rem);
   font-weight: var(--fw-light);
   letter-spacing: -0.04em;
   line-height: 0.9;
@@ -184,95 +155,29 @@
 
 .pricing-period {
   font-family: var(--font-body);
-  font-size: var(--fs-md);
+  font-size: var(--fs-sm);
   color: var(--text-on-dark-muted);
   font-weight: var(--fw-medium);
 }
 
-/* ---------- Contexto do plano ---------- */
-.pricing-row-context {
-  font-size: var(--fs-base);
+.pricing-meta {
+  font-size: var(--fs-sm);
   color: var(--text-on-dark-muted);
-  margin: 0;
-  max-width: 48ch;
-  line-height: var(--lh-relaxed);
-}
-
-/* ---------- CTA da row — alinhado à esquerda, full em mobile ---------- */
-.pricing-row-cta {
-  align-self: flex-start;
-  margin-top: var(--space-2);
-  min-width: 240px;
-}
-
-@media (max-width: 719px) {
-  .pricing-row-cta {
-    width: 100%;
-    align-self: stretch;
-  }
-}
-
-/* ============================================================
-   RÉGUA EDITORIAL "ou" — separador entre as 2 rows
-   ============================================================ */
-.pricing-rule {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 1px;
-  background: var(--rule-on-dark);
-  margin: var(--space-2) 0;
-}
-
-.pricing-rule span {
-  display: inline-block;
-  padding: 0 var(--space-4);
-  background: var(--navy-900);
-  font-family: var(--font-body);
-  font-size: var(--fs-xs);
-  font-weight: var(--fw-bold);
-  letter-spacing: var(--tracking-eyebrow);
-  text-transform: uppercase;
-  color: var(--text-on-dark-muted);
-  /* Compensa o gradient do #oferta::before — mantém aparência sólida */
-  position: relative;
-  z-index: 1;
-}
-
-/* ============================================================
-   BLOCO COMPARTILHADO — "Em ambos os planos"
-   ============================================================ */
-.pricing-shared {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-  padding-top: var(--space-8);
-  border-top: 1px dashed var(--rule-on-dark);
-}
-
-.pricing-shared-label {
-  font-family: var(--font-body);
-  font-size: var(--fs-xs);
-  font-weight: var(--fw-bold);
-  text-transform: uppercase;
-  letter-spacing: var(--tracking-eyebrow);
-  color: var(--green-300);
   margin: 0;
   max-width: none;
 }
 
+/* ---------- Stack de bullets ---------- */
 .pricing-stack {
-  display: grid;
-  grid-template-columns: 1fr;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
   gap: var(--space-2);
-}
-
-@media (min-width: 720px) {
-  .pricing-stack {
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-2) var(--space-6);
-  }
+  padding: var(--space-4) 0;
+  margin: var(--space-2) 0;
+  border-top: 1px solid var(--rule-on-dark);
+  border-bottom: 1px solid var(--rule-on-dark);
+  text-align: left;
 }
 
 .pricing-stack li {
@@ -295,14 +200,20 @@
   background-repeat: no-repeat;
 }
 
+/* ---------- CTA grande ---------- */
+.pricing-cta {
+  width: 100%;
+  margin-top: var(--space-2);
+  min-width: 0;
+}
+
 .pricing-fineprint {
   font-size: var(--fs-xs);
   color: var(--text-on-dark-muted);
-  max-width: none;
-  margin: var(--space-2) 0 0 0;
+  max-width: 48ch;
+  text-align: center;
+  margin: 0;
   line-height: var(--lh-base);
-  padding-top: var(--space-4);
-  border-top: 1px solid var(--rule-on-dark);
 }
 
 .pricing-fineprint strong {

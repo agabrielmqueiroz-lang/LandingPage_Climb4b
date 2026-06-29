@@ -1,71 +1,29 @@
 /* ============================================================
    config.js — single source of truth para URLs e IDs.
-   ANTES DO GO-LIVE: substituir todos os PLACEHOLDER e
-   GTM-XXXXXXX / G-XXXXXXXXXX / Pixel ID / Clarity ID pelos
-   valores reais. Ver README.md → "Checklist pré go-live".
+   ANTES DO GO-LIVE: substituir todos os GTM-XXXXXXX /
+   G-XXXXXXXXXX / Pixel ID / Clarity ID pelos valores reais.
+   Ver README.md → "Checklist pré go-live".
    ============================================================ */
 
 /**
- * URL do checkout Ticto da ASSINATURA MENSAL recorrente R$ 99,90/mês.
- * Produto na Ticto configurado como cobrança recorrente mensal SOMENTE
- * no cartão de crédito (Pix recorrente desabilitado por enquanto —
- * disponibilizar depois quando o fluxo estiver pronto).
+ * URL do checkout Kiwify da mentoria Intensivo CFO.
+ * Pagamento único R$ 997 (1º lote · primeira turma).
+ * Suporta cartão de crédito, Pix e boleto via Kiwify.
  */
-export const CHECKOUT_URL_MONTHLY = 'https://checkout.ticto.app/OD06121A0';
+export const CHECKOUT_URL = 'https://pay.kiwify.com.br/l8r4Sdr';
 
 /**
- * URL do checkout Ticto da ANUIDADE À VISTA R$ 999,90/ano (Pix ou boleto).
- * Produto na Ticto configurado como pagamento único à vista, acesso de
- * 12 meses (não vitalício). Configurar revogação automática de acesso
- * no dia 366 caso o assinante não renove.
- */
-export const CHECKOUT_URL_ANNUAL = 'https://checkout.ticto.app/OB5AADACB';
-
-/**
- * Alias pra compatibilidade: rewriteCheckoutLinks em checkout.js usa
- * CHECKOUT_URL como fallback se um link não tiver href próprio.
- * Aponta pra mensal por ser o caminho recomendado.
- */
-export const CHECKOUT_URL = CHECKOUT_URL_MONTHLY;
-
-/**
- * Metadata dos produtos — usado nos eventos GA4 ecommerce
+ * Metadata do produto — usado nos eventos GA4 ecommerce
  * (begin_checkout, purchase) pra alimentar relatórios de funil.
- * Tracking diferencia os dois planos via data-plan no CTA.
  */
-export const PRODUCT_MONTHLY = {
-  name: 'Climb Pass — Assinatura Mensal',
-  sku: 'climb4b-climb-pass-monthly',
-  price: 99.9,
-  priceAnchor: 159.9, // de R$ 159,90 (riscado) → por R$ 99,90
+export const PRODUCT = {
+  name: 'Intensivo CFO — Mentoria ao Vivo',
+  sku: 'climb4b-intensivo-cfo-2026-07',
+  price: 997,
+  priceAnchor: 1297, // de R$ 1.297 (riscado) → por R$ 997 (1º lote)
   currency: 'BRL',
-  category: 'Assinatura',
-  billing: 'monthly_recurring',
-};
-
-export const PRODUCT_ANNUAL = {
-  name: 'Climb Pass — Anuidade à vista (12 meses)',
-  sku: 'climb4b-climb-pass-annual',
-  price: 999.9,
-  priceAnchor: 1198.8, // de R$ 1.198,80 (riscado) → por R$ 999,90
-  currency: 'BRL',
-  category: 'Anuidade',
-  billing: 'annual_upfront',
-};
-
-/**
- * Alias do produto padrão (mensal). tracking.js usa esse pra
- * eventos sem data-plan explícito.
- */
-export const PRODUCT = PRODUCT_MONTHLY;
-
-/**
- * Mapa de planos pra lookup em tracking.js — quando um CTA tem
- * data-plan="annual", busca aqui o produto correspondente.
- */
-export const PRODUCTS_BY_PLAN = {
-  monthly: PRODUCT_MONTHLY,
-  annual: PRODUCT_ANNUAL,
+  category: 'Mentoria',
+  billing: 'one_time',
 };
 
 /**
@@ -87,12 +45,12 @@ export const TRACKING = {
 export const WHATSAPP = {
   NUMBER: '554192155299', // +55 41 9215-5299 (Climb4B suporte)
   MESSAGE:
-    'Olá! Cheguei pela página do Climb Pass e queria tirar uma dúvida sobre a assinatura.',
+    'Olá! Cheguei pela página do Intensivo CFO e queria tirar uma dúvida sobre a mentoria.',
 };
 
 /**
  * URL do grupo de assinantes no WhatsApp, exibido em /obrigado.html
- * após confirmação da assinatura.
+ * após confirmação da inscrição.
  */
 export const WHATSAPP_GROUP_URL = 'https://chat.whatsapp.com/D6qZHcqDz4sHlUuZp6tx3k';
 
