@@ -18,7 +18,7 @@ export const CHECKOUT_URL = 'https://pay.kiwify.com.br/l8r4Sdr';
  */
 export const PRODUCT = {
   name: 'Intensivo CFO — Mentoria ao Vivo',
-  sku: 'climb4b-intensivo-cfo-2026-07',
+  sku: 'climb4b-intensivo-cfo-2026-08',
   price: 997,
   priceAnchor: 1297, // de R$ 1.297 (riscado) → por R$ 997 (1º lote)
   currency: 'BRL',
